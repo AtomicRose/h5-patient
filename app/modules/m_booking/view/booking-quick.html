@@ -1,0 +1,100 @@
+<div ng-controller="QuickBookingCtrl" class="quick-booking-page">
+    <form name="bookingInfoForm">
+	<div class="cell-group">
+        <div class="cell">
+            <div class="left-box">
+                <span class="label">医院名称</span>
+            </div>
+            <div class="middle-box">
+                <input type="text" class="text-right" minlength="2" maxlength="10" placeholder="请输入医院名称，可不填" ng-model="bookingInfo.hospital_name">
+            </div>
+        </div>
+        <div class="cell">
+            <div class="left-box">
+                <span class="label">科室名称</span>
+            </div>
+            <div class="middle-box">
+                <input type="text" class="text-right" minlength="2" maxlength="10" placeholder="请输入科室名称，可不填" ng-model="bookingInfo.hp_dept_name">
+            </div>
+        </div>
+    </div>
+    <div class="cell-group">
+        <div class="cell">
+            <div class="left-box">
+                <span class="label">医生姓名</span>
+            </div>
+            <div class="middle-box">
+                <input type="text" class="text-right" minlength="2" maxlength="10" placeholder="请输入医生姓名，可不填" ng-model="bookingInfo.doctor_name">
+            </div>
+        </div>
+        <div class="cell">
+            <div class="left-box">
+                <span class="label">患者姓名</span>
+            </div>
+            <div class="middle-box">
+                <input type="text" class="text-right" minlength="2" maxlength="10" placeholder="请输入患者姓名，必填" required ng-model="bookingInfo.contact_name" validate-base="请填写患者姓名" validate-base="请输入正确的姓名">
+            </div>
+        </div>
+        <div class="cell">
+            <div class="left-box">
+                <span class="label">疾病诊断</span>
+            </div>
+            <div class="middle-box">
+                <input type="text" class="text-right" minlength="5" maxlength="50" placeholder="请填写确诊疾病，必填" required ng-model="bookingInfo.disease_name" validate-base="请填写确诊的疾病名，不少于5字">
+            </div>
+        </div>
+        <div class="cell">
+            <div class="left-box">
+                <span class="label">疾病描述</span>
+            </div>
+            <div class="middle-box">
+                <input type="text" class="text-right" minlength="10" maxlength="50" placeholder="请尽可能详细的描述患者的病情，必填" required ng-model="bookingInfo.disease_detail" validate-base="请填写患者的病情描述，不少于10字">
+            </div>
+        </div>
+    </div>
+    <p class="bq-tips" ng-if="isLogin">*您尚未注册，此号码可用于后期注册登录。</p>
+    <div class="cell-group" ng-if="isLogin">
+        <div class="cell">
+            <div class="left-box">
+                <span class="label">手机</span>
+            </div>
+            <div class="middle-box">
+                <input type="tel" class="text-right" placeholder="请输入11位手机号" maxlength="11" minlength="11" name="codeLogin_phone" ng-model="bookingInfo.mobile" validate-base="请输入正确的手机号" required>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="left-box image-code">
+                <span class="label">图片验证码</span>
+            </div>
+            <div class="middle-box">
+                <input type="text" class="text-right" placeholder="请输入图片验证码" name="codeLogin_captcha" ng-model="bookingInfo.captcha" validate-base="请输入计算出的数值" required>
+            </div>
+            <div class="right-box captcha-box">
+                <img src="{{captchaUrl}}" ng-click="refreshCaptcha()" alt="验证码图片">
+            </div>
+        </div>
+        <div class="cell">
+            <div class="left-box">
+                <span class="label">短信验证码</span>
+            </div>
+            <div class="middle-box">
+                <input type="text" class="text-right" placeholder="请输入短信验证码" maxlength="6" minlength="6" name="codeLogin_verifyCode" ng-model="bookingInfo.verify_code" validate-base="请输入6位短信验证码" required>
+            </div>
+            <div class="right-box">
+                <button class="btn btn-xsmall btn-primary in-cell" ng-disabled="bookingInfoForm.codeLogin_phone.$invalid || bookingInfoForm.codeLogin_captcha.$invalid || lockEnabled" ng-click="sendSMSCode(bookingInfo)" ng-bind="sendSMSText"></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="uploadImgBox"></div>
+
+    </form>
+    <div class="btn-dock">
+        <div class="agreement">
+            <input id="appServerAgreement" type="checkbox" ng-model="isCheck">
+            <label for="appServerAgreement">我已同意</label><span ng-click="goAgreement()">名医主刀服务协议</span>
+        </div>
+        <button class="btn btn-warning" ng-disabled="!isCheck || bookingInfoForm.$invalid"  id="btnBooking">预约</button> <!-- ng-click="bookingQuick()" -->
+    </div>
+
+</div>

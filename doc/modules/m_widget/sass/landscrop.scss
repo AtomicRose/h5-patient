@@ -1,0 +1,15 @@
+.doc-landScroll-page{
+	.imgWidth{
+		width: 100%;
+	}
+	.test-scroll{
+		width: 100%;
+		height: px2rem(120px);
+	}
+	.doc-description{
+		padding: px2rem(5px) px2rem(10px);
+		p{
+			line-height: px2rem(30px)
+		}
+	}
+}

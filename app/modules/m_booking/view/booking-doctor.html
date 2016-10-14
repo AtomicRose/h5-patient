@@ -1,0 +1,66 @@
+<div ng-controller="BookingDoctorCtrl" class="booking-doctor-page">
+    <div class="cell-group">
+        <div class="cell">
+            <div class="left-box">
+                <span class="label">就诊专家</span>
+            </div>
+            <div class="middle-box text-right">
+                <span class="content" ng-bind="treatmentDoctorName"></span>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="left-box">
+                <span class="label">就诊医院</span>
+            </div>
+            <div class="middle-box text-right">
+                <span class="content" ng-bind="treatmentHospitalName"></span>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="left-box">
+                <span class="label">就诊科室</span>
+            </div>
+            <div class="middle-box text-right">
+                <span class="content" ng-bind="treatmentDeptName"></span>
+            </div>
+        </div>
+    </div>
+    <div class="cell-group">
+        <form name="bookingInfoForm">
+            <div class="cell">
+                <div class="left-box">
+                    <span class="label">患者姓名</span>
+                </div>
+                <div class="middle-box">
+                    <input type="text" class="text-right" minlength="2" maxlength="10" placeholder="请输入患者姓名" validate-base="请输入正确的姓名" ng-model="patient.name" required>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="left-box">
+                    <span class="label">病例名称</span>
+                </div>
+                <div class="middle-box">
+                    <input type="text" class="text-right" minlength="2" maxlength="50" placeholder="请输入疾病名称" validate-base="请输入正确的疾病名称" ng-model="patient.diseaseName" required>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="left-box">
+                    <span class="label">疾病描述</span>
+                </div>
+                <div class="middle-box">
+                    <input type="text" class="text-right" minlength="10" maxlength="50" placeholder="请您简要描述（至少10个字）" validate-base="请输入至少10个字的描述" ng-model="patient.diseaseDescription" required>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="uploadImgBox"></div>
+
+    <div class="btn-dock">
+        <div class="agreement">
+            <input id="appServerAgreement" type="checkbox" ng-model="isCheck">
+            <label for="appServerAgreement">我已同意</label><span ng-click="goAgreement()">名医主刀服务协议</span>
+        </div>
+        <button id="btnBooking" class="btn btn-warning" ng-disabled="!isCheck || bookingInfoForm.$invalid" >预约</button><!-- ng-click="bookingDoctor(patient)" -->
+    </div>
+</div>

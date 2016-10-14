@@ -1,0 +1,109 @@
+.me-page{
+    .order-num{
+        $o-num-wh: 20px;
+        background: #fc4329;
+        width: px2rem($o-num-wh);
+        height: px2rem($o-num-wh);
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        color: #fff;
+        font-style: normal;
+        line-height: px2rem($o-num-wh);
+        float: right;
+        margin-right: px2rem(15px);
+    }
+    .user-box{
+        width: 100%;
+        height: px2rem(144px);
+        background: $color-primary;
+    }
+    .head-pic{
+        width: px2rem(80px);
+        height: px2rem(80px);
+        border-radius: px2rem(40px);
+        position: relative;
+        left: 50%;
+        top: px2rem(10px);
+        margin-left: px2rem(-40px);
+        img{
+            width: 100%;
+        }
+    }
+    .user-account{
+        width: 100%;
+        height: px2rem(40px);
+        margin-top: px2rem(10px);
+        line-height: px2rem(40px);
+        font-size: px2rem(map_get($map-font-size, m));
+        color: #fff;
+        text-align: center;
+    }
+    .all-order{
+        margin-bottom: 0;
+        border-bottom: 1px solid $color-border-default;
+    }
+    .order-box{
+        margin-bottom: px2rem(10px);
+    }
+    .order-type{
+        width: 100%;
+        height: px2rem(90px);
+        padding: px2rem(10px) 0 px2rem(10px) 0;
+        background: #fff;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+        .order-item{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+        }
+        .item-pic{
+            width: 100%;
+            height:px2rem(40px);
+        }
+        .icon-wait{
+            background: url("http://static.mingyizhudao.com/146303202632891") no-repeat center;
+            background-size: px2rem(40px) px2rem(40px);
+        }
+        .icon-doing{
+            background: url("http://static.mingyizhudao.com/146303208772491") no-repeat center;
+            background-size: px2rem(40px) px2rem(40px);
+        }
+        .icon-confirm{
+            background: url("http://static.mingyizhudao.com/146303214011857") no-repeat center;
+            background-size: px2rem(40px) px2rem(40px);
+        }
+        .icon-recommend{
+            background: url("http://static.mingyizhudao.com/14630321814010") no-repeat center;
+            background-size: px2rem(40px) px2rem(40px);
+        }
+        .item-text{
+            width: 100%;
+            height: px2rem(30px);
+            line-height: px2rem(30px);
+            text-align: center;
+            color: #666;
+            font-size:px2rem(map_get($map-font-size, s));
+        }
+    }
+    .icon-question{
+        background: url("http://static.mingyizhudao.com/146303228315924") no-repeat center;
+        background-size: px2rem(25px) px2rem(25px);
+    }
+    .icon-about{
+        background: url("http://static.mingyizhudao.com/146303231180874") no-repeat center;
+        background-size: px2rem(25px) px2rem(25px);
+    }
+    .icon-operate{
+        background: url("http://static.mingyizhudao.com/146422811006124") no-repeat center;
+        background-size: px2rem(25px) px2rem(25px);
+    }
+    .icon-contact{
+        background: url("http://static.mingyizhudao.com/146303235982476") no-repeat center;
+        background-size: px2rem(25px) px2rem(25px);
+    }
+}

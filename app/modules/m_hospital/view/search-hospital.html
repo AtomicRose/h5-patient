@@ -1,0 +1,18 @@
+<div ng-controller="SearchHospitalCtrl" class="hospital-page search-hospital">
+    <div class="ad-banner">
+        <a href="">
+            <img src="http://static.mingyizhudao.com/147063732649923" alt="推荐医院">
+        </a>
+    </div>
+    <div class="hospital-list">
+        <div class="info" ng-repeat="item in hospitalList" ng-click="goToDetail(item)">
+            <div>
+                <p class="name" ng-bind="item.ShortName || item.name"></p>
+                <p class="sub-name">医院实际科室名称：<span ng-bind="item.hp_dept_name"></span></p>
+            </div>
+            <div class="right-box">
+                <span class="arrow-right"></span>
+            </div>
+        </div>
+    </div>
+</div>

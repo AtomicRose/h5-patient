@@ -1,0 +1,24 @@
+<div ng-controller="HospitalRankCtrl" class="hospital-rank-page">
+    <div class="ad-banner">
+        <a href="">
+            <img src="http://static.mingyizhudao.com/14707325437827" alt="医院排行榜">
+        </a>
+    </div>
+    <div class="hospital-rank-detail">
+        <p>
+        "复旦版中国最佳医院排行榜" 是由复旦大学医院管理研究所连续六年发布的中国医院排名权威榜单。榜单综合考虑了学科建设、临床技术、医疗质量、科研水平等因素，汇集了中国医院的顶尖专科，反映了中国医院在该专科领域的临床实力和学术声誉。
+        </p>
+        <p>
+        自该榜单发布六年来，全国各大医院对排行榜越来越认可，并将其作为医院专科比较评价的依据。同时，榜单也向病人提供了准确的信息，并产生了权威的社会效益。
+        </p>
+    </div>
+    <div class="hospital-rank-list">
+        <div class="" ng-repeat="item in hospitalList" ng-click="goToDetail(item.hospital_id)">
+            <i ng-class="{'first':$index==0}" ng-bind="item.sort==1?'':item.sort"></i>
+            <span ng-bind="item.hospital_name"></span>
+            <span ng-if="item.hospital_id" class="hospital-rank-link has-link">查看详情 ></span>
+            <span ng-if="!item.hospital_id" class="hospital-rank-link no-link">敬请期待</span>
+        </div>
+        <button ng-if="isShowMoreBtn" class="btn btn-warning" ng-click="loadMore()">加载更多</button>
+    </div>
+</div>

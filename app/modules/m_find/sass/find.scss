@@ -1,0 +1,36 @@
+.find-page{
+	.topics-list{
+		li{
+			margin-top: px2rem(5px);
+			img{
+				width:100%;
+			}
+		}
+	}
+	.stories-list{
+		li{
+			list-style: none;
+			background: #fff;
+			margin-top: px2rem(5px);
+		    display: flex;
+		    align-items: center;
+			>img, >div{
+				float:left;
+			}
+			img{
+				width: 40%;
+			}
+			div{
+				padding: px2rem(10px);
+				// font-size: px2rem(map_get($map-font-size, m));
+				color: #222;
+			}
+		}
+		li:after{
+			content: '';
+			clear: both;
+			height: 0px;
+			display: block;
+		}
+	}
+}

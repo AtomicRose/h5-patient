@@ -1,0 +1,26 @@
+<div ng-controller="OrdersCtrl" class="orders-page">
+    <div ng-if="!orderList.length" class="data-null-img"></div>
+    <ul ng-if="orderList.length">
+        <li ng-repeat="li in orderList" ng-click="goDetail(li.id)">
+            <div>
+                <p class="o-title">
+                    <span class="o-label">预约单号：</span>
+                    <span ng-bind="li.refNo"></span>
+                    <button class="btn btn-aid o-aid" ng-class="{'o-aid-cancel':li.bkStatus == 9}" ng-bind="li.bkStatusText"></button>
+                </p>
+                <p>
+                    <span class="o-label">就诊医生：</span>
+                    <span ng-bind="li.doctorName"></span>
+                </p>
+                <p>
+                    <span class="o-label">就诊医院：</span>
+                    <span ng-bind="li.hpName"></span>
+                </p>
+                <p>
+                    <span class="o-label">患者姓名：</span>
+                    <span ng-bind="li.contact_name"></span>
+                </p>
+            </div>
+        </li>
+    </ul>
+</div>

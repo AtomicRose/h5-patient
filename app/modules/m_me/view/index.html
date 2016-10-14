@@ -1,0 +1,88 @@
+<div ng-controller="MeCtrl" class="me-page">
+    <div class="user-box">
+        <div class="head-pic">
+            <img src="http://static.mingyizhudao.com/146303241586665" alt="头像">
+        </div>
+        <div class="user-account">
+            您好,<span ng-bind="userName">
+        </div>
+    </div>
+    <div class="order-box">
+        <div class="cell-group border-none all-order">
+            <div class="cell">
+                <div class="left-box">
+                    <span class="label">全部订单</span>
+                </div>
+                <div class="middle-box text-right">
+                    <span class="content" ng-click="goOrders()">查看全部订单</span>
+                </div>
+                <div class="right-box">
+                    <span class="arrow-right"></span>
+                </div>
+            </div>
+        </div>
+        <div class="order-type" ng-click="goOrders(1)">
+            <div class="order-item">
+                <i class="order-num" ng-if="orderNum1" ng-bind="orderNum1"></i>
+                <div class="item-pic icon-wait"></div>
+                <div class="item-text">待支付</div>
+            </div>
+            <div class="order-item" ng-click="goOrders(2)">
+                <i class="order-num" ng-if="orderNum2" ng-bind="orderNum2"></i>
+                <div class="item-pic icon-doing"></div>
+                <div class="item-text">安排中</div>
+            </div>
+            <div class="order-item" ng-click="goOrders(5)">
+                <i class="order-num" ng-if="orderNum5" ng-bind="orderNum5"></i>
+                <div class="item-pic icon-confirm"></div>
+                <div class="item-text">待确认</div>
+            </div>
+            <div class="order-item" ng-click="goOrders(6)">
+                <i class="order-num" ng-if="orderNum6" ng-bind="orderNum6"></i>
+                <div class="item-pic icon-recommend"></div>
+                <div class="item-text">待评价</div>
+            </div>
+        </div>
+    </div>
+    <div class="cell-group border-none">
+        <div class="cell" ng-click="routerGo('layout.problems')">
+            <div class="left-box">
+                <div class="label-icon icon-question"></div>
+            </div>
+            <div class="middle-box">
+                <span class="content">常见问题</span>
+            </div>
+        </div>
+    </div>
+    <div class="cell-group border-none">
+        <div class="cell" ng-click="routerGo('layout.aboutus')">
+            <div class="left-box">
+                <div class="label-icon icon-about"></div>
+            </div>
+            <div class="middle-box">
+                <span class="content">关于我们</span>
+            </div>
+        </div>
+        <div class="cell" ng-click="routerGo('layout.mygy')">
+            <div class="left-box">
+                <div class="label-icon icon-operate"></div>
+            </div>
+            <div class="middle-box">
+                <span class="content">公益手术</span>
+            </div>
+        </div>
+    </div>
+    <div class="cell-group border-none">
+        <div class="cell" ng-click="contactUs()">
+            <div class="left-box">
+                <div class="label-icon icon-contact"></div>
+            </div>
+            <div class="middle-box">
+                <span class="content">联系我们</span>
+            </div>
+        </div>
+    </div>
+    <div class="btn-dock">
+        <button class="btn btn-minor" ng-click="logout()">退出登录</button>
+    </div>
+</div>

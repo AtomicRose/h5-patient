@@ -1,0 +1,93 @@
+.problems-page,.aboutus-page, .mygy-page{
+	>p{
+		padding: 0 px2rem(10px);
+		color: #666;
+		line-height: px2rem(18px);
+	}
+	>h3{
+		&:first-child{
+			margin-top: px2rem(10px);
+		}
+		padding: 0 px2rem(10px);
+		color: #222;
+		margin: px2rem(10px) 0;
+	}
+	>h2{
+		padding: 0 px2rem(10px);
+		margin-top: px2rem(10px);
+		text-align: center;
+	}
+}
+.aboutus-page{
+	>p{
+		&:first-child{
+			margin-top: px2rem(10px);
+		}
+	}
+}
+.mygy-page{
+    background: url('http://static.mingyizhudao.com/146356500101290') no-repeat;
+    background-size: 100% 100%;
+	.w100{
+		width: 100%;
+	}
+	>h3{
+		border-left: 2px solid #00b48b;
+		color: #00b48b;
+		margin: px2rem(10px) 0 px2rem(10px) px2rem(5px);
+	}
+	.mygy-cooperation-list{
+		img{
+			width: 80%;
+		}
+		li{
+			list-style: none;
+			width: 33%;
+			float: left;
+			text-align: center;
+			margin-bottom: px2rem(10px);
+		}
+		p{
+			color: #555;
+		}
+	}
+	.myyz-doc-list{
+		li{
+			list-style: none;
+			border: 1px dashed #666;
+			padding: px2rem(10px);
+			background:#fff;
+			margin: px2rem(5px) px2rem(5px) 0 px2rem(5px);
+			.doc-description{
+				.myyz-doc-name{
+					color: #000;
+					font-size: px2rem(map_get($map-font-size, m))
+				}
+				margin-bottom: px2rem(5px);
+				&:after{
+					content: '';
+					display: block;
+					clear: both;
+				}
+				>img, >div{
+					float: left;
+				}
+				>img{
+					width: 20%;
+					border-radius: 50%;
+				}
+				>div{
+					padding-left: px2rem(10px);
+					width: 80%;
+					span{
+						color: #666;
+					}
+				}
+			}
+			.doc-desc{
+				background: #eee;
+				padding: px2rem(10px);
+			}
+		}
+	}
+}

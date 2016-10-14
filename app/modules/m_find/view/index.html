@@ -1,0 +1,16 @@
+<div class="find-page" ng-controller="FindCtrl">
+	<!--<div class="topics-list" ng-show="tabSelected==0">-->
+		<!--<div ng-repeat="item in topicsList" style="height: 100px; background: url('{{item.imgUrl}}');" ng-bind="item.name"></div>-->
+	<!--</div>-->
+    <ul class="topics-list" ng-show="tabSelected==0">
+    	<li ng-repeat="li in topicsList" ng-click="goDetailUrl(li.src)"><img src="{{li.imgUrl}}"></li>
+    </ul>
+    <ul class="stories-list" ng-show="tabSelected==1">
+    	<li ng-repeat="li in storiesList" ng-click="goDetailUrl(li.src)">
+    		<img src="{{li.imgUrl}}">
+    		<div>
+    			<p ng-bind="li.title"></p>
+    		</div>
+    	</li>
+    </ul>
+</div>

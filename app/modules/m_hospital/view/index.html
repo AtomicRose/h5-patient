@@ -1,0 +1,13 @@
+<div ng-controller="HospitalCtrl" class="hospital-page">
+    <div class="ad-banner" ng-click="goRouter('layout.hospitalRank')">
+        <a href="">
+            <img src="http://static.mingyizhudao.com/146423335398248" alt="推荐医院">
+        </a>
+    </div>
+    <div class="hospital-list">
+        <div class="info" ng-repeat="item in hospitalList" ng-click="goToDetail(item)">
+            <p class="name" ng-bind="item.ShortName || item.name"></p>
+            <span class="btn btn-aid grade" ng-bind="item.hpClass"></span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+<div ng-controller="DepartmentCtrl" class="department-page">
+    <div class="book-progress">
+        <div class="cell-group border-none">
+            <div class="cell border-none" ng-click="ctrlProgressBox()">
+                <div class="left-box">
+                    <span class="label color-warning">预约流程</span>
+                </div>
+                <div class="middle-box"></div>
+                <div class="right-box">
+                    <span class="border-warning" ng-class="{true:'arrow-up', false: 'arrow-down'}[showProgressBox]"></span>
+                </div>
+            </div>
+            <div class="cell height-auto bt" ng-show="showProgressBox">
+                <div class="middle-box">
+                    <p class="tip text-center color-warning">精选出国内专业领域最强的医院科室</p>
+                    <p class="tip text-center color-warning">让名医助手来寻找最合适您情况的主刀医生</p>
+                    <div class="progress-box">
+                        <div class="circle-box">
+                            <div class="line"></div>
+                            <div class="quarter">
+                                <div class="circle left">1</div>
+                            </div>
+                            <div class="quarter">
+                                <div class="circle">2</div>
+                            </div>
+                            <div class="quarter">
+                                <div class="circle right">3</div>
+                            </div>
+                        </div>
+                        <div class="circle-box">
+                            <div class="quarter text-left">预约科室</div>
+                            <div class="quarter text-center">提交病例资料</div>
+                            <div class="quarter text-right">名医助手回访确认</div>
+                        </div>
+                        <div class="circle-box">
+                            <div class="line"></div>
+                            <div class="quarter">
+                                <div class="circle left">5</div>
+                            </div>
+                            <div class="quarter">
+                                <div class="circle">6</div>
+                            </div>
+                            <div class="quarter">
+                                <div class="circle right">7</div>
+                            </div>
+                        </div>
+                        <div class="circle-box">
+                            <div class="quarter text-left">匹配最合适医生</div>
+                            <div class="quarter text-center w38">安排面诊（如有需要）</div>
+                            <div class="quarter text-right w28">安排手术</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="desc-info">
+        <div class="desc-header">科室介绍</div>
+        <div class="desc-item">
+            <div class="title">学科地位</div>
+            <div class="as-html" ng-bind="departmentInfo.position | trustAsHtml"></div>
+        </div>
+        <div class="desc-item">
+            <div class="title">学科规模</div>
+            <div class="as-html" ng-bind="departmentInfo.scale | trustAsHtml"></div>
+        </div>
+        <div class="desc-item">
+            <div class="title">学科专长</div>
+            <div class="as-html" ng-bind="departmentInfo.specialty | trustAsHtml"></div>
+        </div>
+        <div class="desc-item">
+            <div class="title">学科力量</div>
+            <div class="as-html" ng-bind="departmentInfo.strength | trustAsHtml"></div>
+        </div>
+        <div class="desc-item">
+            <div class="title">学科荣誉</div>
+            <div class="as-html">
+                <ul>
+                    <li ng-repeat="hli in departmentInfo.honor" ng-bind="hli"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="btn-dock fixed bottom-button">
+        <button class="btn btn-warning" ng-click="bookDepartment()">预约科室</button>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="order-page" ng-controller="OrderCtrl">
+    <div class="cell-group">
+        <div class="cell">
+            <div class="left-box clearly-width">
+                <span class="label">订单号：</span>
+            </div>
+            <div class="middle-box content">
+                <span ng-bind="orderNum"></span>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="left-box clearly-width">
+                <span class="label">订单标题：</span>
+            </div>
+            <div class="middle-box content">
+                <span ng-bind="orderTitle"></span>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="left-box clearly-width">
+                <span class="label">订单详情：</span>
+            </div>
+            <div class="middle-box content">
+                <span  ng-bind="orderDetail"></span>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="left-box clearly-width">
+                <span class="label">订单状态：</span>
+            </div>
+            <div class="middle-box content">
+                <span ng-bind="orderStatus"></span>
+            </div>
+        </div>
+    </div>
+    <div class="cell-group">
+        <div class="cell">
+            <div class="left-box clearly-width">
+                <span class="label">请支付</span>
+            </div>
+            <div class="middle-box content" style="color:#06c1ae;">
+                <span ng-bind="orderAcount||0.00"></span>元
+            </div>
+        </div>
+    </div>
+    <div class="btn-dock">
+        <div class="left-dock">
+            <button class="btn btn-minor" ng-click="cancelPay()">暂不支付</button>
+        </div>
+        <div class="right-dock">
+            <button class="btn btn-primary" disabled="true">立即支付</button>
+        </div>
+    </div>
+</div>

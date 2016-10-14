@@ -1,0 +1,50 @@
+.login-page{
+    .label-icon{
+        width: px2rem(30px);
+        height: 100%;
+        display: block;
+    }
+    .phone{
+        background: url("http://static.mingyizhudao.com/14637257248467") no-repeat center center;
+        -webkit-background-size: px2rem(25px);
+        background-size:px2rem(25px);
+    }
+    .password{
+        background: url("http://static.mingyizhudao.com/146372577429160") no-repeat center center;
+        -webkit-background-size: px2rem(25px);
+        background-size:px2rem(25px);
+    }
+    .image-code{
+        background: url("http://static.mingyizhudao.com/14637254930918") no-repeat center center;
+        -webkit-background-size: px2rem(25px);
+        background-size:px2rem(25px);
+    }
+    .safe-code{
+        background: url("http://static.mingyizhudao.com/146372582752038") no-repeat center center;
+        -webkit-background-size: px2rem(25px);
+        background-size:px2rem(25px);
+    }
+    .eye-icon{
+        width: px2rem(40px);
+        height: 100%;
+        background: url('http://static.mingyizhudao.com/146372593763783') no-repeat center center;
+        background-size: 25px 14px;
+        display: block;
+        &.active{
+            background: url('http://static.mingyizhudao.com/146372587208410') no-repeat center center;
+            background-size: 25px 14px;
+        }
+    }
+    .captcha-box{
+        width: 40%;
+        img{
+            width: 100%;
+        }
+    }
+    .tip-forget-password{
+        font-size:px2rem(map_get($map-font-size, m));
+        color: $brand-info;
+        line-height:px2rem(30px);
+        text-align: right;
+    }
+}

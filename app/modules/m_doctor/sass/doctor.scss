@@ -1,0 +1,221 @@
+.doctor-page{
+    $doc-img-wh: 60px;
+    $doc-description-mt: 10px;
+    .doc-list{
+    	li{
+    		padding: 0 px2rem(10px) px2rem(10px) px2rem(10px);
+    		background: #fff;
+    		margin-buttom: px2rem(10px);
+    		border-bottom: 1px solid #ddd;
+    		.doc-description{
+    			&:after{
+    				content:'';
+    				display:block;
+    				clear: both;
+    			}
+    			.yz-img,.qy-img{
+    				font-style: normal;
+    				font-size: 0.8rem;
+    				text-align: center;
+    				line-height: px2rem(25px);
+    				color: #fff;
+    				width: px2rem(25px);
+    				height: px2rem(30px);
+    				display: inline-block;
+                    /* margin-right: .83333rem; */
+                    position: relative;
+                    float: right;
+    			}
+    			.yz-img{
+    				background: url('http://static.mingyizhudao.com/146364500313741') no-repeat;
+    				background-size: cover;
+    			}
+    			.qy-img{
+    				background: url('http://static.mingyizhudao.com/146364522977843') no-repeat;
+    				background-size: cover;
+    			}
+    			>div,>img{
+    				float: left;
+    			}
+    			>img{
+    				width: px2rem($doc-img-wh);
+    				height: px2rem($doc-img-wh);
+    				border-radius: px2rem($doc-img-wh/2);
+    				margin-right: px2rem($doc-img-wh/2);
+    				margin-top: px2rem($doc-description-mt);
+    			}
+    			>div{
+    				p{
+    					color:#666;
+    					line-height:px2rem($doc-img-wh/3);
+    					font-size: px2rem(map_get($map-font-size, s));
+    				}
+    				p:first-child{
+    					margin-top: px2rem($doc-description-mt);
+    					color:#033;
+    					font-size: px2rem(map_get($map-font-size, m));
+    				}
+    			}
+    		}
+    	}
+    	.doc-goodat-span{
+    		color: #f39700;
+    	}
+        .doc-desc{
+            display: inline-block;display: -webkit-box; 
+            text-overflow: ellipsis;
+            overflow : hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+    }
+    .doc-tab-nav{
+        $tab-height: 40px;
+        color: #666;
+        >ul{
+            list-style-type: none;
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            background: #fff;
+            height: px2rem($tab-height);
+            line-height: px2rem($tab-height);
+            li{
+                -webkit-box-flex: 1;
+                -webkit-flex: 1;
+                flex: 1;
+                text-align: center;
+                &:nth-child(2){
+                    border: 1px solid #ddd;
+                    border-width: 0 1px;
+                }
+                &.tab-selected{
+                    color: #FF6627;
+                    .tab-arrow{
+                        background: url('http://static.mingyizhudao.com/146735831347598') no-repeat;
+                        background-size: contain;
+                    }
+                }
+            }
+        }
+        .doc-tab-mask{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: px2rem($tab-height + $header-height);
+            background: rgba(0,0,0,.5);
+            z-index: 2;
+            >ul{
+                list-style-type: none;
+                background: #fff;
+                max-height:50%;
+                overflow-y: scroll;
+                li{
+                    height: px2rem($tab-height);
+                    line-height: px2rem($tab-height);
+                    padding: 0 px2rem(10px);
+                    border-bottom: 1px solid #ddd;
+                    &.li-selected{
+                        border-left: px2rem(4px) solid #ff6221;
+                    }
+                }
+            }
+        }
+        .tab-arrow{
+            background: url('http://static.mingyizhudao.com/146735870119173') no-repeat;
+            background-size: contain;
+            display: inline-block;
+            width: px2rem(12px);
+            height: px2rem(8px);
+            margin-left: px2rem(5px);
+        }
+    }
+}
+.doctor-detail-page{
+    .main-info{
+        background: url('http://static.mingyizhudao.com/147062699107071') no-repeat;
+        background-size: 100%;
+        color: #fff;
+        text-align: center;
+        padding: px2rem(10px) 0;
+        >img{
+            $doc-wh: 60px;
+            width: px2rem($doc-wh);
+            height: px2rem($doc-wh);
+            border-radius: px2rem($doc-wh/2);
+        }
+    }
+    .cell-group .cell{
+        display: block;
+        height: auto;
+        line-height: px2rem(20px);
+        padding: px2rem(10px) 0;
+        >p:first-child{
+            color: #f39700;
+        }
+    }
+    .tab-box{
+        width: 100%;
+        background: #fff;
+        padding-bottom: px2rem(70px);
+    }
+    .bottom-button{
+        border-top: 1px solid $color-border-default;
+        background: #fff;
+    }
+    .doc-header {
+        background: url('http://static.mingyizhudao.com/147062699107071') no-repeat;
+    }
+    .doc-yz-tag{
+        padding: px2rem(5px) px2rem(5px) px2rem(5px) px2rem(15px);
+        background: url('http://static.mingyizhudao.com/147062712737692') no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        right: 0;
+    }
+    .doc-remark-list{
+        li{
+            border-bottom: 1px #ddd solid;
+        }
+    }
+    .doc-remark-user{
+        color: #f39700;
+        $user-img-wh: 40px;
+        padding: px2rem(10px);
+        padding-bottom: 0px;
+        &:after{
+            content:'';
+            display: block;
+            clear: both;
+            height: 0px;
+        }
+        >img,>div{
+            float: left;
+        }
+        >img{
+            width: px2rem($user-img-wh);
+            height: px2rem($user-img-wh);
+            border-radius: px2rem($user-img-wh/2);
+            margin-right: px2rem(10px);
+        }
+        .star{
+            background: url('http://static.mingyizhudao.com/146975981120273') no-repeat;
+            width: px2rem($user-img-wh/3);
+            height: px2rem($user-img-wh/3);
+            margin-right: px2rem(5px);
+            display: inline-block;
+            background-size: contain;
+        }
+    }
+    .doc-remark-p{
+        padding: px2rem(10px);
+        padding-top: 0px;
+    }
+}
+.header-doc-img{
+    .header {
+        background: url('http://static.mingyizhudao.com/147062699107071') no-repeat;
+    }
+}

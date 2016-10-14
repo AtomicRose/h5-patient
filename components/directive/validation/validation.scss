@@ -1,0 +1,24 @@
+.validate-log{
+    position: absolute;
+    top: 40%;
+    left: 0;
+    height: auto;
+    width: 100%;
+    table{
+        margin: 0 auto;
+    }
+    tr{
+    }
+    tr td{
+        padding: px2multi(6px, 12px, 6px, 12px);
+        border-radius: px2rem(4px);
+        background: rgba(0,0,0,.8);
+        color: #fff;
+        font-size: px2rem(map_get($map-font-size, s));
+        text-align: center;
+        max-width:100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}

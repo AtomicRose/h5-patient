@@ -1,0 +1,59 @@
+<div ng-controller="DoctorDetailCtrl" class="doctor-detail-page">
+    <div class="main-info">
+        <span class="doc-yz-tag">义诊专家</span>
+        <img src="http://dr.static.mingyizhudao.com/25B5C5A2C885B62AE8ED01901FF6F552">
+        <p>
+            <span>眼科</span><span>主任医师</span>
+        </p>
+        <p>
+            <span>重庆大坪医院</span>
+        </p>
+    </div>
+    <div class="tab-box">
+        <div class="tab-header">
+            <div class="tab-item" ng-class="{'active': selectedTab == 0}" ng-click="checkTab(0)">医生信息</div>
+            <div class="tab-item" ng-class="{'active': selectedTab == 1}" ng-click="checkTab(1)">评价(<span ng-bind="commentNum"></span>)</div>
+        </div>
+        <div class="tab-content">
+            <div class="item-content" ng-show="selectedTab == 0">
+                <div class="cell-group border-none">
+                    <div class="cell">
+                        <p>擅长</p>
+                        <p ng-bind="doctorInfo.description"></p>
+                    </div>
+                    <div class="cell height-auto">
+                        <p>推荐理由</p>
+                        <p ng-repeat="info in doctorInfo.reasons" ng-bind="info"></p>
+                    </div>
+                    <div class="cell height-auto">
+                        <p>荣誉</p>
+                        <p ng-repeat="honour in doctorInfo.honour" ng-bind="honour"></p>
+                    </div>
+                    <div class="cell height-auto">
+                        <p>职业经历</p>
+                        <p ng-bind="doctorInfo.careerExp"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item-content" ng-show="selectedTab == 1">
+                <ul class="doc-remark-list">
+                    <li ng-repeat="comment in comments">
+                        <div class="doc-remark-user">
+                            <img src="http://static.mingyizhudao.com/146303241586665">
+                            <div>
+                                <p ng-bind="comment.user_name"></p>
+                                <p>
+                                    <i class="star"></i><i class="star"></i><i class="star"></i><i class="star"></i><i class="star"></i>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="doc-remark-p" ng-bind="comment.comment_text"></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="btn-dock fixed bottom-button">
+        <button class="btn btn-warning" ng-click="bookingDoctor()">预约医生</button>
+    </div>
+</div>

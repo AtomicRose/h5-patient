@@ -1,0 +1,57 @@
+.booking-department-page,.booking-doctor-page, .quick-booking-page{
+    // padding-bottom: px2rem(100px);
+    .agreement{
+        text-align: center;
+        font-size: px2rem(map_get($map-font-size, s));
+        color: #666;
+        padding: px2rem(10px);
+        span{
+            color: $color-primary;
+        }
+    }
+    .btn-dock{
+        background: #fff;
+    }
+}
+.quick-booking-page{
+    .bq-tips{
+        padding: 0 px2rem(10px);
+        color: #f00;
+    }
+}
+.operation-train-page{
+    background: #9fd84b;
+    .qb-bg1{
+        width: 100%;
+        height: px2rem(150px);
+        background: url('http://static.mingyizhudao.com/146278046324616') no-repeat;
+        background-size: cover;
+    }
+    .qb-bg2{
+        width: 100%;
+        min-height: px2rem(300px);
+        background: url('http://static.mingyizhudao.com/146243598978929') no-repeat;
+        background-size: contain;
+        padding-top: px2rem(10px);
+        .qb-disc{
+            list-style: none;
+            padding: px2rem(10px) px2rem(10px) 0 px2rem(30px);
+            li{
+                padding-bottom: px2rem(10px);
+                list-style-type: decimal;
+            }
+        }
+    }
+    .qb-bg3{
+        $qb-h: 50px;
+        width: 100%;
+        min-height: px2rem($qb-h);
+        background: url('http://static.mingyizhudao.com/146243616165849') no-repeat;
+        background-size: cover;
+        color: #fff;
+        text-align: center;
+        line-height: px2rem($qb-h);
+        position: absolute;
+        bottom: 0;
+    }
+}

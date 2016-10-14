@@ -1,0 +1,7 @@
+@import "../framework/sass/fn.scss";
+@import "../framework/sass/theme/<%=THEME_NAME%>/variables.scss";
+@import "../components/c-variables.scss";
+
+//import your used modules scss files
+@import "modules/m_layout/sass/layout.scss";
+@import "modules/m_widget/sass/landscrop.scss";

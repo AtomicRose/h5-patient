@@ -1,0 +1,125 @@
+.search-page{
+	$search-header-height: 40px;
+	$hp-btn-color: #F48124;
+	$doc-btn-color: #0168B7;
+	.search-tips{
+		padding-top: px2rem(10px);
+		text-align: center;
+		color: #ccc;
+	}
+	.search-header{
+		height: px2rem($search-header-height);
+		&:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		background:#fff;
+		border-bottom: 1px solid #c2c0c0;
+		&.search-more{
+			.leftOpt{
+				width: 15%;
+			}
+			.centerOpt{
+				width: 70%;
+				padding: px2rem(5px) 0;
+			}
+			.rightOpt{
+				width: 15%;
+			}
+		}
+		>div{
+			height: 100%;
+			float:left;
+		}
+		.centerOpt{
+			width: 80%;
+			padding: px2rem(5px) 0 px2rem(5px) px2rem(10px);
+		}
+		.rightOpt{
+			width: 20%;
+			text-align: center;
+			color: $color-ligth-text;
+			line-height: $search-header-height;
+		}
+		input{
+			background: #e7e8ea url("http://static.mingyizhudao.com/146243645256928") no-repeat 5px 50%;
+    		background-size: 1.25rem;
+    		border: 0px;
+			border-radius: px2rem(5px);
+			width: 100%;
+			height: 100%;
+			padding: 0 px2rem(30px);
+		}
+	}
+	.search-result{
+		li{
+			margin: 0 0 px2rem(15px) 0;
+		}
+		i{
+			font-style: normal;
+		}
+	}
+	.search-title{
+		padding: px2rem(10px) 0;
+		background: #fff;
+		>p{
+			border-left: 4px solid #f38023;
+			padding: 0 px2rem(10px);
+			font-size: px2rem(map_get($map-font-size, s));
+		}
+	}
+	.cell-group{
+		margin: 0px;
+		.cell{
+			.search-cell-fc,.search-cell-lc{
+				width: 50%;
+			}
+			.search-cell-lc{
+				text-align: right;
+			}
+		}
+	}
+	.search-move{
+		font-size: px2rem(map_get($map-font-size, m));
+		text-align: center;
+		background: #fff;
+		padding: px2rem(15px);
+		border-width: 0 0 px2rem(1px) 0;
+	    border-style: solid;
+	    border-color: $color-border-default;
+		>span{
+		    position: absolute;
+		    right: px2rem(20px);
+		    color: #666;
+		}
+	}
+	.btn-hp,.btn-doc{
+		width: 40%;
+		display: inline-block;
+		margin-right: 5%;
+	}
+	.btn-doc{
+	    color: #fff;
+	    background: $hp-btn-color;
+	    border: 1px solid #dddddd;
+	}
+	.btn-hp{
+	    color: #fff;
+	    background: $doc-btn-color;
+	    border: 1px solid #dddddd;
+	}
+	.leftOpt .icon-back {
+	    width: 1.16667rem;
+	    height: 1.16667rem;
+	    border-top: 2px solid #757575;
+	    border-left: 2px solid #757575;
+	    transform: rotate(-45deg);
+	    position: relative;
+	    left: 50%;
+	    top: 50%;
+	    margin-left: -.41667rem;
+	    margin-top: -.66667rem;
+	    display: block;
+	}
+}
