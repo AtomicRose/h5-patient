@@ -12,7 +12,7 @@ app.controller('HomeCtrl', ['$scope', '$rootScope', '$state', 'SearchStorage', '
 
     $scope.routerGo = function(url){
     	$state.go(url);
-    }
+    };
     $scope.callPhone = function(){
         var _confirm = dialog.confirm('立即拨打免费客服热线400-6277-120',{
             title: '友情提示',
@@ -24,23 +24,28 @@ app.controller('HomeCtrl', ['$scope', '$rootScope', '$state', 'SearchStorage', '
                 }
             }
         });   
-    }
+    };
     $scope.goBaidukf = function(){
         location.href = 'http://p.qiao.baidu.com/im/index?siteid=9290674&ucid=10135139';
-    }
+    };
+
+
+    $scope.openSidebar = function(){
+        window.LayoutSidebar.toggle();
+    };
 
     $scope.goDetailUrl = function(_url){
         console.log('_url',_url);
         $state.go('layout.find-detail',{
             storyName: _url
         })
-    }
+    };
 
     $scope.goHospital = function(_deptId){
         console.log('_deptId',_deptId);
         $state.go('layout.search-hospital',{
             deptId: _deptId
         })
-    }
+    };
 
 }]);

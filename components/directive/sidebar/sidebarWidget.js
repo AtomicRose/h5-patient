@@ -51,6 +51,13 @@ app.directive('sidebarWidget', [function () {
                 }
             }
         };
+        $scope.goLogin = function(){
+            window.LayoutSidebar.close();
+            $state.go('layout.login',{
+                redirectRoute:'layout.home',
+                backHome: 'layout.home'
+            });
+        };
     }];
     return {
         restrict: 'A',
@@ -68,7 +75,7 @@ app.run(['$templateCache', function ($templateCache) {
     $templateCache.put('template/sidebar.html',
         '<div class="sidebar" ng-class="{true:\'open\',false:\'close\'}[isOpen]" id="layoutSidebar">\
             <div class="content">\
-                <div class="user-info">\
+                <div class="user-info" ng-click="goLogin()">\
                     <div class="left">\
                         <div class="circle">\
                             <img src="" alt="">\
