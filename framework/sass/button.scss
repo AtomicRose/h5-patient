@@ -28,6 +28,9 @@ $btn-disabled-color: rgba(0,0,0,.4);
             margin-top: px2rem($btn-height * 0.2);
         }
     }
+    &.no-border-radius{
+        border-radius: 0px;
+    }
 }
 .btn-primary{
     color: #ffffff;
@@ -35,6 +38,19 @@ $btn-disabled-color: rgba(0,0,0,.4);
     &:active,
     .active{
         background: darken($color-primary, 5%);
+    }
+    &:disabled,
+    .disabled{
+        background: $btn-disabled-bg;
+        color: $btn-disabled-color;
+    }
+}
+.btn-light {
+    color: #ffffff;
+    background: $color-light;
+    &:active,
+    .active{
+        background: darken($color-light, 5%);
     }
     &:disabled,
     .disabled{

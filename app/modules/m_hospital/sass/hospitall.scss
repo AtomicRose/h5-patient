@@ -120,51 +120,127 @@
         }
     }
 }
+.filtered{
+    &:after{
+        content: '';
+        display: inline-block;
+        width: px2rem(5px);
+        height: px2rem(5px);
+        background: $color-light;
+        border-radius: px2rem(2.5px);
+        margin-left: px2rem(5px);
+        margin-bottom: px2rem(2px);
+    }
+}
 .hospital-detail-page{
-    .main-info{
-        width: 100%;
-        height: px2rem(63px);
-        background: $color-primary;
-        float:left;
-        .hp-name{
-            color: #fff;
-            text-align: center;
-            font-size:px2rem(map_get($map-font-size, m));
-        }
-        .hp-tag{
-            color: #fff;
-            text-align: center;
-            font-size: px2rem(map_get($map-font-size, s));
-            margin-top: px2rem(10px);
+    .filter-box-out{
+        position: absolute;
+        top: px2rem($header-height);
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background: rgba(0,0,0,0.5);
+        z-index: 1;
+        .filter-box-in{
+            background: #fff;
+            >div{
+                padding: px2rem(10px);
+                >p{
+                    color: #666;
+                }
+                ul:after{
+                    display:block;
+                    content: '';
+                    clear: both;
+                }
+                li{
+                    list-style-type: none;
+                    float:left;
+                    padding:px2rem(5px) px2rem(10px);
+                    margin: px2rem(10px);
+                    &.selected{
+                        color: $color-light;
+                        border: $color-light 1px solid;
+                        border-radius: px2rem(5px);
+                    }
+                }
+            }
+            >div:first-child{
+                border-bottom: 1px solid #eee;
+            }
         }
     }
-    .department-icon{
-        width: px2rem(25px);
-        height: px2rem(25px);
-        position: relative;
-        top: 50%;
-        margin-top: px2rem(-12.5px);
-        display: block;
-    }
-    .department-item{
-        color: #666;
-        font-size: px2rem(map_get($map-font-size, s));
-        line-height: px2rem(26px);
-        height: px2rem(26px);
-        display: block;
-        float: left;
-        padding: 0 px2rem(10px);
-        margin: px2rem(12px) px2rem(6px);
-        border: 1px solid #ddd;
-        border-radius: px2rem(5px);
+    .dt-li{
+        $doc-img-wh: 60px;
+        $doc-description-mt: 10px;
+        padding: 0 px2rem(10px) px2rem(10px) px2rem(10px);
+        background: #fff;
+        margin-buttom: px2rem(10px);
+        border-bottom: 1px solid #ddd;
+
+        .doc-goodat-span{
+            color: #666
+        }
+        .doc-description{
+            &:after{
+                content:'';
+                display:block;
+                clear: both;
+            }
+            .yz-img,.qy-img{
+                font-style: normal;
+                font-size: 0.8rem;
+                text-align: center;
+                line-height: px2rem(25px);
+                color: #fff;
+                width: px2rem(25px);
+                height: px2rem(30px);
+                display: inline-block;
+                /* margin-right: .83333rem; */
+                position: relative;
+                float: right;
+            }
+            .yz-img{
+                background: url('http://static.mingyizhudao.com/146364500313741') no-repeat;
+                background-size: cover;
+            }
+            .qy-img{
+                background: url('http://static.mingyizhudao.com/146364522977843') no-repeat;
+                background-size: cover;
+            }
+            >div,>img{
+                float: left;
+            }
+            >img{
+                width: px2rem($doc-img-wh);
+                height: px2rem($doc-img-wh);
+                border-radius: px2rem($doc-img-wh/2);
+                margin-right: px2rem($doc-img-wh/2);
+                margin-top: px2rem($doc-description-mt);
+            }
+            >div{
+                margin: px2rem(20px) 0 0 0;
+                p{
+                    color:#666;
+                    line-height:px2rem($doc-img-wh/3);
+                    font-size: px2rem(map_get($map-font-size, s));
+                }
+                .dt-name{
+                    margin-top: px2rem($doc-description-mt);
+                    color:#033;
+                    font-size: px2rem(map_get($map-font-size, m));
+                }
+            }
+        }
     }
     .hp-des{
         color: #666;
         padding: px2rem(10px);
         font-size: px2rem(map_get($map-font-size, s));
-        lien-height: px2rem(map_get($map-font-size, s)) * 1.2;
+        line-height: px2rem(map_get($map-font-size, s)) * 1.2;
         text-align: justify;
         background: #fff;
+        text-indent: 2rem;
     }
 }
 

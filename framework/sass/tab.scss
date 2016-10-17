@@ -21,8 +21,8 @@ $tab-header-height: px2rem(48px);
             color: #666;
             font-size: px2rem(map_get($map-font-size, m));
             &.active{
-                border-bottom: px2rem(2px) solid $color-primary;
-                color: $color-primary;
+                border-bottom: px2rem(2px) solid $color-light;
+                color: $color-light;
             }
         }
     }

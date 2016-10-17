@@ -84,13 +84,11 @@ app.controller('HospitalCtrl', ['$scope', '$rootScope', 'CommonService', 'dialog
 
     $scope.goToDetail = function(item){
         $state.go('layout.hospital-detail', {
-            hospitalId: item.hospital_id
+            hospitalId: item.hospital_id,
+            hospitalDeptName: item.hp_dept_name,
+            departmentId: $scope.selectedDeptId
         });
     };
-
-    $scope.goRouter = function(_router){
-        $state.go('layout.hospitalRank');
-    }
 
     $scope.clickNav = function(_id){
         if($scope.selectedDeptId != _id){
