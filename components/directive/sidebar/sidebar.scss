@@ -35,4 +35,47 @@
         height: 100%;
         float:left;
     }
+
+    .user-info{
+        width: 100%;
+        height: px2rem(100px);
+        border-bottom: 1px solid $color-border-default;
+        float: left;
+        .left{
+            width: 40%;
+            height: 100%;
+            float: left;
+            padding-right: px2rem(10px);
+            .circle{
+                width: px2rem(60px);
+                height: px2rem(60px);
+                border-radius: px2rem(30px);
+                border: 1px solid $color-border-default;
+                overflow: hidden;
+                margin-top: px2rem(20px);
+                float:right;
+            }
+        }
+        .right{
+            float: left;
+            width: 60%;
+            color: #222;
+            font-size: px2rem(map_get($map-font-size, m));
+            line-height: px2rem(100px);
+        }
+    }
+    .list{
+        padding-left: px2rem(20px);
+        border-bottom: none;
+        .cell{
+            border-bottom: 1px solid #efefef;
+            .left-box{
+                padding-left: px2rem(10px);
+                padding-right: px2rem(10px);
+                .iconfont{
+                    font-size: px2rem(map_get($map-font-size, m));
+                }
+            }
+        }
+    }
 }
