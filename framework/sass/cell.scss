@@ -51,7 +51,7 @@ $double-cell-height: 70px;
         .middle-box{
             padding: px2rem($double-cell-height/6) px2rem(10px);
         }
-        .middle-box span{
+        .middle-box >span{
             width: 100%;
             display: block;
             line-height: px2rem($double-cell-height/3);
@@ -148,5 +148,10 @@ $double-cell-height: 70px;
         font-size: px2rem(map_get($map-font-size, m));
         color: #666;
         line-height: px2rem($cell-height);
+    }
+    .single-line{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
     }
 }

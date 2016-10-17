@@ -120,6 +120,7 @@
     }
     .all-area-box{
         position: fixed;
+        z-index: 10;
         top: px2rem($header-height);
         left: 0;
         width: 100%;
