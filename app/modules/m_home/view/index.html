@@ -1,62 +1,73 @@
 <div class="home-page" ng-controller="HomeCtrl">
-    <div class="h-top">
-    	<h1>做手术就找名医主刀</h1>
-    	<p>
-    		<input type="" name="" placeholder="搜索疾病、医生或医院" ng-focus="routerGo('layout.search')">
-    	</p>
-    </div>
-    <div class="h-12tubes">
-        <landscape-scroll scroll-id="12tubeScroll" item-num="2">
-            <div>
-                <ul class="h-tube-ul">
-                    <li class="h-t1" ng-click="goHospital('101')">普外科</li>
-                    <li class="h-t2" ng-click="goHospital('102')">骨科</li>
-                    <li class="h-t3" ng-click="goHospital('103')">神经外科</li>
-                    <li class="h-t4" ng-click="goHospital('105')">胸外科</li>
-                    <li class="h-t5" ng-click="goHospital('104')">泌尿外科</li>
-                    <li class="h-t6" ng-click="goHospital('108')">眼科</li>
-                </ul>
-            </div>
-            <div>
-                <ul class="h-tube-ul">
-                    <li class="h-t7" ng-click="goHospital('106')">心血管外科</li>
-                    <li class="h-t8" ng-click="goHospital('109')">耳鼻喉科</li>
-                    <li class="h-t9" ng-click="goHospital('107')">整形外科</li>
-                    <li class="h-t10" ng-click="goHospital('110')">颌面外科</li>
-                    <li class="h-t11" ng-click="goHospital('111')">妇科</li>
-                    <li class="h-t12" ng-click="goHospital('112')">小儿外科</li>
-                </ul>
-            </div>
-        </landscape-scroll>
-    </div>
     <div class="h-ad">
         <landscape-scroll scroll-id="adScroll" item-num="3">
             <div><img ng-click="goDetailUrl('mygy')" src="http://static.mingyizhudao.com/147330339912652"></div>
             <div><img ng-click="goDetailUrl('catherine')" src="http://static.mingyizhudao.com/146606890329840"></div>
-            <div><img ng-click="goDetailUrl('loveOperation')" src="http://static.mingyizhudao.com/147150951177488"></div>
+            <div><img ng-click="goDetailUrl('loveOperation')" src="http://static.mingyizhudao.com/147150951177488">
+            </div>
         </landscape-scroll>
     </div>
-    <div class="h-channel">
-    	<ul>
-    		<li>
-	    		<a class="h-findDoc-a" ng-click="routerGo('layout.doctor')">
-		    		<h5>找名医</h5>
-		    		<span>各地名医推荐</span>
-	    		</a>
-    		</li>
-    		<li>
-    			<a class="h-booking-a" ng-click="routerGo('layout.operation-train')">
-	    			<h5>快速预约</h5>
-	    			<span>省心放心找名医</span>
-    			</a>
-    		</li>
-    		<li>
-	    		<a class="h-service-a" ng-click="goBaidukf()">
-		    		<h5>在线客服</h5>
-		    		<span>咨询了解我们</span>
-	    		</a>
-    		</li>
-    	</ul>
+    <div class="search-box">
+        <div class="left" ng-click="openSidebar()">
+            <i class="iconfont icon-person-desc"></i>
+        </div>
+        <div class="right">
+            <i class="iconfont icon-search"></i>
+            <input type="text" name="" placeholder="搜索疾病、医生或医院" ng-focus="routerGo('layout.search')">
+        </div>
     </div>
-    <div class="h-phone" ng-click="callPhone()">免费</div>
+    <!--<div class="h-12tubes">-->
+        <!--<landscape-scroll scroll-id="12tubeScroll" item-num="2">-->
+            <!--<div>-->
+                <!--<ul class="h-tube-ul">-->
+                    <!--<li class="h-t1" ng-click="goHospital('101')">普外科</li>-->
+                    <!--<li class="h-t2" ng-click="goHospital('102')">骨科</li>-->
+                    <!--<li class="h-t3" ng-click="goHospital('103')">神经外科</li>-->
+                    <!--<li class="h-t4" ng-click="goHospital('105')">胸外科</li>-->
+                    <!--<li class="h-t5" ng-click="goHospital('104')">泌尿外科</li>-->
+                    <!--<li class="h-t6" ng-click="goHospital('108')">眼科</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--<div>-->
+                <!--<ul class="h-tube-ul">-->
+                    <!--<li class="h-t7" ng-click="goHospital('106')">心血管外科</li>-->
+                    <!--<li class="h-t8" ng-click="goHospital('109')">耳鼻喉科</li>-->
+                    <!--<li class="h-t9" ng-click="goHospital('107')">整形外科</li>-->
+                    <!--<li class="h-t10" ng-click="goHospital('110')">颌面外科</li>-->
+                    <!--<li class="h-t11" ng-click="goHospital('111')">妇科</li>-->
+                    <!--<li class="h-t12" ng-click="goHospital('112')">小儿外科</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</landscape-scroll>-->
+    <!--</div>-->
+    <!--<div class="h-ad">-->
+        <!--<landscape-scroll scroll-id="adScroll" item-num="3">-->
+            <!--<div><img ng-click="goDetailUrl('mygy')" src="http://static.mingyizhudao.com/147330339912652"></div>-->
+            <!--<div><img ng-click="goDetailUrl('catherine')" src="http://static.mingyizhudao.com/146606890329840"></div>-->
+            <!--<div><img ng-click="goDetailUrl('loveOperation')" src="http://static.mingyizhudao.com/147150951177488"></div>-->
+        <!--</landscape-scroll>-->
+    <!--</div>-->
+    <!--<div class="h-channel">-->
+    	<!--<ul>-->
+    		<!--<li>-->
+	    		<!--<a class="h-findDoc-a" ng-click="routerGo('layout.doctor')">-->
+		    		<!--<h5>找名医</h5>-->
+		    		<!--<span>各地名医推荐</span>-->
+	    		<!--</a>-->
+    		<!--</li>-->
+    		<!--<li>-->
+    			<!--<a class="h-booking-a" ng-click="routerGo('layout.operation-train')">-->
+	    			<!--<h5>快速预约</h5>-->
+	    			<!--<span>省心放心找名医</span>-->
+    			<!--</a>-->
+    		<!--</li>-->
+    		<!--<li>-->
+	    		<!--<a class="h-service-a" ng-click="goBaidukf()">-->
+		    		<!--<h5>在线客服</h5>-->
+		    		<!--<span>咨询了解我们</span>-->
+	    		<!--</a>-->
+    		<!--</li>-->
+    	<!--</ul>-->
+    <!--</div>-->
+    <!--<div class="h-phone" ng-click="callPhone()">免费</div>-->
 </div>
