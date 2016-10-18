@@ -4,8 +4,9 @@ app.controller('OrderDetailCtrl',['$scope','$rootScope','$state','$stateParams',
     }
     var cancelOrder = function(){
         console.log('cancel order',_paramsObj);
-        dialog.confirm('确认取消此次订单？',{
-            title: '友情提示',
+        dialog.confirm('确认取消当前订单？',{
+            okText: '确认取消',
+            cancelText: '关闭弹框',
             closeCallback: function(value){
                 if(value == 0){
                 }
@@ -37,7 +38,7 @@ app.controller('OrderDetailCtrl',['$scope','$rootScope','$state','$stateParams',
         var spinner = dialog.showSpinner();
         OrderService.getOrderDetail(_params).then(
             function(res){
-                if (res.results.bkStatus!=6) {
+                if (res.results.bkStatus!=5) {
                     window.headerConfig={
                         enableHeader: true,
                         enableBack: true,
@@ -71,6 +72,7 @@ app.controller('OrderDetailCtrl',['$scope','$rootScope','$state','$stateParams',
                 $scope.patientNum = res.results.mobile;
                 $scope.mobile = res.results.mobile;
                 $scope.orderStatusNum = res.results.bkStatus;
+                $scope.orderCancelTime= res.results.dateUpdate;
                 var orderStatus = CMSDataConfig.orderStatus;
                 for(var i = 0; i<orderStatus.length; i++){
                     if(orderStatus[i].type == res.results.bkStatus){

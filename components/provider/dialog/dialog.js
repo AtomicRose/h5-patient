@@ -17,19 +17,19 @@ app.factory('dialog', ['ngDialog', function (ngDialog) {
         confirm: function (html, opts) {
             var okButtonText = (opts) ? opts.okText || '确定' : '确定';
             var cancelButtonText = (opts) ? opts.cancelText || '取消' : '取消';
-            var titleText = (opts) ? opts.title || '温馨提示' : '温馨提示';
+            var titleText = (opts) ? opts.title || '温馨提示' : '';
             var options = {
                 overlay: true,
                 contentHtml: '<div class="dialog-body">\
-                        <div class="title">' + titleText + '</div>\
-                        <div class="contentHtml">' + html + '</div>\
+                        <div ng-if="titleText!=null" class="title">' + titleText + '</div>\
+                        <div ng-class="{\'no-title\':titleText==null}" class="contentHtml">' + html + '</div>\
                         <div class="confirmButton">\
                             <div class="btn-group-level border-top">\
                                 <div class="btn-left">\
-                                    <button type="button" class="btn btn-lg border-right" ng-click="closeByCancelButton(\'REPLACEDIALOGID\')">' + cancelButtonText + '</button>\
+                                    <button type="button" class="btn btn-lg" ng-click="closeByOkButton(\'REPLACEDIALOGID\')">' + okButtonText + '</button>\
                                 </div>\
                                 <div class="btn-right">\
-                                    <button type="button" class="btn btn-lg" ng-click="closeByOkButton(\'REPLACEDIALOGID\')">' + okButtonText + '</button>\
+                                    <button type="button" class="btn btn-lg border-right" ng-click="closeByCancelButton(\'REPLACEDIALOGID\')">' + cancelButtonText + '</button>\
                                 </div>\
                             </div>\
                         </div>\

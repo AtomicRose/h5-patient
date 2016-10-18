@@ -63,7 +63,7 @@
 		color: #999;
 	}
 	.order-detail-group{
-        padding: 0 px2rem(10px) px2rem(70px) px2rem(10px);
+        padding: px2rem(10px) px2rem(10px) px2rem(70px) px2rem(10px);
 	}
 	.order-detail-highlight{
 		color:#f07415;
@@ -84,6 +84,15 @@
 			flex: 1;
 
 		}
+	}
+	.s-label{
+		color: #666;
+	}
+	.mulit-line{
+	    line-height: px2rem(20px);
+	    word-break: break-word;
+	    display: inline-block;
+	    padding: px2rem(10px) 0;
 	}
 	.order-bottom-cell{
 		padding-top: px2rem(10px);

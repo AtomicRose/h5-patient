@@ -18,6 +18,10 @@ app.factory('CMSDataConfig', ['StorageConfig', '$state', function (StorageConfig
             text : '待评价'
         },
         {
+            type : 8,
+            text : '已完成'
+        },
+        {
             type : 9,
             text : '已取消'
         }
