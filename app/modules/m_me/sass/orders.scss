@@ -11,8 +11,9 @@
 			>div{
 				background: #fff;
 				border-radius: px2rem(5px);
-				padding: 0 px2rem(10px) px2rem(10px) px2rem(10px);
+				padding: px2rem(10px);
 				>p{
+					color:#666;
 					line-height: px2rem(25px);
 				}
 			}
@@ -25,7 +26,6 @@
 			content:'';
 			clear: both;
 		}
-		color:#666;
 		border-bottom: 1px solid #ddd;
 		line-height: px2rem(30px);
 		padding: px2rem(5px) 0;
@@ -39,6 +39,12 @@
 	    float: right;
 	    border-color: #ffc591;
 	    color: #fd5f19;
+
+	    height: auto;
+	    padding: px2rem(2px) px2rem(5px);
+	    line-height: initial;
+	    // font-size: px2rem(map_get($map-font-size, s));
+	    margin-top: px2rem(5px);
 	}
 	.o-aid-cancel{
 		width: auto;
@@ -57,18 +63,75 @@
 		color: #999;
 	}
 	.order-detail-group{
-        padding-bottom: px2rem(70px);
+        padding: 0 px2rem(10px) px2rem(70px) px2rem(10px);
 	}
 	.order-detail-highlight{
 		color:#f07415;
 	}
 	.order-detail-link{
-		span{
-		    background: url('http://static.mingyizhudao.com/146614911146025') no-repeat;
-		    background-size: px2rem(14px) px2rem(16px);
-		    padding-left: px2rem(20px);
-		    color: #666;
+	}
+	.btn-dock{
+		display: flex;
+		background: #fff;
+		align-items: center;
+		padding: 0px;
+		.order-account{
+			width: 60%;
+			text-align: center;
+			font-size: px2rem(map_get($map-font-size, m));
 		}
-		text-align: center;
+		.btn{
+			flex: 1;
+
+		}
+	}
+	.order-bottom-cell{
+		padding-top: px2rem(10px);
+		padding-bottom: px2rem(10px);
+		p{
+			line-height: px2rem(25px);
+			color: #666;
+		}
+	}
+	.order-status{
+		$c-wh: 15px;
+		$l-h: 2px;
+		display: flex;
+    	align-items: center;
+    	padding: px2rem(10px) px2rem(30px) px2rem(30px) px2rem(30px);
+		i{
+			width: px2rem($c-wh);
+			height: px2rem($c-wh);
+    		border-radius: $c-wh/2;
+    		&.now{
+    			color: $color-light;
+    			background: $color-light;
+    		}
+    		&.future{
+    			color: #888;
+    			background: #ddd;
+    		}
+    		span{
+    			$span-w: 80px;
+			    position: relative;
+			    width: px2rem($span-w);
+			    display: block;
+			    left: px2rem($span-w/-2 + $c-wh/2);
+			    text-align: center;
+			    top: px2rem(20px);
+    			font-style: initial;
+    		}
+		}
+		line{
+			height: px2rem($l-h);
+			display: inline-block;
+			flex: 1;
+    		&.now{
+    			background: $color-light;
+    		}
+    		&.future{
+    			background: #ddd;
+    		}
+		}
 	}
 }

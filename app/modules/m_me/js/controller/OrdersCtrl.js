@@ -2,22 +2,23 @@ app.controller('OrdersCtrl',['$scope','$rootScope','$state','$stateParams','User
     window.headerConfig={
         enableHeader: true,
         enableBack: true,
-        title: '全部'
+        enableRefresh: false,
+        title: '全部预约单'
     };
-    var orderStatus = CMSDataConfig.orderStatus;
-    var orderType = $stateParams.orderType;
-    for(var i = 0; i<orderStatus.length; i++){
-        if(orderStatus[i].type == orderType){
-            window.headerConfig.title = orderStatus[i].text;
-        }
-    }
+    // var orderStatus = CMSDataConfig.orderStatus;
+    // var orderType = $stateParams.orderType;
+    // for(var i = 0; i<orderStatus.length; i++){
+    //     if(orderStatus[i].type == orderType){
+    //         window.headerConfig.title = orderStatus[i].text;
+    //     }
+    // }
     $rootScope.$broadcast('setHeaderConfig', window.headerConfig);
 
-    getOrderList(orderType)
-    function getOrderList(orderType){
+    getOrderList()
+    function getOrderList(){
         var spinner = dialog.showSpinner();
         var opt = {
-            bk_status:orderType
+            bk_status:0
         }
         UserService.getOrderList(opt).then(
             function(res){

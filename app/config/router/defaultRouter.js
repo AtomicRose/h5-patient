@@ -104,7 +104,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             templateUrl: 'app/modules/m_doctor/view/doctor-detail.html'
         })
         .state('layout.orders', {
-            url: '/me/orders/:orderType',
+            url: '/me/orders',
             templateUrl: 'app/modules/m_me/view/orders.html'
         })
         .state('layout.order', {

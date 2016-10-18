@@ -27,7 +27,7 @@ app.factory('CMSDataConfig', ['StorageConfig', '$state', function (StorageConfig
         {
             text: '我的预约单',
             class: 'icon-edit',
-            route: 'layout.order'
+            route: 'layout.orders'
         },
         {
             text: '历史浏览',

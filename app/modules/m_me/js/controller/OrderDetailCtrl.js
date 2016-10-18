@@ -37,11 +37,11 @@ app.controller('OrderDetailCtrl',['$scope','$rootScope','$state','$stateParams',
         var spinner = dialog.showSpinner();
         OrderService.getOrderDetail(_params).then(
             function(res){
-                if (res.results.bkStatus==1) {
+                if (res.results.bkStatus!=6) {
                     window.headerConfig={
                         enableHeader: true,
                         enableBack: true,
-                        title: '预约单详情',
+                        title: '订单详情',
                         enableRefresh: false,
                         otherRightOperate: {
                             enable: true,
@@ -53,8 +53,8 @@ app.controller('OrderDetailCtrl',['$scope','$rootScope','$state','$stateParams',
                     window.headerConfig={
                         enableHeader: true,
                         enableBack: true,
-                        title: '预约单详情',
-                        enableRefresh: true
+                        title: '订单详情',
+                        enableRefresh: false
                     };
                 }
                 $rootScope.$broadcast('setHeaderConfig', window.headerConfig);
@@ -68,6 +68,7 @@ app.controller('OrderDetailCtrl',['$scope','$rootScope','$state','$stateParams',
                 $scope.orderAmount = res.results.depositTotalAmount;
                 $scope.orderFiles = res.results.files;
                 $scope.patientName = res.results.patientName;
+                $scope.patientNum = res.results.mobile;
                 $scope.mobile = res.results.mobile;
                 $scope.orderStatusNum = res.results.bkStatus;
                 var orderStatus = CMSDataConfig.orderStatus;
