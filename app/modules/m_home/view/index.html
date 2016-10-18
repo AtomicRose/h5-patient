@@ -1,5 +1,5 @@
 <div class="home-page" ng-controller="HomeCtrl">
-    <div class="h-ad">
+    <div class="h-ad" id="h-ad">
         <landscape-scroll scroll-id="adScroll" item-num="3">
             <div><img ng-click="goDetailUrl('mygy')" src="http://static.mingyizhudao.com/147330339912652"></div>
             <div><img ng-click="goDetailUrl('catherine')" src="http://static.mingyizhudao.com/146606890329840"></div>
@@ -14,6 +14,58 @@
         <div class="right">
             <i class="iconfont icon-search"></i>
             <input type="text" name="" placeholder="搜索疾病、医生或医院" ng-focus="routerGo('layout.search')">
+        </div>
+    </div>
+    <div class="nav">
+        <div class="cell-group border-none">
+            <div class="cell height-auto">
+                <div class="left-box">
+                    <img src="app/images/icon/icon-doctor.png" alt="">
+                </div>
+                <div class="middle-box">
+                    <p class="label">按疾病找名医</p>
+                    <p class="content">明确疾病 精准寻医</p>
+                </div>
+                <div class="right-box">
+                    <i class="iconfont arrow-right"></i>
+                </div>
+            </div>
+            <div class="cell height-auto">
+                <div class="left-box">
+                    <img src="app/images/icon/icon-hospital.png" alt="">
+                </div>
+                <div class="middle-box">
+                    <p class="label">按医院找名医</p>
+                    <p class="content">最强医院 权威推荐</p>
+                </div>
+                <div class="right-box">
+                    <i class="iconfont arrow-right"></i>
+                </div>
+            </div>
+            <div class="cell height-auto">
+                <div class="left-box">
+                    <img src="app/images/icon/icon-talk.png" alt="">
+                </div>
+                <div class="middle-box">
+                    <p class="label">在线咨询</p>
+                    <p class="content">分诊团队 专业答疑</p>
+                </div>
+                <div class="right-box">
+                    <i class="iconfont arrow-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ad-box">
+        <div class="wrapper" id="scrollAd">
+            <div class="scroll" id="scrollAd_content">
+                <ul>
+                    <li class="item" ng-repeat="ad in adList">
+                        <img src="{{ad.imgUrl}}" alt="ad.tagName">
+                        <div class="tag" ng-class="{'active':$index == adIndex}" ng-bind="ad.tagName"></div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <!--<div class="h-12tubes">-->

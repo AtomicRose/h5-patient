@@ -1,7 +1,6 @@
 .home-page{
 	background: #fff;
 	.h-ad{
-		height: px2rem(200px);
 		width: 100%;
 		img{
 			width: 100%;
@@ -103,207 +102,104 @@
             }
         }
     }
-	//li{ list-style-type: none}
-	//.h-phone{
-	//	$h-phone-wh:60px;
-	//	width: px2rem($h-phone-wh);
-	//	height: px2rem($h-phone-wh);
-	//	background: url('http://static.mingyizhudao.com/146710564184583') no-repeat;
-	//    background-size: contain;
-	//    color: #fff;
-	//    position: absolute;
-	//    right: 0px;
-	//    top: 50%;
-	//    padding: px2rem(32px) 0 0 0;
-	//    text-align: center;
-	//    z-index: 10;
-	//}
-	//.h-top{
-	//	height: px2rem(196px);
-	//	background: url('http://static.mingyizhudao.com/146243634396635') no-repeat;
-	//	background-size: cover;
-	//	text-align: center;
-	//	padding-top: px2rem(110px);
-	//	h1{
-	//		color: #fff;
-	//	}
-	//	p{
-	//		padding: px2rem(5px);
-	//		input{
-	//			font-size: px2rem(map_get($map-font-size, m));
-	//			$lr-padding: 25px;
-	//			background:#fff url('http://static.mingyizhudao.com/146243645256928') no-repeat 5px 50%;
-	//			background-size: px2rem(15px);
-	//			width: 100%;
-	//			height: px2rem(35px);
-	//			padding: px2rem(5px) px2rem($lr-padding) px2rem(5px) px2rem($lr-padding);
-	//			border: none;
-	//		}
-	//	}
-	//}
-	//.h-12tubes{
-	//	$tubes-height: 60px;
-	//	$tubes-padding: 5px;
-	//	width: 100%;
-	//	height: px2rem($tubes-height*2+$tubes-padding*4);
-	//	landscape-scroll>div{
-	//		overflow-x: hidden;
-	//		overflow-y: visible;
-	//	}
-	//	.landscapeScroll-pagination-bar{
-	//	    top: 90%;
-	//	    justify-content: center;
-	//		span{
-	//			width: px2rem(40px);
-	//		    height: px2rem(3px);
-	//		    border-radius: none;
-	//		    margin-left: px2rem(5px);
-	//		    transition: background 0.5s ease-out;
-	//		    &.land-pag-cur{
-	//		    	background: #17d7c2;
-	//		    }
-	//		    &.land-pag-other{
-	//		    	background: #dcdcdd;
-	//		    }
-	//		}
-	//	}
-	//	.h-tube-ul{
-	//		padding: px2rem($tubes-padding*2) 0 px2rem($tubes-padding) px2rem($tubes-padding);
-	//		&:after{
-	//			display:block;
-	//			content:'';
-	//			clear: both;
-	//		}
-	//		li{
-	//			width: 33%;
-	//			height: px2rem($tubes-height);
-	//			float: left;
-	//			color: #fff;
-	//			padding: px2rem($tubes-padding);
-	//		    border-right: $tubes-padding solid #fff;
-	//		    border-bottom: $tubes-padding solid #fff;
-	//			&:after{
-	//				content: '';
-	//				display: block;
-	//				width: px2rem(36px);
-	//				height: px2rem(36px);
-	//				float: right;
-	//			}
-	//			&.h-t1{background: #84d5f0;}
-	//			&.h-t1:after{
-	//				background: url('http://static.mingyizhudao.com/147219201837545') no-repeat;
-	//				background-position: -96px 0;
-    	//			background-size: 200px 70px;
-	//			}
-	//			&.h-t2{background: #ffc24b;}
-	//			&.h-t2:after{
-	//				background: url('http://static.mingyizhudao.com/147219201837545') no-repeat;
-	//			    background-position: -128px 0;
-	//			    background-size: 200px 70px;
-	//			}
-	//			&.h-t3{background: #f1866e;}
-	//			&.h-t3:after{
-	//				background: url('http://static.mingyizhudao.com/147219201837545') no-repeat;
-	//			    background-position: -63px 0;
-	//			    background-size: 200px 70px;
-	//			}
-	//			&.h-t4{background: #84bef0;}
-	//			&.h-t4:after{
-	//				background: url('http://static.mingyizhudao.com/147219201837545') no-repeat;
-	//			    background-position: -159px -35px;
-	//			    background-size: 200px 70px;
-	//			}
-	//			&.h-t5{background: #65d2d5;}
-	//			&.h-t5:after{
-	//				background: url('http://static.mingyizhudao.com/147219201837545') no-repeat;
-	//			    background-position: -131px -35px;
-	//			    background-size: 200px 70px;
-	//			}
-	//			&.h-t6{background: #639deb;}
-	//			&.h-t6:after{
-	//				background: url('http://static.mingyizhudao.com/147219201837545') no-repeat;
-	//			    background-position: 0 5px;
-	//			    background-size: 200px 70px;
-	//			}
-	//			&.h-t7{background: #fbd330;}
-	//			&.h-t7:after{
-	//				background: url('http://static.mingyizhudao.com/147219201837545') no-repeat;
-	//			    background-position: -30px -35px;
-	//			    background-size: 200px 70px;
-	//			}
-	//			&.h-t8{background: #6dd2d5;}
-	//			&.h-t8:after{
-	//				background: url('http://static.mingyizhudao.com/147219201837545') no-repeat;
-	//			    background-position: -33px 0;
-	//			    background-size: 200px 70px;
-	//			}
-	//			&.h-t9{background: #fc7fc1;}
-	//			&.h-t9:after{
-	//			    background: url('http://static.mingyizhudao.com/147219201837545') no-repeat;
-	//			    background-position: 8px -37px;
-	//			    background-size: 200px 70px;
-	//			}
-	//			&.h-t10{background: #5cc6ee;}
-	//			&.h-t10:after{
-	//			    background: url('http://static.mingyizhudao.com/147219201837545') no-repeat;
-	//			    background-position: -62px -35px;
-	//			    background-size: 200px 70px;
-	//			}
-	//			&.h-t11{background: #f5856e;}
-	//			&.h-t11:after{
-	//			    background: url('http://static.mingyizhudao.com/147219201837545') no-repeat;
-	//			    background-position: -159px 0;
-	//			    background-size: 200px 70px;
-	//			}
-	//			&.h-t12{background: #fa965a;}
-	//			&.h-t12:after{
-	//				background: url('http://static.mingyizhudao.com/147219201837545') no-repeat;
-	//				background-position: -96px 0;
-    	//			background-size: 200px 70px;
-	//			}
-	//		}
-	//	}
-	//}
-	//.h-ad{
-	//	height: px2rem(120px);
-	//	width: 100%;
-	//	img{
-	//		width: 100%;
-	//	}
-	//}
-	//.h-channel{
-	//	padding: px2rem(5px);
-	//	ul{
-	//		display: flex;
-	//	}
-	//	ul li{
-	//		font-size: px2rem(map_get($map-font-size, m));
-	//		text-align: center;
-	//		flex: 1;
-	//		a{
-	//			display: block;
-    	//		padding-top: px2rem(70px);
-	//			&.h-findDoc-a{
-	//				background: url('http://static.mingyizhudao.com/146243692944770') no-repeat 50% 0%;
-	//				background-size: px2rem(60px) px2rem(60px);
-	//			}
-	//			&.h-booking-a{
-	//				background: url('http://static.mingyizhudao.com/146295571287578') no-repeat 50% 0%;
-	//				background-size: px2rem(60px) px2rem(60px);
-	//			}
-	//			&.h-service-a{
-	//				background: url('http://static.mingyizhudao.com/146243699018730') no-repeat 50% 0%;
-	//				background-size: px2rem(60px) px2rem(60px);
-	//			}
-    	//	}
-	//		h5{
-	//			color: #222;
-	//		}
-	//		span{
-	//			font-size: px2rem(map_get($map-font-size, s));
-	//			color: #999;
-	//		}
-	//	}
-	//}
+    .nav{
+        .cell{
+            height: px2rem(100px);
+            border-bottom:1px solid #e6e6e6;
+        }
+        .left-box{
+            padding-left: px2rem(10px);
+            img{
+                width: px2rem(60px);
+                height: px2rem(60px);
+                margin-top: px2rem(20px);
+            }
+        }
+        .middle-box{
+            .label,
+            .content{
+                line-height: px2rem(30px);
+            }
+            .label{
+                font-size:px2rem(map_get($map-font-size, l));
+                color: #222;
+                margin-top: px2rem(18px);
+                font-weight: bold;
+            }
+        }
+        .right-box{
+            .arrow-right{
+                font-size:px2rem(30px);
+            }
+        }
+    }
+    .ad-box{
+        width: 100%;
+        height: px2rem(140px);
+        .wrapper{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            .scroll{
+                position: absolute;
+                height: 100%;
+                -webkit-transform: translateZ(0);
+                -moz-transform: translateZ(0);
+                -ms-transform: translateZ(0);
+                -o-transform: translateZ(0);
+                transform: translateZ(0);
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                -webkit-text-size-adjust: none;
+                -moz-text-size-adjust: none;
+                -ms-text-size-adjust: none;
+                -o-text-size-adjust: none;
+                text-size-adjust: none;
+            }
+            ul{
+                height: 100%;
+                width: 100%;
+                list-style: none;
+            }
+            .item{
+                display: block;
+                width: px2rem(240px);
+                height: 100%;
+                float: left;
+                position: relative;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    padding-right: px2rem(10px);
+                }
+                &:last-child{
+                    img{
+                        padding-right: 0;
+                    }
+                }
+            }
 
+        }
+        .tag{
+            font-size: px2rem(map_get($map-font-size, s));
+            background: #fff;
+            color: $color-primary;
+            border-radius: 0 px2rem(15px) px2rem(15px) 0;
+            padding: px2rem(5px);
+            position: absolute;
+            top: px2rem(10px);
+            left: 0;
+            &.active{
+                background: $color-primary;
+                color: #fff;
+            }
+        }
+    }
 }
