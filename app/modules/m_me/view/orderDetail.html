@@ -1,97 +1,81 @@
 <div ng-controller="OrderDetailCtrl" class="order-detail-page">
     <div class="order-detail-group">
-        <div class="cell-group">
+        <div ng-if="orderStatusNum == 9" class="cell-group border-none">
             <div class="cell">
                 <div class="left-box">
-                    <span class="label">当前状态</span>
+                    <span class="label">当前订单已取消</span>
                 </div>
                 <div class="middle-box text-right">
-                    <span class="content" ng-bind="orderStatus" ng-class="{'order-detail-highlight': orderStatusNum==1}"></span>
+                    <span class="s-content">
+                        取消时间:
+                        <span ng-bind="orderCancelTime"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div ng-if="orderStatusNum != 9" class="order-status">
+            <i class="now"><span>支付预约金</span></i>
+            <line ng-class="{'now':orderStatusNum>1,'future':orderStatusNum<2}"></line>
+            <i ng-class="{'now':orderStatusNum>1,'future':orderStatusNum<2}"><span>安排中</span></i>
+            <line ng-class="{'now':orderStatusNum>4,'future':orderStatusNum<5}"></line>
+            <i ng-class="{'now':orderStatusNum>4,'future':orderStatusNum<5}"><span>支付咨询费</span></i>
+            <line ng-class="{'now':orderStatusNum>5,'future':orderStatusNum<6}"></line>
+            <i ng-class="{'now':orderStatusNum>5,'future':orderStatusNum<6}"><span>待评价</span></i>
+        </div>
+
+        <div class="cell-group border-none">
+            <div class="cell">
+                <p class="label">就诊信息</p>
+            </div>
+            <div class="cell">
+                <div class="left-box">
+                    <span class="s-label">预约医生</span>
+                </div>
+                <div class="middle-box">
+                    <span class="s-content">
+                        <span ng-bind="orderDtName||'未填写'"></span>
+                        (<span ng-bind="orderDeptName||'未填写'"></span>)
+                        </span>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="left-box">
+                    <span class="s-label">所在医院</span>
+                </div>
+                <div class="middle-box">
+                    <span class="s-content" ng-bind="orderHpName||'未填写'"></span>
+                </div>
+            </div>
+        </div>
+        <div class="cell-group border-none">
+            <div class="cell">
+                <p class="label">患者信息</p>
+            </div>
+            <div class="cell">
+                <div class="left-box">
+                    <span class="s-label">患者姓名</span>
+                </div>
+                <div class="middle-box">
+                    <span class="s-content">
+                        <span ng-bind="patientName"></span>
+                        (<span ng-bind="patientNum"></span>)
+                    </span>
+                </div>
+            </div>
+            <div class="cell height-auto">
+                <div class="left-box">
+                    <span class="s-label">疾病信息</span>
+                </div>
+                <div class="middle-box">
+                    <span class="s-content mulit-line" ng-bind="orderDetail"></span>
                 </div>
             </div>
         </div>
         <div class="cell-group">
             <div class="cell">
-                <div class="left-box">
-                    <span class="label">患者姓名</span>
-                </div>
-                <div class="middle-box text-right">
-                    <span class="content" ng-bind="patientName"></span>
-                </div>
+                <p class="label">影像资料</p>
             </div>
-            <div class="cell">
-                <div class="left-box">
-                    <span class="label">联系方式</span>
-                </div>
-                <div class="middle-box text-right">
-                    <span class="content" ng-bind="mobile"></span>
-                </div>
-            </div>
-        </div>
-        <div class="cell-group">
-            <div class="cell">
-                <div class="left-box">
-                    <span class="label">就诊专家</span>
-                </div>
-                <div class="middle-box text-right">
-                    <span class="content" ng-bind="orderDtName||'未填写'"></span>
-                </div>
-            </div>
-            <div class="cell">
-                <div class="left-box">
-                    <span class="label">就诊医院</span>
-                </div>
-                <div class="middle-box text-right">
-                    <span class="content" ng-bind="orderHpName||'未填写'"></span>
-                </div>
-            </div>
-            <div class="cell">
-                <div class="left-box">
-                    <span class="label">就诊科室</span>
-                </div>
-                <div class="middle-box text-right">
-                    <span class="content" ng-bind="orderDeptName||'未填写'"></span>
-                </div>
-            </div>
-            <div class="cell">
-                <div class="left-box">
-                    <span class="label">疾病名称</span>
-                </div>
-                <div class="middle-box text-right">
-                    <span class="content" ng-bind="orderDeseName"></span>
-                </div>
-            </div>
-            <div class="cell">
-                <div class="left-box">
-                    <span class="label">疾病描述</span>
-                </div>
-                <div class="middle-box text-right">
-                    <span class="content" ng-bind="orderDetail"></span>
-                </div>
-            </div>
-        </div>
-        <div class="cell-group">
-            <div class="cell">
-                <div class="left-box">
-                    <span class="label">订单编号</span>
-                </div>
-                <div class="middle-box text-right">
-                    <span class="content" ng-bind="orderNum"></span>
-                </div>
-            </div>
-            <div class="cell">
-                <div class="left-box">
-                    <span class="label" ng-if="orderStatusNum!=1">已支付手术预约金</span>
-                    <span class="label" ng-if="orderStatusNum==1">支付手术预约金</span>
-                </div>
-                <div class="middle-box text-right">
-                    <span class="content" ng-class="{'order-detail-highlight': orderStatusNum==1}"><span ng-bind="orderAmount"></span>元</span>
-                </div>
-            </div>
-        </div>
-        <div class="cell-group">
             <div class="img-cell">
-                <div class="label-box">影像资料</div>
                 <p class="order-detail-tips" ng-if="!orderFiles.lenght">(暂无)</p>
                 <div class="img-box" ng-if="orderFiles.lenght">
                     <div ng-repeat="img in orderFiles">
@@ -100,9 +84,29 @@
                 </div>
             </div>
         </div>
-        <!-- <p class="order-detail-link" ng-click=""><span>查看订单详情</span></p> -->
+
+        <div class="cell-group border-none order-bottom-cell">
+            <p class="order-detail-link" ng-click="">
+                订单编号：<span ng-bind="orderNum"></span>
+            </p>
+            <p ng-if="orderStatusNum > 1" class="order-detail-link" ng-click="">
+                已付手术预约金：
+                <span>1000元</span>
+                <span>2016-02-20</span>
+                <span>23:23:23</span>
+            </p>
+            <p ng-if="orderStatusNum == 8" class="order-detail-link" ng-click="">
+                已付平台咨询费：
+                <span>100元</span>
+                <span>2016-02-20</span>
+                <span>23:23:23</span>
+            </p>
+        </div>
     </div>
     <div class="btn-dock fixed">
-        <button  ng-if="orderStatusNum==1" class="btn btn-warning" ng-click="pay()">支付订单</button>
+        <div class="order-account">
+            <span>200</span>元
+        </div>
+        <button ng-if="orderStatusNum==1" class="btn btn-light no-border-radius" ng-click="pay()">支付</button>
     </div>
 </div>

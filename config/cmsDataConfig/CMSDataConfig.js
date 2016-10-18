@@ -18,6 +18,10 @@ app.factory('CMSDataConfig', ['StorageConfig', '$state', function (StorageConfig
             text : '待评价'
         },
         {
+            type : 8,
+            text : '已完成'
+        },
+        {
             type : 9,
             text : '已取消'
         }
@@ -27,7 +31,7 @@ app.factory('CMSDataConfig', ['StorageConfig', '$state', function (StorageConfig
         {
             text: '我的预约单',
             class: 'icon-edit',
-            route: 'layout.order'
+            route: 'layout.orders'
         },
         {
             text: '历史浏览',

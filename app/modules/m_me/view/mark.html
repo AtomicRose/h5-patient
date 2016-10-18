@@ -1,0 +1,68 @@
+<div ng-controller="MarkCtrl" class="mark-page">
+    <div class="mark-detail-group">
+        <p ng-if="!isMarked" class="mark-tips">感谢您选择名医主刀！期待您对我们做出评价！</p>
+        <p ng-if="isMarked" class="mark-tips">感谢您选择名医主刀！祝您早日康复！</p>
+        <div class="doc-description">
+            <img src="http://dr.static.mingyizhudao.com/25B5C5A2C885B62AE8ED01901FF6F552">
+            <div>
+                <p>
+                    <span class="dt-name">徐键盘</span>
+                    <span>教授</span>
+                    <span>主任医师</span>
+                </p>
+                <p>
+                    <span>心血管外科</span>
+                </p>
+                <p>
+                    <span>北京协和医院</span>
+                </p>
+            </div>
+        </div>
+        <div class="mark-box">
+            <ul class="mark" ng-if="!isMarked">
+                <li>
+                    <span>医生态度：</span>
+                    <a ng-click="oneSelected = 0" ng-class="{'selected':oneSelected == 0,'select':oneSelected != 0}">满意</a>
+                    <a ng-click="oneSelected = 1" ng-class="{'selected':oneSelected == 1,'select':oneSelected != 1}">一般</a>
+                    <a ng-click="oneSelected = 2" ng-class="{'selected':oneSelected == 2,'select':oneSelected != 2}">不满意</a>
+                </li>
+                <li>
+                    <span>服务效率：</span>
+                    <a ng-click="twoSelected = 0" ng-class="{'selected':twoSelected == 0,'select':twoSelected != 0}">满意</a>
+                    <a ng-click="twoSelected = 1" ng-class="{'selected':twoSelected == 1,'select':twoSelected != 1}">一般</a>
+                    <a ng-click="twoSelected = 2" ng-class="{'selected':twoSelected == 2,'select':twoSelected != 2}">不满意</a>
+                </li>
+                <li>
+                    <span>平台服务：</span>
+                    <a ng-click="thrSelected = 0" ng-class="{'selected':thrSelected == 0,'select':thrSelected != 0}">满意</a>
+                    <a ng-click="thrSelected = 1" ng-class="{'selected':thrSelected == 1,'select':thrSelected != 1}">一般</a>
+                    <a ng-click="thrSelected = 2" ng-class="{'selected':thrSelected == 2,'select':thrSelected != 2}">不满意</a>
+                </li>
+            </ul>
+            <ul class="marked" ng-if="isMarked">
+                <li>
+                    <p>医生态度</p>
+                    <i></i>
+                </li>
+                <li>
+                    <p>服务效率</p>
+                    <i></i>
+                </li>
+                <li>
+                    <p>平台服务</p>
+                    <i></i>
+                </li>
+            </ul>
+        </div>
+        <div class="mark-text">
+            <textarea  ng-if="!isMarked" placeholder="欢迎您将感想、建议或者意见告诉我们，我们会不断进步，让更多需要手术的朋友好看病，看好病！"></textarea>
+            <p ng-if="isMarked">
+                治疗方式：近视矫正手术
+6.12白继教授亲自操刀手术，教授非常认真负责，术中耐心提示眼睛不能闭，现在眼睛恢...
+            </p>
+        </div>
+    </div>
+    <div ng-if="!isMarked" class="btn-dock fixed">
+        <button class="btn btn-light">提交</button>
+    </div>
+</div>

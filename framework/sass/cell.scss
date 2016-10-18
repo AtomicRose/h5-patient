@@ -135,6 +135,11 @@ $double-cell-height: 70px;
         color: #000;
         line-height: px2rem($cell-height);
     }
+    .s-label{
+        font-size: px2rem(map_get($map-font-size, s));
+        color: #000;
+        line-height: px2rem($cell-height);
+    }
     .label-box{
         font-size: px2rem(map_get($map-font-size, m));
         color: #000;
@@ -146,6 +151,11 @@ $double-cell-height: 70px;
     }
     .content{
         font-size: px2rem(map_get($map-font-size, m));
+        color: #666;
+        line-height: px2rem($cell-height);
+    }
+    .s-content{
+        font-size: px2rem(map_get($map-font-size, s));
         color: #666;
         line-height: px2rem($cell-height);
     }
