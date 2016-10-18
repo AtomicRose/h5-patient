@@ -54,7 +54,8 @@ var appPaths = {
         'app/modules/**/*.js'
     ],
     modulesJsPath: ['app/**/*.js'],
-    sassPath: ['app/modules/*.scss']
+    sassPath: ['app/modules/*.scss'],
+    imagePath: ['app/images/**/*']
 };
 
 var viewPath = [
@@ -96,7 +97,7 @@ gulp.task('framework-sass-debug', function () {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/framework/'));
 });
-gulp.task('font-icon', function(){
+gulp.task('font-icon', function () {
     return gulp.src(frameworkPaths.fontPath)
         .pipe(gulp.dest('dist/framework/fontIcon/'));
 });
@@ -221,6 +222,14 @@ gulp.task('app-sass-debug', function () {
 });
 
 /**
+ * 构建images
+ */
+gulp.task('app-images', function () {
+    return gulp.src(appPaths.imagePath)
+        .pipe(gulp.dest('dist/app/images/'));
+});
+
+/**
  * 构建html
  */
 gulp.task('html', function () {
@@ -250,9 +259,9 @@ gulp.task('doc-sass', function () {
 /**
  * 所有资源编译
  */
-gulp.task('sourceBuild', ['font-icon','framework-sass', 'framework-js', 'app-js', 'app-sass', 'components-provider', 'components-js', 'components-sass', 'html'], function () {
+gulp.task('sourceBuild', ['font-icon', 'framework-sass', 'framework-js', 'app-js', 'app-sass', 'app-images', 'components-provider', 'components-js', 'components-sass', 'html'], function () {
 });
-gulp.task('sourceBuild-debug', ['font-icon','framework-sass-debug', 'framework-js-debug', 'app-js-debug', 'app-sass-debug', 'components-provider-debug', 'components-js-debug', 'components-sass-debug', 'html', 'doc-html', 'doc-js', 'doc-sass'], function () {
+gulp.task('sourceBuild-debug', ['font-icon', 'framework-sass-debug', 'framework-js-debug', 'app-js-debug', 'app-sass-debug', 'app-images', 'components-provider-debug', 'components-js-debug', 'components-sass-debug', 'html', 'doc-html', 'doc-js', 'doc-sass'], function () {
 });
 gulp.task('build', ['clean'], function () {
     return gulp.start('sourceBuild');
