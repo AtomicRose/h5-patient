@@ -54,6 +54,11 @@ app.controller('HomeCtrl', ['$scope', '$rootScope', '$state', 'SearchStorage', '
         $state.go(route);
     };
 
+    $scope.goAdvisory = function(){
+        //TODO judge the advisory state. If current user have started an advisory, we redirect to the advisory page, else redirect to the information edit page.
+        $state.go('layout.advisory-before');
+    };
+
     $scope.adList = [
         {
             tagName: '名医公益行',

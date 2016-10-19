@@ -121,3 +121,52 @@ input[type="email"]{
         margin-left: px2rem(18px);
     }
 }
+.radio,
+.radio-inline{
+    height: px2rem($input-height);
+    position: relative;
+    input[type="radio"]{
+        position: absolute;
+        top: px2rem(5px);
+        left: px2rem(5px);
+    }
+    label{
+        display: block;
+        height: px2rem($input-height);
+        line-height: px2rem($input-height);
+        min-width: px2rem(30px);
+        .check{
+            display: block;
+            width: px2rem($input-height * 0.7);
+            height:px2rem($input-height * 0.7);
+            margin-top: px2rem($input-height * 0.15);
+            float:left;
+            .circle-check{
+                background: $brand-danger;
+                &:before{
+                    border-width: 0 0 px2rem(2px) px2rem(2px);
+                    top: 24%;
+                }
+                &.uncheck{
+                    border: 1px solid $color-border-default;
+                    background: #fff;
+                    &:before{
+                        border-width: 0;
+                    }
+                }
+            }
+        }
+        .text{
+            font-size:px2rem(map_get($map-font-size, m));
+            color: #333;
+            padding: 0 px2rem(10px) 0 px2rem(5px);
+        }
+    }
+}
+.radio{
+    width: 100%;
+}
+.radio-inline{
+    float: left;
+    margin-right: px2rem(10px);
+}

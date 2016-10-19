@@ -44,6 +44,10 @@ $double-cell-height: 70px;
         input[type="email"]{
             margin-top: px2rem(9px);
         }
+        .radio,
+        .radio-inline{
+            margin-top: px2rem(9px);
+        }
     }
     .cell.double-line{
         height: px2rem($double-cell-height);

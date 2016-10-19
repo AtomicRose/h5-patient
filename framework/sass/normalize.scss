@@ -44,11 +44,11 @@ body {
 }
 
 .fn-left {
-    float: left;
+    float: left !important;
 }
 
 .fn-right {
-    float: right;
+    float: right !important;
 }
 
 .fn-show {

@@ -1,0 +1,60 @@
+<div ng-controller="BeforeAdvisoryCtrl" class="before-advisory-page">
+    <div class="info-tip">
+        <img src="app/images/img/img-advisory-tip.png" width="100%" alt="advisory-tip">
+    </div>
+    <form name="advisoryForm">
+        <div class="cell-group">
+            <div class="cell">
+                <div class="left-box">
+                    <span class="label">您希望我们怎么称呼您</span>
+                </div>
+                <div class="middle-box">
+                    <input class="text-right" type="text" placeholder="请填写您的姓名" ng-model="userName" validate-base="请填写您的姓名" required>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="left-box">
+                    <span class="label">患者年龄</span>
+                </div>
+                <div class="middle-box">
+                    <input class="text-right" type="number" placeholder="请输入年龄，如20" ng-model="userAge" validate-base="请输入正确的年龄，如20" required>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="left-box">
+                    <span class="label">患者性别</span>
+                </div>
+                <div class="middle-box">
+                    <div class="radio-inline fn-right">
+                        <input type="radio" ng-model="userGender" value="female" id="female" name="userGender">
+                        <label for="female">
+                            <span class="check"><i class="circle-check" ng-class="{'uncheck': userGender != 'female'}"></i></span>
+                            <span class="text">女</span>
+                        </label>
+                    </div>
+                    <div class="radio-inline fn-right">
+                        <input type="radio" ng-model="userGender" value="male" id="male" name="userGender">
+                        <label for="male">
+                            <span class="check"><i class="circle-check" ng-class="{'uncheck': userGender != 'male'}"></i></span>
+                            <span class="text">男</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="cell" ng-click="goSelectDisease()">
+                <div class="left-box">
+                    <span class="label">疾病描述</span>
+                </div>
+                <div class="middle-box">
+                    <span class="content fn-right">请选择您的疾病名称</span>
+                </div>
+                <div class="right-box">
+                    <i class="arrow-right"></i>
+                </div>
+            </div>
+        </div>
+        <div class="btn-dock">
+            <button class="btn btn-danger">开始咨询</button>
+        </div>
+    </form>
+</div>
