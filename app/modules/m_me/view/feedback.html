@@ -1,0 +1,9 @@
+<div ng-controller="FeedbackCtrl" class="feedback-page">
+    <p class="feedback-description">
+        让每一位患者在名医主刀好看病，看好病。是我们不变的宗旨。感谢您留下宝贵的意见和建议：
+    </p>
+    <textarea ng-model="feedbackText" ng-change="textChange(feedbackText)" maxlength="200" minlength="10" placeholder="请最少输入10个字"></textarea>
+    <p class="feedback-num">(<span ng-bind="feedbackTextNum||0">0</span>/200)</p>
+    <p class="feedback-tips">如建议被采纳，我们会不定期送出健康礼物哦！</p>
+    <button class="btn btn-primary" ng-click="">提交</button>
+</div>

@@ -41,7 +41,7 @@ app.factory('CMSDataConfig', ['StorageConfig', '$state', function (StorageConfig
         {
             text: '常见问题',
             class: 'icon-question',
-            route: 'problem'
+            route: 'layout.problems'
         },
         {
             text: '联系客服',
@@ -51,12 +51,12 @@ app.factory('CMSDataConfig', ['StorageConfig', '$state', function (StorageConfig
         {
             text: '关于我们',
             class: 'icon-warning',
-            route: 'about'
+            route: 'layout.aboutus'
         },
         {
             text: '设置',
             class: 'icon-setting',
-            route: 'setting'
+            route: 'layout.setting'
         }
     ];
     return data;

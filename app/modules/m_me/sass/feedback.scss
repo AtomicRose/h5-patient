@@ -1,0 +1,31 @@
+.feedback-page{
+	padding: px2rem(10px);
+	>textarea{
+		width: 100%;
+		height: px2rem(100px);
+		border: 1px solid #ddd;
+		border-radius: px2rem(5px);
+		// margin-bottom: px2rem(10px);
+		padding: px2rem(10px);
+	}
+	.feedback-description{
+		line-height: px2rem(20px);
+		margin-bottom: px2rem(10px);
+	}
+	.feedback-num{
+	    transform: translateY(px2rem(-25px));
+	    text-align: right;
+	    padding-right: px2rem(20px);
+	    position: absolute;
+	    right: 0;
+		color: #aaa;
+	}
+	.feedback-tips{
+		color: #aaa;
+		text-align: right;
+		// margin-bottom: px2rem(100px);
+	}
+	.btn-primary{
+		margin-top: px2rem(200px);
+	}
+}
