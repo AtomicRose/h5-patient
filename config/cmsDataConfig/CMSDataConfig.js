@@ -36,7 +36,7 @@ app.factory('CMSDataConfig', ['StorageConfig', '$state', function (StorageConfig
         {
             text: '历史浏览',
             class: 'icon-clock',
-            route: 'history'
+            route: 'layout.history'
         },
         {
             text: '常见问题',

@@ -83,6 +83,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: '/me/feedback',
             templateUrl: 'app/modules/m_me/view/feedback.html'
         })
+        .state('layout.history', {
+            url: '/me/history',
+            templateUrl: 'app/modules/m_me/view/history.html'
+        })
         .state('layout.login', {
             url: '/login?redirectUri&redirectRoute&backRoute&backUrl&goBack&backHash&redirectHash',
             templateUrl: 'app/modules/m_login/view/login.html'
