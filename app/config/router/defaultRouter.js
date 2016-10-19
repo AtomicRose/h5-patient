@@ -153,4 +153,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: '/me/problems/aboutAgreement',
             templateUrl: 'app/modules/m_me/view/problems/aboutAgreement.html'
         })
+        .state('layout.advisory-before', {
+            url: 'advisory/before',
+            templateUrl: 'app/modules/m_advisory/view/before.html'
+        })
 }]);
