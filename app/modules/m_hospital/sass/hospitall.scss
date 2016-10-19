@@ -187,27 +187,6 @@
                 display:block;
                 clear: both;
             }
-            .yz-img,.qy-img{
-                font-style: normal;
-                font-size: 0.8rem;
-                text-align: center;
-                line-height: px2rem(25px);
-                color: #fff;
-                width: px2rem(25px);
-                height: px2rem(30px);
-                display: inline-block;
-                /* margin-right: .83333rem; */
-                position: relative;
-                float: right;
-            }
-            .yz-img{
-                background: url('http://static.mingyizhudao.com/146364500313741') no-repeat;
-                background-size: cover;
-            }
-            .qy-img{
-                background: url('http://static.mingyizhudao.com/146364522977843') no-repeat;
-                background-size: cover;
-            }
             >div,>img{
                 float: left;
             }
@@ -219,7 +198,7 @@
                 margin-top: px2rem($doc-description-mt);
             }
             >div{
-                margin: px2rem(20px) 0 0 0;
+                margin: px2rem(10px) 0 0 0;
                 p{
                     color:#666;
                     line-height:px2rem($doc-img-wh/3);

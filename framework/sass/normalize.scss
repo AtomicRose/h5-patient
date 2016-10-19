@@ -70,6 +70,20 @@ body {
 .text-right {
     text-align: right;
 }
+
 .container{
     padding: 0 px2rem(10px) 0 px2rem(10px);
+}
+
+.no-file{
+    text-align: center;
+    color: #bbb;
+    padding: px2rem(100px) 0 0 0;
+    i{
+        font-size: px2rem(40px);
+    }
+    p{
+        padding: px2rem(10px) 0;
+        font-size: px2rem(map_get($map-font-size, m));
+    }
 }

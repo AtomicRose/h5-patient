@@ -14,7 +14,27 @@ app.controller('HistoryCtrl',['$scope','$rootScope','StorageConfig','$state', 'd
 
 
     function clearHistory(){
-
+        dialog.confirm('是非清除当前所有历史记录?',{
+            okText: '清除记录',
+            cancelText: '关闭弹框',
+            closeCallback: function(value){
+                if(value == 0){
+                }
+                if(value == 1){
+                    $scope.dtList = [];
+                }
+            }
+        })
     }
-    
+
+    $scope.dtList = [{0:''},{0:''},{0:''},{0:''},{0:''},{0:''},{0:''},{0:''},{0:''}];
+
+    var historyScroll = new IScroll('#historyScroll', {
+        mouseWheel: false,
+        click: true
+    });
+
+    setInterval(function(){
+        historyScroll.refresh();
+    },500);
 }]);

@@ -1,3 +1,40 @@
 <div ng-controller="HistoryCtrl" class="history-page">
-    
+    <div ng-if="dtList.length==0" class="no-file">
+        <i class="iconfont icon-edit"></i>
+        <p>暂无浏览记录</p>
+    </div>
+
+    <div class="wrap" id="historyScroll">
+        <div class="scroll">
+            <div ng-if="dtList.length!=0">
+                <p class="history-time">
+                    <span>2016-06-03</span>
+                    (<span ng-bind="dtList.length"></span>)
+                </p>
+                <ul>
+                    <li class="dt-li" ng-click="goDoc()" ng-repeat="dt in dtList">
+                        <div class="doc-description">
+                            <img src="http://dr.static.mingyizhudao.com/25B5C5A2C885B62AE8ED01901FF6F552">
+                            <div>
+                                <p>
+                                    <span class="dt-name">王今夕</span>
+                                    <span>教授 主任医师</span>
+                                </p>
+                                <p>
+                                    <span>眼科</span>
+                                </p>
+                                <p>
+                                    <span>北京协和医院</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="doc-desc">
+                            <span>擅长：</span>
+                            <span class="doc-goodat-span">长期从事乳腺癌一线临床和科研工作，尤其在腺癌早起发现，早起诊断，早期手术...</span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>

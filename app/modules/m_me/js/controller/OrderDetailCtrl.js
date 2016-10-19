@@ -3,7 +3,7 @@ app.controller('OrderDetailCtrl',['$scope','$rootScope','$state','$stateParams',
         bookingId: $stateParams.bookingId
     }
     var cancelOrder = function(){
-        console.log('cancel order',_paramsObj);
+        // console.log('cancel order',_paramsObj);
         dialog.confirm('确认取消当前订单？',{
             okText: '确认取消',
             cancelText: '关闭弹框',
