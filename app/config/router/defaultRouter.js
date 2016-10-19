@@ -95,6 +95,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: '/search/more',
             templateUrl: 'app/modules/m_search/view/searchMove.html'
         })
+        .state('layout.disease',{
+            url: '/disease',
+            templateUrl: 'app/modules/m_doctor/view/disease.html'
+        })
         .state('layout.doctor',{
             url: '/doctor?diseasesId',
             templateUrl: 'app/modules/m_doctor/view/index.html'

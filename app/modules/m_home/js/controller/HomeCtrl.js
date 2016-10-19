@@ -50,6 +50,10 @@ app.controller('HomeCtrl', ['$scope', '$rootScope', '$state', 'SearchStorage', '
         })
     };
 
+    $scope.linkTo = function(route){
+        $state.go(route);
+    };
+
     $scope.adList = [
         {
             tagName: '名医公益行',
