@@ -73,7 +73,10 @@
                 padding-left: px2rem(10px);
                 padding-right: px2rem(10px);
                 .iconfont{
-                    font-size: px2rem(map_get($map-font-size, m));
+                    font-size: px2rem(18px);
+                }
+                .icon-phone{
+                    font-size: px2rem(16px);
                 }
             }
         }

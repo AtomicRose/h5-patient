@@ -50,7 +50,7 @@ app.factory('CMSDataConfig', ['StorageConfig', '$state', function (StorageConfig
         },
         {
             text: '关于我们',
-            class: 'icon-warning',
+            class: 'icon-information',
             route: 'about'
         },
         {

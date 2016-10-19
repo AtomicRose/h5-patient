@@ -1,0 +1,25 @@
+<div ng-controller="DiseaseCtrl" class="disease-page">
+    <div class="flex-box">
+        <div class="left-box">
+            <div class="wrap" id="departmentScroll">
+                <div class="scroll">
+                    <ul class="text-center">
+                        <li ng-repeat="item in allList" ng-bind="item.department" ng-class="{'active':$index === selectedDepartmentIndex}" ng-click="selectDepartment(item, $index)"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="right-box">
+            <div class="wrap" id="diseaseScroll">
+                <div class="scroll">
+                    <ul>
+                        <li ng-repeat="item in allDiseaseList" ng-class="{'tag':item.type ==='tag', 'active':(item.type != 'tag' && selectedDiseaseIndex == $index)}" ng-bind="item.disease" id="{{item.id}}" ng-click="selectDisease(item, $index)"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="letter-nav">
+                <div class="nav" ng-repeat="item in letterNavList" ng-bind="item" ng-click="scrollToLetter(item)"></div>
+            </div>
+        </div>
+    </div>
+</div>
