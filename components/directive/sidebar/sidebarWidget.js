@@ -4,6 +4,7 @@ app.directive('sidebarWidget', [function () {
         $scope.isOpen = false;
         function _open() {
             $scope.isOpen = true;
+            toggleSidebar($scope.isOpen);
             if (!$rootScope.$$phase) {
                 $scope.$apply();
             }
@@ -12,6 +13,7 @@ app.directive('sidebarWidget', [function () {
 
         function _close() {
             $scope.isOpen = false;
+            toggleSidebar($scope.isOpen);
             if (!$rootScope.$$phase) {
                 $scope.$apply();
             }
@@ -20,10 +22,23 @@ app.directive('sidebarWidget', [function () {
 
         function _toggle() {
             $scope.isOpen = !$scope.isOpen;
+            toggleSidebar($scope.isOpen);
             if (!$rootScope.$$phase) {
                 $scope.$apply();
             }
             return $scope.isOpen;
+        }
+
+        var indexTimeOut;
+        function toggleSidebar(_toggle){
+            if (!_toggle) {
+                indexTimeOut = setTimeout(function() {
+                    e_sidebar.style.zIndex = '-1';
+                    clearTimeout(indexTimeOut);
+                }, 200);
+            }else{
+                e_sidebar.style.zIndex = '9999';
+            }
         }
 
         window.LayoutSidebar = {
@@ -73,27 +88,30 @@ app.directive('sidebarWidget', [function () {
 }]);
 app.run(['$templateCache', function ($templateCache) {
     $templateCache.put('template/sidebar.html',
-        '<div class="sidebar" ng-class="{true:\'open\',false:\'close\'}[isOpen]" id="layoutSidebar">\
-            <div class="content">\
-                <div class="user-info" ng-click="goLogin()">\
-                    <div class="left">\
-                        <div class="circle">\
-                            <img src="" alt="">\
+        '<div class="sidebar" id="layoutSidebar">\
+            <div class="sidebar-shadow" ng-class="{true:\'open-shadow\',false:\'close-shadow\'}[isOpen]"></div>\
+            <div class="sidebar-container" ng-class="{true:\'open-container\',false:\'close-container\'}[isOpen]">\
+                <div class="content">\
+                    <div class="user-info" ng-click="goLogin()">\
+                        <div class="left">\
+                            <div class="circle">\
+                                <img src="" alt="">\
+                            </div>\
+                        </div>\
+                        <div class="right">您好！请登录</div>\
+                    </div>\
+                    <div class="cell-group list">\
+                        <div class="cell" ng-repeat="item in menuList" ng-click="clickItem(item)">\
+                            <div class="left-box">\
+                                <i class="iconfont {{item.class}}"></i>\
+                            </div>\
+                            <div class="middle-box">\
+                                <span class="label" ng-bind="item.text"></span>\
+                            </div>\
                         </div>\
                     </div>\
-                    <div class="right">您好！请登录</div>\
                 </div>\
-                <div class="cell-group list">\
-                    <div class="cell" ng-repeat="item in menuList" ng-click="clickItem(item)">\
-                        <div class="left-box">\
-                            <i class="iconfont {{item.class}}"></i>\
-                        </div>\
-                        <div class="middle-box">\
-                            <span class="label" ng-bind="item.text"></span>\
-                        </div>\
-                    </div>\
-                </div>\
+                <div class="white" ng-click="closeSidebar()"></div>\
             </div>\
-            <div class="white" ng-click="closeSidebar()"></div>\
         </div>');
 }]);

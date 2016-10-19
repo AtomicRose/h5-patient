@@ -1,28 +1,48 @@
 .sidebar{
     position: absolute;
     top:0;
-    background: rgba(0,0,0,.4);
     width: 100%;
     height: 100%;
-    z-index: 99999;
-    -webkit-transition: transform 0.2s;
-    -moz-transition: transform 0.2s;
-    -ms-transition: transform 0.2s;
-    -o-transition: transform 0.2s;
-    transition: transform 0.2s;
-    &.close{
-        -webkit-transform: translate(-100%, 0);
-        -moz-transform: translate(-100%, 0);
-        -ms-transform: translate(-100%, 0);
-        -o-transform: translate(-100%, 0);
-        transform: translate(-100%, 0);
+    z-index: -1;
+    .sidebar-shadow{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,.4);
+        -webkit-transition: background 0.2s;
+        -moz-transition: background 0.2s;
+        -ms-transition: background 0.2s;
+        -o-transition: background 0.2s;
+        transition: background 0.2s;
+        &.close-container{
+            background: rgba(0,0,0,0);
+        }
+        &.open-container{
+            background: rgba(0,0,0,.4);
+        }
     }
-    &.open{
-        -webkit-transform: translate(0, 0);
-        -moz-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
-        -o-transform: translate(0, 0);
-        transform: translate(0, 0);
+    .sidebar-container{
+        width: 100%;
+        height: 100%;
+        -webkit-transition: transform 0.2s;
+        -moz-transition: transform 0.2s;
+        -ms-transition: transform 0.2s;
+        -o-transition: transform 0.2s;
+        transition: transform 0.2s;
+        &.close-container{
+            -webkit-transform: translate(-100%, 0);
+            -moz-transform: translate(-100%, 0);
+            -ms-transform: translate(-100%, 0);
+            -o-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+        }
+        &.open-container{
+            -webkit-transform: translate(0, 0);
+            -moz-transform: translate(0, 0);
+            -ms-transform: translate(0, 0);
+            -o-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
     }
     .content{
         background: #fff;
