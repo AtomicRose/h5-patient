@@ -1,4 +1,4 @@
-app.factory('CMSDataConfig', ['StorageConfig', '$state', function (StorageConfig, $state) {
+app.factory('CMSDataConfig', ['StorageConfig', '$state', 'dialog', function (StorageConfig, $state, dialog) {
     var data = {};
     data.orderStatus = [
         {
@@ -46,7 +46,18 @@ app.factory('CMSDataConfig', ['StorageConfig', '$state', function (StorageConfig
         {
             text: '联系客服',
             class: 'icon-phone',
-            route: ''
+            route: '',
+            beforeCall: function(){
+                dialog.confirm('立即拨打免费客服热线400-6277-120',{
+                    closeCallback: function(value){
+                        if(value == 0){
+                        }
+                        if(value == 1){
+                           location.href = 'tel://4006277120';
+                        }
+                    }
+                });  
+            }
         },
         {
             text: '关于我们',

@@ -63,17 +63,17 @@ app.controller('HomeCtrl', ['$scope', '$rootScope', '$state', 'SearchStorage', '
         {
             tagName: '名医公益行',
             imgUrl: 'http://static.mingyizhudao.com/146302377992350',
-            redirectUrl: ''
+            redirectUrl: 'mygy'
         },
         {
             tagName: '医生专访',
             imgUrl: 'http://static.mingyizhudao.com/146302393608770',
-            redirectUrl: ''
+            redirectUrl: 'shapingHealth'
         },
         {
             tagName: '专家妙招',
             imgUrl: 'http://static.mingyizhudao.com/146302397500068',
-            redirectUrl: ''
+            redirectUrl: 'life'
         }
     ];
     var container = document.getElementById('scrollAd');
@@ -82,7 +82,8 @@ app.controller('HomeCtrl', ['$scope', '$rootScope', '$state', 'SearchStorage', '
     var adScroll = new IScroll('#scrollAd', {
         scrollX: true,
         scrollY: false,
-        mouseWheel: false
+        mouseWheel: false,
+        click: true
     });
     $scope.adIndex = 0;
     var scrollWidth = document.getElementById('scrollAd_content');

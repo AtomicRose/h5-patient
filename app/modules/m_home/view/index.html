@@ -60,7 +60,7 @@
         <div class="wrapper" id="scrollAd">
             <div class="scroll" id="scrollAd_content">
                 <ul>
-                    <li class="item" ng-repeat="ad in adList">
+                    <li class="item" ng-repeat="ad in adList" ng-click="goDetailUrl(ad.redirectUrl)">
                         <img src="{{ad.imgUrl}}" alt="ad.tagName">
                         <div class="tag" ng-class="{'active':$index == adIndex}" ng-bind="ad.tagName"></div>
                     </li>

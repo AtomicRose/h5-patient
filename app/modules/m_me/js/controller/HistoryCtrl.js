@@ -36,5 +36,5 @@ app.controller('HistoryCtrl',['$scope','$rootScope','StorageConfig','$state', 'd
 
     setInterval(function(){
         historyScroll.refresh();
-    },500);
+    },1000);
 }]);

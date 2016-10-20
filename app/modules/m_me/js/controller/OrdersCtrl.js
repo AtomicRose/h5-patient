@@ -12,6 +12,11 @@ app.controller('OrdersCtrl',['$scope','$rootScope','$state','$stateParams','User
     //         window.headerConfig.title = orderStatus[i].text;
     //     }
     // }
+    
+    //back按钮直接返回首页路由
+    $scope.$broadcast('setHeaderBack', {
+        route: 'layout.home'
+    });
     $rootScope.$broadcast('setHeaderConfig', window.headerConfig);
 
     getOrderList()
