@@ -1,6 +1,6 @@
 <div ng-controller="HospitalDetailCtrl" class="hospital-detail-page">
-    <div ng-if="isFilter" class="filter-box-out">
-        <div class="filter-box-in">
+    <div ng-if="isFilter||isChangeDept" class="nav-box-out" ng-click="closeAllBox()">
+        <div ng-if="isFilter" class="nav-box-in filter-box">
             <div>
                 <p>医学职称</p>
                 <ul>
@@ -18,6 +18,14 @@
                 </ul>
             </div>
             <button class="btn btn-light no-border-radius" ng-click="confirmFilter()">确认</button>
+        </div>
+        <div ng-if="isChangeDept" class="nav-box-in dept-box">
+            <h3>该医院的其他顶尖科室：</h3>
+            <p>*参考最新复旦版专科分类医院排行榜*</p>
+            <span ng-if="!deptList.length">暂无其他科室</span>
+            <ul ng-if="deptList.length">
+                <li ng-repeat="dept in deptList" ng-click="goDeptById(dept.id)"><span ng-class="{'selected':dept.id == curDeptId}" ng-bind="dept.name"></span></li>
+            </ul>
         </div>
     </div>
     <div class="tab-box">

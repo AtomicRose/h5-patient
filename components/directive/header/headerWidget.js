@@ -37,7 +37,11 @@ app.directive('headerWidget', [function () {
                 ],
                 trackKey: 'name'
             },
-            title: '名医主刀'
+            title: '名医主刀',
+            titleOperate: {
+                clickCall: '',
+                html: ''
+            }
         };
         $scope.defaults = angular.extend(angular.copy(defaults), window.headerConfig);
         document.title = $scope.defaults.title;
@@ -131,6 +135,11 @@ app.directive('headerWidget', [function () {
                 $scope.defaults.otherRightOperate.clickCall();
             }
         };
+        $scope.clickTitleOperate = function () {
+            if ($scope.defaults.titleOperate.clickCall && typeof $scope.defaults.titleOperate.clickCall === 'function') {
+                $scope.defaults.titleOperate.clickCall();
+            }
+        };
         /**
          * control the areas show or hide
          * @type {boolean}
@@ -189,7 +198,7 @@ app.run(['$templateCache', function ($templateCache) {
            </div>\
            <div class="btn-close" ng-show="defaults.enableClose" ng-click="closeHeader()"></div>\
        </div>\
-       <div class="title" ng-bind="defaults.title" ng-show="defaults.enableTitle"></div>\
+       <div class="title" ng-bind="defaults.title" ng-show="defaults.enableTitle" ng-click="clickTitleOperate()" ng-bind-html="defaults.titleOperate.html | trustAsHtml"></div>\
        <div class="header-tab" ng-show="defaults.tabOperate.enableTab && !defaults.enableTitle">\
             <div class="tab-options" ng-class="{\'active\':currentTab == $index}" ng-repeat="tabItem in defaults.tabOperate.options track by $index" ng-bind="tabItem.name" ng-click="clickHeaderTab(tabItem, $index)"></div>\
        </div>\

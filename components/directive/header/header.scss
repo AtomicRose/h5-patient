@@ -30,6 +30,21 @@
         overflow: hidden;
         white-space: nowrap;
     }
+    .title{
+        .select-icon{
+            &:before{
+                border-width: px2rem(8px);
+            }
+            &.triangle-up{
+                position: absolute;
+                top: px2rem(($header-height - 24px) / 2);
+            }
+            &.triangle-down{
+                position: absolute;
+                top: px2rem(($header-height - 8px) / 2);
+            }
+        }
+    }
     .header-tab{
         display: -webkit-box;
         display: flex;
@@ -148,7 +163,7 @@
                 width: px2rem(5px);
                 height: 100%;
                 &.active{
-                    background: #f00;
+                    background: $color-light;
                 }
             }
         }

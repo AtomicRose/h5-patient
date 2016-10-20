@@ -16,16 +16,28 @@
             margin: 0 px2rem(10px);
             padding: px2rem(10px) px2rem(5px);
             &.selected{
-                color: red;
-                border-bottom: red px2rem(4px) solid;
+                color: $color-light;
+                border-bottom: $color-light px2rem(4px) solid;
             }
         }
     }
     .hospital-tips{
         text-align: center;
         color: #bbb;
+        padding-bottom: px2rem(15px);
     }
     .hospital-list{
+    }
+    .left-box.clearly-width{
+        width: px2rem(60px);
+    }
+    .hp-img{
+        background: url('images/icon/icon-top-hospital.png') no-repeat;
+        background-size: contain;
+        width: px2rem(35px);
+        height: px2rem(35px);
+        display: inline-block;
+        margin: px2rem(20px) 0 0 px2rem(20px);
     }
 }
 .hospital-rank-page{
@@ -133,40 +145,78 @@
     }
 }
 .hospital-detail-page{
-    .filter-box-out{
+    .nav-box-out{
         position: absolute;
-        top: px2rem($header-height);
+        top: 0;
         left: 0px;
         right: 0px;
         bottom: 0px;
         background: rgba(0,0,0,0.5);
         z-index: 1;
-        .filter-box-in{
+        .nav-box-in{
             background: #fff;
-            >div{
-                padding: px2rem(10px);
-                >p{
-                    color: #666;
+            min-height: px2rem(150px);
+            max-height: px2rem(250px);
+            overflow-y: scroll;
+        }
+    }
+    .filter-box{
+        >div{
+            padding: px2rem(10px);
+            >p{
+                color: #666;
+            }
+            ul:after{
+                display:block;
+                content: '';
+                clear: both;
+            }
+            li{
+                list-style-type: none;
+                float:left;
+                padding:px2rem(5px) px2rem(10px);
+                margin: px2rem(10px);
+                &.selected{
+                    color: $color-light;
+                    border: $color-light 1px solid;
+                    border-radius: px2rem(5px);
                 }
-                ul:after{
-                    display:block;
-                    content: '';
-                    clear: both;
-                }
-                li{
-                    list-style-type: none;
-                    float:left;
+            }
+        }
+        >div:first-child{
+            border-bottom: 1px solid #eee;
+        }
+    }
+    .dept-box{
+        padding: px2rem(10px);
+        >h3,>p{
+            text-align: center;
+            padding-bottom: px2rem(5px);
+        }
+        >p{
+            color: #bbb;
+            padding-bottom: px2rem(20px);
+        }
+        >ul{
+            list-style: none;
+            &:after{
+                content: '';
+                clear: both;
+                display: block;
+            }
+            li{
+                text-align: center;
+                float: left;
+                width: 33%;
+                padding-bottom: px2rem(5px);
+                span{
                     padding:px2rem(5px) px2rem(10px);
-                    margin: px2rem(10px);
                     &.selected{
                         color: $color-light;
                         border: $color-light 1px solid;
                         border-radius: px2rem(5px);
                     }
                 }
-            }
-            >div:first-child{
-                border-bottom: 1px solid #eee;
             }
         }
     }

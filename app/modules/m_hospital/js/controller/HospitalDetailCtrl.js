@@ -5,6 +5,7 @@ app.controller('HospitalDetailCtrl', ['$rootScope', '$scope', 'dialog', '$stateP
      * @type {number}
      */
     $scope.isFilter = false;
+    $scope.isChangeDept = false;
     $scope.selectedTab = 0;
     $scope.checkTab = function (index) {
         if ($scope.selectedTab == index) {
@@ -15,10 +16,21 @@ app.controller('HospitalDetailCtrl', ['$rootScope', '$scope', 'dialog', '$stateP
 
     function openFilter(){
         $scope.isFilter = !$scope.isFilter;
+        $scope.isChangeDept = false;
         $scope.isFilteryx = 0;
         $scope.isFilterxs=0;
     }
 
+    function changedDept(){
+        console.log('call title');
+        $scope.isChangeDept = !$scope.isChangeDept;
+        $scope.isFilter = false;
+    }
+
+    $scope.closeAllBox = function(){
+        $scope.isChangeDept = false;
+        $scope.isFilter = false;
+    }
     $scope.confirmFilter = function(){
         openFilter();
     }
@@ -31,6 +43,10 @@ app.controller('HospitalDetailCtrl', ['$rootScope', '$scope', 'dialog', '$stateP
         }
     }
 
+    $scope.goDeptById = function(_id){
+        getHospitalInfo(60);//无测试数据，暂时写死
+    }
+
     function getDeptDescription(_depObj){
         var _deps = _depObj;
         var _depsArray = [];
@@ -40,22 +56,28 @@ app.controller('HospitalDetailCtrl', ['$rootScope', '$scope', 'dialog', '$stateP
         for (dep in _deps){
             _depsArray = _depsArray.concat(_deps[dep]);
         }
+        $scope.deptList = _depsArray;
         for(var i = 0; i<_depsArray.length; i++){
             if(_depsArray[i].name == $stateParams.hospitalDeptName){
                 urlOptions.departmentId = _depsArray[i].id;
+                $scope.curDeptId = _depsArray[i].id;
             }
         }
         var spinner = dialog.showSpinner();
         HospitalService.getDepartmentInfo({}, urlOptions).then(function (res) {
             $scope.departmentInfo = res.results.department;
             $scope.dtList = [{dt:0},{dt:0},{dt:0},{dt:0}];
-            window.headerConfig.title = res.results.department.name;
-            window.headerConfig.otherRightOperate= {
-                enable: true,
-                html: '筛选',
-                clickCall: openFilter
-            }
-            $rootScope.$broadcast('setHeaderConfig', window.headerConfig);
+            // window.headerConfig.title = res.results.department.name;
+            // window.headerConfig.titleOperate = {
+            //     html: '',
+            //     clickCall: changedDept
+            // };
+            // window.headerConfig.otherRightOperate= {
+            //     enable: true,
+            //     html: '筛选',
+            //     clickCall: openFilter
+            // }
+            // $rootScope.$broadcast('setHeaderConfig', window.headerConfig);
             dialog.closeSpinner(spinner.id);
         }, function (res) {
             dialog.closeSpinner(spinner.id);
@@ -63,27 +85,40 @@ app.controller('HospitalDetailCtrl', ['$rootScope', '$scope', 'dialog', '$stateP
         });
     }
 
-    var spinner = dialog.showSpinner();
-    var params = {};
-    var urlOptions = {
-        id: $stateParams.hospitalId
-    };
-    HospitalService.getHospitalDetail(params, urlOptions).then(function (res) {
-        dialog.closeSpinner(spinner.id);
-        $scope.hospitalInfo = res.results;
-        window.headerConfig = {
-            enableHeader: true,
-            enableBack: true,
-            enableRefresh: false,
-            title: $stateParams.hospitalDeptName
+    getHospitalInfo($stateParams.hospitalId)
+    function getHospitalInfo(_id){
+        console.log('_id',_id);
+        var spinner = dialog.showSpinner();
+        var params = {};
+        var urlOptions = {
+            id: _id
         };
-        $rootScope.$broadcast('setHeaderConfig', window.headerConfig);
-        //获取科室信息
-        getDeptDescription(res.results.departments);
-    }, function (res) {
-        dialog.closeSpinner(spinner.id);
-        dialog.alert(res.errorMsg);
-    });
+        HospitalService.getHospitalDetail(params, urlOptions).then(function (res) {
+            dialog.closeSpinner(spinner.id);
+            $scope.hospitalInfo = res.results;
+            window.headerConfig = {
+                enableHeader: true,
+                enableBack: true,
+                enableRefresh: false
+                // title: $stateParams.hospitalDeptName
+            };
+            window.headerConfig.titleOperate = {
+                html: $stateParams.hospitalDeptName + '<span class="select-icon triangle-down"></span>',
+                clickCall: changedDept
+            };
+            window.headerConfig.otherRightOperate= {
+                enable: true,
+                html: '筛选',
+                clickCall: openFilter
+            }
+            $rootScope.$broadcast('setHeaderConfig', window.headerConfig);
+            //获取科室信息
+            getDeptDescription(res.results.departments);
+        }, function (res) {
+            dialog.closeSpinner(spinner.id);
+            dialog.alert(res.errorMsg);
+        });
+    }
 
     // $scope.goDepartment = function (hospital, department) {
     //     // console.log('department',department);
