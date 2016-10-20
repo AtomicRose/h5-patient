@@ -1,5 +1,6 @@
 app.controller('MarkCtrl',['$scope','$rootScope','StorageConfig','$state', 'dialog', function($scope,$rootScope,StorageConfig,$state,dialog){
-    var orderStatus = 8;
+    //修改评论状态
+    var orderStatus = 6;
     if (orderStatus == 6) {
         $scope.isMarked = false;
         window.headerConfig={

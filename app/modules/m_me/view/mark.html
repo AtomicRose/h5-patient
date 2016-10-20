@@ -22,35 +22,89 @@
             <ul class="mark" ng-if="!isMarked">
                 <li>
                     <span>医生态度：</span>
-                    <a ng-click="oneSelected = 0" ng-class="{'selected':oneSelected == 0,'select':oneSelected != 0}">满意</a>
-                    <a ng-click="oneSelected = 1" ng-class="{'selected':oneSelected == 1,'select':oneSelected != 1}">一般</a>
-                    <a ng-click="oneSelected = 2" ng-class="{'selected':oneSelected == 2,'select':oneSelected != 2}">不满意</a>
+                    <div class="radio-inline fn-right">
+                        <input type="radio" ng-model="markAttr" value="attrSad" id="attrSad" name="markAttr">
+                        <label for="attrSad">
+                            <span class="check"><i class="circle-check" ng-class="{'uncheck': markAttr != 'attrSad'}"></i></span>
+                            <span class="text">不满意</span>
+                        </label>
+                    </div>
+                    <div class="radio-inline fn-right">
+                        <input type="radio" ng-model="markAttr" value="attrNormal" id="attrNormal" name="markAttr">
+                        <label for="attrNormal">
+                            <span class="check"><i class="circle-check" ng-class="{'uncheck': markAttr != 'attrNormal'}"></i></span>
+                            <span class="text">一般</span>
+                        </label>
+                    </div>
+                    <div class="radio-inline fn-right">
+                        <input type="radio" ng-model="markAttr" value="attrGood" id="attrGood" name="markAttr">
+                        <label for="attrGood">
+                            <span class="check"><i class="circle-check" ng-class="{'uncheck': markAttr != 'attrGood'}"></i></span>
+                            <span class="text">满意</span>
+                        </label>
+                    </div>
                 </li>
                 <li>
                     <span>服务效率：</span>
-                    <a ng-click="twoSelected = 0" ng-class="{'selected':twoSelected == 0,'select':twoSelected != 0}">满意</a>
-                    <a ng-click="twoSelected = 1" ng-class="{'selected':twoSelected == 1,'select':twoSelected != 1}">一般</a>
-                    <a ng-click="twoSelected = 2" ng-class="{'selected':twoSelected == 2,'select':twoSelected != 2}">不满意</a>
+                    <div class="radio-inline fn-right">
+                        <input type="radio" ng-model="markService" value="serSad" id="serSad" name="markService">
+                        <label for="serSad">
+                            <span class="check"><i class="circle-check" ng-class="{'uncheck': markService != 'serSad'}"></i></span>
+                            <span class="text">不满意</span>
+                        </label>
+                    </div>
+                    <div class="radio-inline fn-right">
+                        <input type="radio" ng-model="markService" value="serNormal" id="serNormal" name="markService">
+                        <label for="serNormal">
+                            <span class="check"><i class="circle-check" ng-class="{'uncheck': markService != 'serNormal'}"></i></span>
+                            <span class="text">一般</span>
+                        </label>
+                    </div>
+                    <div class="radio-inline fn-right">
+                        <input type="radio" ng-model="markService" value="serGood" id="serGood" name="markService">
+                        <label for="serGood">
+                            <span class="check"><i class="circle-check" ng-class="{'uncheck': markService != 'serGood'}"></i></span>
+                            <span class="text">满意</span>
+                        </label>
+                    </div>
                 </li>
                 <li>
                     <span>平台服务：</span>
-                    <a ng-click="thrSelected = 0" ng-class="{'selected':thrSelected == 0,'select':thrSelected != 0}">满意</a>
-                    <a ng-click="thrSelected = 1" ng-class="{'selected':thrSelected == 1,'select':thrSelected != 1}">一般</a>
-                    <a ng-click="thrSelected = 2" ng-class="{'selected':thrSelected == 2,'select':thrSelected != 2}">不满意</a>
+                    <div class="radio-inline fn-right">
+                        <input type="radio" ng-model="markPlat" value="platSad" id="platSad" name="markPlat">
+                        <label for="platSad">
+                            <span class="check"><i class="circle-check" ng-class="{'uncheck': markPlat != 'platSad'}"></i></span>
+                            <span class="text">不满意</span>
+                        </label>
+                    </div>
+                    <div class="radio-inline fn-right">
+                        <input type="radio" ng-model="markPlat" value="platNormal" id="platNormal" name="markPlat">
+                        <label for="platNormal">
+                            <span class="check"><i class="circle-check" ng-class="{'uncheck': markPlat != 'platNormal'}"></i></span>
+                            <span class="text">一般</span>
+                        </label>
+                    </div>
+                    <div class="radio-inline fn-right">
+                        <input type="radio" ng-model="markPlat" value="platGood" id="platGood" name="markPlat">
+                        <label for="platGood">
+                            <span class="check"><i class="circle-check" ng-class="{'uncheck': markPlat != 'platGood'}"></i></span>
+                            <span class="text">满意</span>
+                        </label>
+                    </div>
                 </li>
             </ul>
             <ul class="marked" ng-if="isMarked">
                 <li>
                     <p>医生态度</p>
-                    <i></i>
+                    <i class="iconfont icon-smile"></i>
                 </li>
                 <li>
                     <p>服务效率</p>
-                    <i></i>
+                    <i class="iconfont icon-normal"></i>
                 </li>
                 <li>
                     <p>平台服务</p>
-                    <i></i>
+                    <i class="iconfont icon-sad"></i>
                 </li>
             </ul>
         </div>

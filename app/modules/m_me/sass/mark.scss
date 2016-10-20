@@ -13,7 +13,8 @@
 		$a-wh: 16px;
 		.mark li{
 			margin: 0 0 px2rem(15px) 0;
-			display: flex;
+			font-size: px2rem(map_get($map-font-size, s)) !important;
+    		line-height: px2rem(30px);
 			a{
 				flex: 1;
 			    display: flex;
@@ -44,16 +45,26 @@
 			display: flex;
 		}
 		.marked li{
-
+			$i-mark-wh:15px;
+			flex: 1;
+			list-style: none;
+			text-align: center;
+			i{
+				color: $color-light;
+				font-size: px2rem(30px);
+				padding: px2rem(5px) 0;
+				display: inline-block;
+			}
 		}
 	}
 	.mark-text{
 		p{
 			width: 100%;
-			height: px2rem(100px);
+			min-height: px2rem(100px);
 			padding: px2rem(5px) px2rem(10px);
 			border: 1px solid #ddd;
 			line-height: px2rem(20px);
+			color: #888;
 		}
 		textarea{
 			width: 100%;
