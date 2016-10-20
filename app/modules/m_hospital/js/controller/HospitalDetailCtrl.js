@@ -47,6 +47,12 @@ app.controller('HospitalDetailCtrl', ['$rootScope', '$scope', 'dialog', '$stateP
         getHospitalInfo(60);//无测试数据，暂时写死
     }
 
+    $scope.goDoc = function(_id){
+        $state.go('layout.doctor-detail',{//无测试数据，暂时写死
+            doctorId: 3131
+        })
+    }
+
     function getDeptDescription(_depObj){
         var _deps = _depObj;
         var _depsArray = [];
