@@ -1,4 +1,4 @@
-app.controller('HomeCtrl', ['$scope', '$rootScope', '$state', 'SearchStorage', 'DoctorStotage', 'dialog', 'StorageConfig', function ($scope, $rootScope, $state, SearchStorage, DoctorStotage, dialog, StorageConfig) {
+app.controller('HomeCtrl', ['$scope', '$rootScope', '$state', 'SearchStorage', 'DoctorStorage', 'dialog', 'StorageConfig', function ($scope, $rootScope, $state, SearchStorage, DoctorStorage, dialog, StorageConfig) {
     window.headerConfig = {
         enableHeader: false
     };
@@ -9,7 +9,7 @@ app.controller('HomeCtrl', ['$scope', '$rootScope', '$state', 'SearchStorage', '
     //清楚搜索记录
     SearchStorage.SEARCH_STORAGE.removeItem('searchResult');
     SearchStorage.SEARCH_STORAGE.removeItem('searchMoreResult');
-    DoctorStotage.DOCTOR_TAB_STORAGE.removeItem('tabObj');
+    DoctorStorage.DOCTOR_TAB_STORAGE.removeItem('tabObj');
     StorageConfig.CITY_STORAGE.removeItem('myzd_city');
 
     $scope.routerGo = function (url) {
@@ -52,6 +52,12 @@ app.controller('HomeCtrl', ['$scope', '$rootScope', '$state', 'SearchStorage', '
 
     $scope.linkTo = function(route){
         $state.go(route);
+    };
+
+    $scope.linkToDisease = function(){
+        $state.go('layout.disease', {
+            operateType: 0
+        });
     };
 
     $scope.goAdvisory = function(){
