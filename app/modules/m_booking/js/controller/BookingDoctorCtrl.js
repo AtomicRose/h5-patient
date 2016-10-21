@@ -1,11 +1,17 @@
 app.controller('BookingDoctorCtrl', ['$rootScope', '$scope', 'dialog', '$stateParams', 'BookingService', 'StorageConfig', '$state', function ($rootScope, $scope, dialog, $stateParams, BookingService, StorageConfig, $state) {
-
+    $scope.sendSMSText = '获取验证码';
+    $scope.isShowService = false;
     window.headerConfig = {
         enableHeader: true,
         enableBack: true,
-        enableRefresh: true,
+        enableRefresh: false,
         title: '预约医生'
     };
+    window.headerConfig.otherRightOperate= {
+        enable: true,
+        html: '服务流程',
+        clickCall: serviceFlow
+    }
     $rootScope.$broadcast('setHeaderConfig', window.headerConfig);
 
     $scope.treatmentDoctorName = $stateParams.doctorName;
@@ -16,6 +22,26 @@ app.controller('BookingDoctorCtrl', ['$rootScope', '$scope', 'dialog', '$statePa
     if(StorageConfig.BOOKING_STORAGE.getItem('booking_doctor')){
         StorageConfig.BOOKING_STORAGE.putItem('booking_doctor',null)
         $scope.$broadcast('setHeaderBack', null);
+    }
+
+    function serviceFlow(){
+        $scope.isShowService = !$scope.isShowService;
+    }
+    $scope.serviceFlow = function(){
+        $scope.isShowService = !$scope.isShowService;
+    }
+    $scope.changeDise = function(){
+        dialog.confirm('如果选择其他疾病，我们将为您重新推荐医生。',{
+            okText: '重新选择',
+            cancelText: '关闭弹框',
+            closeCallback: function(value){
+                if(value == 0){
+                }
+                if(value == 1){
+                    // $state.go('');
+                }
+            }
+        })
     }
 
     // $scope.bookingDoctor = function(_patient){
