@@ -20,6 +20,8 @@
         position: relative;
         overflow-x: hidden;
         overflow-y: auto;
+
+        transform: translateY(-1px);//上移1像素，保证header和content链接不留缝隙（医生详情页）
         .view-content{
             width: 100%;
             height: 100%;

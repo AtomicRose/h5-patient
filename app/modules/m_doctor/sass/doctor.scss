@@ -134,17 +134,35 @@
     }
 }
 .doctor-detail-page{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     .main-info{
         background: url('http://static.mingyizhudao.com/147062699107071') no-repeat;
         background-size: 100%;
-        color: #fff;
-        text-align: center;
-        padding: px2rem(10px) 0;
+        padding: px2rem(15px);
         >img{
             $doc-wh: 60px;
             width: px2rem($doc-wh);
             height: px2rem($doc-wh);
             border-radius: px2rem($doc-wh/2);
+            float: left;
+            margin-top: px2rem(5px);
+        }
+        >div{
+            text-align: left;
+            float: left;
+            color: #fff;
+            padding-left: px2rem(15px);
+        }
+        p{
+            line-height: px2rem(25px);
+            font-size: px2rem(map_get($map-font-size, m));
+        }
+        &:after{
+            content: '';
+            display: block;
+            clear: both;
         }
     }
     .cell-group .cell{
@@ -153,13 +171,14 @@
         line-height: px2rem(20px);
         padding: px2rem(10px) 0;
         >p:first-child{
-            color: #f39700;
+            color: $color-light;
         }
     }
     .tab-box{
+        flex: 1;
+        overflow-y: scroll;
         width: 100%;
         background: #fff;
-        padding-bottom: px2rem(70px);
     }
     .bottom-button{
         border-top: 1px solid $color-border-default;
