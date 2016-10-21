@@ -108,12 +108,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             templateUrl: 'app/modules/m_search/view/searchMove.html'
         })
         .state('layout.disease',{
-            url: '/disease',
+            url: '/disease?operateType',
             templateUrl: 'app/modules/m_doctor/view/disease.html'
         })
-        .state('layout.doctor',{
-            url: '/doctor?diseasesId',
-            templateUrl: 'app/modules/m_doctor/view/index.html'
+        .state('layout.doctor-recommend',{
+            url: '/doctor/recommend?diseaseId',
+            templateUrl: 'app/modules/m_doctor/view/doctor-recommend.html'
         })
         .state('layout.doctor-detail', {
             url: '/doctor/:doctorId',

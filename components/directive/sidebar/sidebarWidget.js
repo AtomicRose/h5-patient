@@ -95,7 +95,7 @@ app.run(['$templateCache', function ($templateCache) {
                     <div class="user-info" ng-click="goLogin()">\
                         <div class="left">\
                             <div class="circle">\
-                                <img src="" alt="">\
+                                <img src="app/images/img/head.jpg" alt="">\
                             </div>\
                         </div>\
                         <div class="right">您好！请登录</div>\

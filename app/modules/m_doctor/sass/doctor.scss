@@ -1,138 +1,201 @@
-.doctor-page{
-    $doc-img-wh: 60px;
-    $doc-description-mt: 10px;
-    .doc-list{
-    	li{
-    		padding: 0 px2rem(10px) px2rem(10px) px2rem(10px);
-    		background: #fff;
-    		margin-buttom: px2rem(10px);
-    		border-bottom: 1px solid #ddd;
-    		.doc-description{
-    			&:after{
-    				content:'';
-    				display:block;
-    				clear: both;
-    			}
-    			.yz-img,.qy-img{
-    				font-style: normal;
-    				font-size: 0.8rem;
-    				text-align: center;
-    				line-height: px2rem(25px);
-    				color: #fff;
-    				width: px2rem(25px);
-    				height: px2rem(30px);
-    				display: inline-block;
-                    /* margin-right: .83333rem; */
-                    position: relative;
-                    float: right;
-    			}
-    			.yz-img{
-    				background: url('http://static.mingyizhudao.com/146364500313741') no-repeat;
-    				background-size: cover;
-    			}
-    			.qy-img{
-    				background: url('http://static.mingyizhudao.com/146364522977843') no-repeat;
-    				background-size: cover;
-    			}
-    			>div,>img{
-    				float: left;
-    			}
-    			>img{
-    				width: px2rem($doc-img-wh);
-    				height: px2rem($doc-img-wh);
-    				border-radius: px2rem($doc-img-wh/2);
-    				margin-right: px2rem($doc-img-wh/2);
-    				margin-top: px2rem($doc-description-mt);
-    			}
-    			>div{
-    				p{
-    					color:#666;
-    					line-height:px2rem($doc-img-wh/3);
-    					font-size: px2rem(map_get($map-font-size, s));
-    				}
-    				p:first-child{
-    					margin-top: px2rem($doc-description-mt);
-    					color:#033;
-    					font-size: px2rem(map_get($map-font-size, m));
-    				}
-    			}
-    		}
-    	}
-    	.doc-goodat-span{
-    		color: #f39700;
-    	}
-        .doc-desc{
-            display: inline-block;display: -webkit-box; 
+.doctor-recommend-page{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    .filter-box{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0, 0, 0, .5);
+    }
+    .filter{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: px2rem(40px);
+        border-bottom: 1px solid #e6e6e6;
+        background: #fff;
+        padding-top: px2rem(10px);
+        z-index: 99;
+        .item{
+            width: 33.333%;
+            height: 100%;
+            border-right: 1px solid $color-border-default;
+            float: left;
+            text-align: center;
             text-overflow: ellipsis;
-            overflow : hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 0 px2rem(5px) 0 px2rem(5px);
+            .text{
+                font-size:px2rem(map_get($map-font-size, m));
+                color: #222;
+            }
+            .triangle-down{
+                display: inline-block;
+                position: relative;
+                top: px2rem(4px);
+                &:before{
+                    border: px2rem(6px) transparent solid;
+                    border-top-color: #666;
+                }
+            }
+            &:last-child{
+                border-right:none;
+            }
+            &.active{
+                .text{
+                    color: $brand-danger;
+                }
+                .triangle-down{
+                    &:before{
+                        border-top-color: $brand-danger;
+                    }
+                }
+            }
         }
     }
-    .doc-tab-nav{
-        $tab-height: 40px;
-        color: #666;
-        >ul{
-            list-style-type: none;
+    .wrap{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        .scroll{
+            position: absolute;
+            width: 100%;
+        }
+    }
+    ul{
+        width: 100%;
+        list-style: none;
+        background: #fff;
+        float:left;
+    }
+    .filter-content{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding-top: px2rem(40px);
+        z-index: 9;
+        background: rgba(0,0,0,.5);
+        li.usual{
+            width: 100%;
+            float: left;
+            height: px2rem(40px);
+            line-height: px2rem(40px);
+            padding: 0 px2rem(20px) 0 px2rem(20px);
+            border-bottom: 1px solid $color-border-default;
+            color: #222;
+            font-size: px2rem(map_get($map-font-size, m));
+            &.active{
+                color: $brand-danger;
+            }
+        }
+        li.hot{
+            width: 100%;
+            padding: px2rem(10px) px2rem(10px) px2rem(10px) px2rem(10px);
+            background: $color-main-bg;
+            border-bottom: 1px solid $color-border-default;
+            p{
+                padding-left: px2rem(10px);
+                font-size:px2rem(map_get($map-font-size, m));
+                color: #666;
+            }
+        }
+        .hot{
+            float: left;
+        }
+        .item-box{
+            margin-top: px2rem(10px);
+        }
+        .hot-item{
+            width: 33.333%;
+            float: left;
+            padding: 0 px2rem(10px) 0 px2rem(10px);
+            margin-bottom: px2rem(10px);
+            span{
+                display: block;
+                line-height:px2rem(30px);
+                text-align: center;
+                color: #222;
+                background: #fff;
+                border-radius: px2rem(6px);
+                border: 1px solid $color-border-default;
+                font-size:px2rem(map_get($map-font-size, m));
+                &.active{
+                    color: $brand-danger;
+                }
+            }
+        }
+    }
+    .doctor-list{
+        width: 100%;
+        height: 100%;
+        padding-top: px2rem(40px);
+        .doctor-item{
+            width: 100%;
+            height: px2rem(150px);
+            padding: px2rem(10px);
+        }
+        .info-box{
+            display: -webkit-box;
             display: flex;
-            border-bottom: 1px solid #ddd;
-            background: #fff;
-            height: px2rem($tab-height);
-            line-height: px2rem($tab-height);
-            li{
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            flex-direction: row;
+            width: 100%;
+            height: px2rem(80px);
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            .img{
+                width: px2rem(70px);
+                height: px2rem(70px);
+                border-radius: px2rem(40px);
+                border: 1px solid $color-border-default;
+                overflow: hidden;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            .info{
                 -webkit-box-flex: 1;
                 -webkit-flex: 1;
                 flex: 1;
-                text-align: center;
-                &:nth-child(2){
-                    border: 1px solid #ddd;
-                    border-width: 0 1px;
-                }
-                &.tab-selected{
-                    color: #FF6627;
-                    .tab-arrow{
-                        background: url('http://static.mingyizhudao.com/146735831347598') no-repeat;
-                        background-size: contain;
-                    }
+                padding: 0 px2rem(10px) 0 px2rem(10px);
+            }
+            span{
+                font-size:px2rem(map_get($map-font-size, s));
+                color: #666;
+                margin-right: px2rem(10px);
+                &.name{
+                    color: #222;
+                    font-size: px2rem(map_get($map-font-size, m));
                 }
             }
-        }
-        .doc-tab-mask{
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            top: px2rem($tab-height + $header-height);
-            background: rgba(0,0,0,.5);
-            z-index: 2;
-            >ul{
-                list-style-type: none;
-                background: #fff;
-                max-height:50%;
-                overflow-y: scroll;
-                li{
-                    height: px2rem($tab-height);
-                    line-height: px2rem($tab-height);
-                    padding: 0 px2rem(10px);
-                    border-bottom: 1px solid #ddd;
-                    &.li-selected{
-                        border-left: px2rem(4px) solid #ff6221;
-                    }
-                }
+            p{
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
             }
         }
-        .tab-arrow{
-            background: url('http://static.mingyizhudao.com/146735870119173') no-repeat;
-            background-size: contain;
-            display: inline-block;
-            width: px2rem(12px);
-            height: px2rem(8px);
-            margin-left: px2rem(5px);
+        .desc{
+            width: 100%;
+            height: px2rem(42px);
+            font-size: px2rem(map_get($map-font-size, s));
+            line-height: px2rem(map_get($map-font-size, s)) * 1.5;
+            color: #999;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: pre-wrap;
         }
     }
 }
+
 .doctor-detail-page{
     height: 100%;
     display: flex;

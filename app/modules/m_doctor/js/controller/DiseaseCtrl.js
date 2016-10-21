@@ -1,4 +1,4 @@
-app.controller('DiseaseCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+app.controller('DiseaseCtrl', ['$scope', '$rootScope', '$state', 'DoctorStorage','$stateParams', function ($scope, $rootScope, $state, DoctorStorage,$stateParams) {
     window.headerConfig = {
         enableHeader: true,
         enableBack: true,
@@ -29,7 +29,7 @@ app.controller('DiseaseCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
                     id: '10002'
                 }
             ],
-            allDisease:[
+            allDisease: [
                 {
                     letter: 'A',
                     list: [
@@ -195,7 +195,7 @@ app.controller('DiseaseCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
                     id: '20003'
                 }
             ],
-            allDisease:[
+            allDisease: [
                 {
                     letter: 'A',
                     list: [
@@ -283,33 +283,53 @@ app.controller('DiseaseCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
         }
     ];
 
-    $scope.selectedDepartmentIndex = 0;
-    var formatRes = formatList($scope.allList[0]);
+    if(!DoctorStorage.DISEASE_STORAGE.getItem('departmentIndex')){
+        DoctorStorage.DISEASE_STORAGE.putItem('departmentIndex', 0);
+    }
+    $scope.selectedDepartmentIndex = DoctorStorage.DISEASE_STORAGE.getItem('departmentIndex');
+    var formatRes = formatList($scope.allList[$scope.selectedDepartmentIndex]);
     $scope.allDiseaseList = formatRes.diseaseList;
     $scope.letterNavList = formatRes.letterList;
 
-    $scope.selectDepartment = function(item, index){
+    $scope.selectDepartment = function (item, index) {
         $scope.selectedDepartmentIndex = index;
+        DoctorStorage.DISEASE_STORAGE.putItem('departmentIndex', index);
         $scope.selectedDiseaseIndex = '';
         var formatRes = formatList(item);
         $scope.allDiseaseList = formatRes.diseaseList;
         $scope.letterNavList = formatRes.letterList;
     };
 
-    $scope.selectDisease = function(item, index){
-        if(item.type === 'tag'){
+    $scope.selectDisease = function (item, index) {
+        if (item.type === 'tag') {
             return false;
         }
         $scope.selectedDiseaseIndex = index;
+        DoctorStorage.DISEASE_STORAGE.putItem('diseaseIndex', index);
         //TODO go to the doctor page
+        /**
+         * operateType
+         * 0: go to the doctor recommend page;
+         * 1: return the disease id and disease info; just push in the session storage.
+         */
+        if($stateParams.operateType == 0){
+            console.log(item);
+            $state.go('layout.doctor-recommend', {
+                diseaseId: item.id
+            });
+            return true;
+        }
+        if($stateParams.operateType == 1){
+
+        }
     };
 
-    $scope.scrollToLetter = function(item){
+    $scope.scrollToLetter = function (item) {
         var ele = document.getElementById(item);
         diseaseScroll.scrollToElement(ele);
     };
 
-    function formatList(item){
+    function formatList(item) {
         var tempArray = [];
         var letterArray = [];
         var uList = item.usuallyDisease;
@@ -319,7 +339,7 @@ app.controller('DiseaseCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
             id: 'tag_usually',
             type: 'tag'
         });
-        for(var k=0; k<uList.length; k++){
+        for (var k = 0; k < uList.length; k++) {
             tempArray.push(uList[k]);
         }
         tempArray.push({
@@ -327,14 +347,14 @@ app.controller('DiseaseCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
             id: 'tag_all',
             type: 'tag'
         });
-        for(var i =0; i<aList.length; i++){
+        for (var i = 0; i < aList.length; i++) {
             tempArray.push({
                 disease: aList[i].letter,
                 id: aList[i].letter,
                 type: 'tag'
             });
             letterArray.push(aList[i].letter);
-            for(var j=0,list=aList[i].list; j<list.length; j++){
+            for (var j = 0, list = aList[i].list; j < list.length; j++) {
                 tempArray.push(list[j]);
             }
         }
@@ -344,8 +364,8 @@ app.controller('DiseaseCtrl', ['$scope', '$rootScope', function ($scope, $rootSc
         };
     }
 
-    setInterval(function(){
+    setInterval(function () {
         diseaseScroll.refresh();
-    },500);
+    }, 500);
 
 }]);
