@@ -11,6 +11,9 @@ $double-cell-height: 70px;
     &.border-none{
         border: none;
     }
+    &.border-radius{
+        border-radius: px2rem(5px);
+    }
     &.border-top-none{
         border-width: 0 0 1px 0;
     }
@@ -43,6 +46,14 @@ $double-cell-height: 70px;
         input[type="number"],
         input[type="email"]{
             margin-top: px2rem(9px);
+        }
+        textarea{
+            margin-top: px2rem(9px);
+            border: 0px;
+            width: 100%;
+            min-height: 8rem;
+            font-size: px2rem(map_get($map-font-size, s));
+            line-height: px2rem(20px);
         }
         .radio,
         .radio-inline{
@@ -141,7 +152,7 @@ $double-cell-height: 70px;
     }
     .s-label{
         font-size: px2rem(map_get($map-font-size, s));
-        color: #000;
+        color: #666;
         line-height: px2rem($cell-height);
     }
     .label-box{

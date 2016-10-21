@@ -1,7 +1,6 @@
 .booking-department-page,.booking-doctor-page, .quick-booking-page{
     // padding-bottom: px2rem(100px);
     .agreement{
-        text-align: center;
         font-size: px2rem(map_get($map-font-size, s));
         color: #666;
         padding: px2rem(10px);
@@ -53,5 +52,97 @@
         line-height: px2rem($qb-h);
         position: absolute;
         bottom: 0;
+    }
+}
+
+.booking-doctor-page{
+    padding: px2rem(10px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    .booking-content{
+        height: 100%;
+    }
+    .getCode{
+        color: $color-light;
+    }
+    .booking-tips{
+        font-size: px2rem(map_get($map-font-size, m));
+    }
+    .service-flow-box-out{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.4);
+        top: 0px;
+        left: 0px;
+        padding: px2rem(100px) px2rem(60px) 0 px2rem(60px);
+    }
+    .service-flow-box-in{
+        background: #fff;
+        border-radius: px2rem(5px);
+        padding: px2rem(15px) 0 px2rem(15px) px2rem(15px);
+        i{
+            $li-num-wh: 20px;
+            width: px2rem($li-num-wh);
+            height: px2rem($li-num-wh);
+            border-radius: px2rem($li-num-wh/2);
+            display: inline-block;
+            background: $color-primary;
+            color: #fff;
+            text-align: center;
+            font-style: initial;
+            line-height: px2rem($li-num-wh);
+            margin-right: px2rem(10px);
+        }
+        li{
+            padding: px2rem(10px) 0;
+            color: #666;
+            list-style-type: none;
+        }
+        .close-btn{
+            $close-btn-wh: 20px;
+            width: px2rem($close-btn-wh);
+            height: px2rem($close-btn-wh);
+            border-radius: px2rem($close-btn-wh/2);
+            display: inline-block;
+            background: #eee;
+            text-align: center;
+            float: right;
+            margin-top: px2rem(-45px);
+            line-height: px2rem($close-btn-wh);
+
+        }
+    }
+    .main-info{
+        padding: px2rem(15px);
+        >img{
+            $doc-wh: 60px;
+            width: px2rem($doc-wh);
+            height: px2rem($doc-wh);
+            border-radius: px2rem($doc-wh/2);
+            float: left;
+            margin-top: px2rem(5px);
+        }
+        >div{
+            text-align: left;
+            float: left;
+            padding-left: px2rem(15px);
+            color: #666;
+        }
+        p{
+            line-height: px2rem(25px);
+            font-size: px2rem(map_get($map-font-size, s));
+            .dt-name{
+                font-size: px2rem(map_get($map-font-size, m));
+                color: #000;
+            }
+        }
+        &:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
     }
 }
