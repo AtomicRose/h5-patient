@@ -38,7 +38,7 @@ app.controller('BookingDoctorCtrl', ['$rootScope', '$scope', 'dialog', '$statePa
                 if(value == 0){
                 }
                 if(value == 1){
-                    $state.go('');
+                    $state.go('layout.disease');
                 }
             }
         })
