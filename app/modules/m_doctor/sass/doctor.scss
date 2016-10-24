@@ -90,9 +90,13 @@
             border-bottom: 1px solid $color-border-default;
             color: #222;
             font-size: px2rem(map_get($map-font-size, m));
+            &.tag{
+                background: $color-border-default;
+            }
             &.active{
                 color: $brand-danger;
             }
+
         }
         li.hot{
             width: 100%;
@@ -128,6 +132,21 @@
                 &.active{
                     color: $brand-danger;
                 }
+            }
+        }
+        .letter-nav{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: px2rem(20px);
+            height: 100%;
+            padding-top:px2rem(100px);
+            .nav{
+                width: 100%;
+                text-align: center;
+                color: $brand-info;
+                font-size: px2rem(map_get($map-font-size, m));
+                padding: px2rem(4px) 0 px2rem(4px) 0;
             }
         }
     }

@@ -6,66 +6,27 @@
                     <li class="hot">
                         <p>热门城市</p>
                         <div class="item-box">
-                            <div class="hot-item"><span class="active">北京</span></div>
-                            <div class="hot-item"><span>上海</span></div>
-                            <div class="hot-item"><span>广州</span></div>
-                            <div class="hot-item"><span>成都</span></div>
-
+                            <div class="hot-item" ng-repeat="item in hotCity"><span
+                                    ng-class="{'active':(selectedCity.city==item.city&&selectedCity.id==item.id)}"
+                                    ng-bind="item.city" ng-click="selectCity(item)"></span></div>
                         </div>
                     </li>
-                    <li class="usual active">我勒个去啊 1</li>
-                    <li class="usual">我勒个去啊 2</li>
-                    <li class="usual">我勒个去啊 3</li>
-                    <li class="usual">我勒个去啊 4</li>
-                    <li class="usual">我勒个去啊 5</li>
-                    <li class="usual">我勒个去啊 6</li>
-                    <li class="usual">我勒个去啊 7</li>
-                    <li class="usual">我勒个去啊 8</li>
-                    <li class="usual">我勒个去啊 9</li>
-                    <li class="usual">我勒个去啊 10</li>
-                    <li class="usual">我勒个去啊 11</li>
-                    <li class="usual">我勒个去啊 12</li>
-                    <li class="usual">我勒个去啊 13</li>
-                    <li class="usual">我勒个去啊 14</li>
-                    <li class="usual">我勒个去啊 15</li>
-                    <li class="usual">我勒个去啊 16</li>
-                    <li class="usual">我勒个去啊 17</li>
-                    <li class="usual">我勒个去啊 18</li>
-                    <li class="usual">我勒个去啊 19</li>
-                    <li class="usual">我勒个去啊 20</li>
+                    <li class="usual"
+                        ng-class="{'tag':item.type === 'tag','active':(selectedCity.city==item.city&&selectedCity.id==item.id)}"
+                        ng-repeat="item in allCity" id="{{item.id}}" ng-bind="item.city"
+                        ng-click="selectCity(item)"></li>
                 </ul>
             </div>
+        </div>
+        <div class="letter-nav">
+            <div class="nav" ng-repeat="item in letterNavList" ng-bind="item" ng-click="scrollToLetter(item)"></div>
         </div>
     </div>
     <div class="filter-content" ng-show="filterShow && filterIndex == 1">
         <div class="wrap" id="hospitalFilter">
             <div class="scroll">
                 <ul>
-                    <li class="usual active">医院你妹啊 1</li>
-                    <li class="usual">医院你妹啊 2</li>
-                    <li class="usual">医院你妹啊 3</li>
-                    <li class="usual">医院你妹啊 4</li>
-                    <li class="usual">医院你妹啊 5</li>
-                    <li class="usual">医院你妹啊 6</li>
-                    <li class="usual">医院你妹啊 7</li>
-                    <li class="usual">医院你妹啊 8</li>
-                    <li class="usual">医院你妹啊 9</li>
-                    <li class="usual">医院你妹啊 10</li>
-                    <li class="usual">医院你妹啊 11</li>
-                    <li class="usual">医院你妹啊 12</li>
-                    <li class="usual">医院你妹啊 13</li>
-                    <li class="usual">医院你妹啊 14</li>
-                    <li class="usual">医院你妹啊 15</li>
-                    <li class="usual">悲剧，少了几个 1</li>
-                    <li class="usual">悲剧，少了几个 2</li>
-                    <li class="usual">悲剧，少了几个 3</li>
-                    <li class="usual">悲剧，少了几个 4</li>
-                    <li class="usual">悲剧，少了几个 5</li>
-                    <li class="usual">悲剧，少了几个 6</li>
-                    <li class="usual">悲剧，少了几个 7</li>
-                    <li class="usual">悲剧，少了几个 8</li>
-                    <li class="usual">悲剧，少了几个 9</li>
-                    <li class="usual">悲剧，少了几个 10</li>
+                    <li class="usual" ng-repeat="item in hospitalList" ng-class="{'active':selectedHospital.id == item.id}" ng-bind="item.hospital_name" ng-click="selectHospital(item)"></li>
                 </ul>
             </div>
         </div>
@@ -74,93 +35,33 @@
         <div class="wrap" id="levelFilter">
             <div class="scroll">
                 <ul>
-                    <li class="usual">级别能当饭吃么 1</li>
-                    <li class="usual">级别能当饭吃么 2</li>
-                    <li class="usual active">级别能当饭吃么 3</li>
-                    <li class="usual">级别能当饭吃么 4</li>
-                    <li class="usual">级别能当饭吃么 5</li>
-                    <li class="usual">级别能当饭吃么 6</li>
-                    <li class="usual">级别能当饭吃么 7</li>
-                    <li class="usual">级别能当饭吃么 8</li>
-                    <li class="usual">级别能当饭吃么 9</li>
-                    <li class="usual">级别能当饭吃么 10</li>
-                    <li class="usual">级别能当饭吃么 11</li>
-                    <li class="usual">级别能当饭吃么 12</li>
-                    <li class="usual">级别能当饭吃么 13</li>
-                    <li class="usual">级别能当饭吃么 14</li>
-                    <li class="usual">级别能当饭吃么 15</li>
-                    <li class="usual">级别能当饭吃么 16</li>
-                    <li class="usual">级别能当饭吃么 17</li>
+                    <li class="usual" ng-repeat="item in levelList" ng-class="{'acive': selectedLevel.name == item.name}" ng-bind="item.name" ng-click="selectLevel(item)"></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="filter">
         <div class="item" ng-class="{'active':filterIndex == 0 && filterShow}" ng-click="ctrlFilter(0)"><span
-                class="text">地区</span><span class="triangle-down"></span></div>
+                class="text" ng-bind="selectedCity.city"></span><span class="triangle-down"></span></div>
         <div class="item" ng-class="{'active':filterIndex == 1 && filterShow}" ng-click="ctrlFilter(1)"><span
-                class="text">上海市长海医院</span><span class="triangle-down"></span></div>
+                class="text" ng-bind="selectedHospital.short_name || selectedHospital.hospital_name"></span><span class="triangle-down"></span></div>
         <div class="item" ng-class="{'active':filterIndex == 2 && filterShow}" ng-click="ctrlFilter(2)"><span
-                class="text">级别</span><span class="triangle-down"></span></div>
+                class="text" ng-bind="selectedLevel.name"></span><span class="triangle-down"></span></div>
     </div>
     <div class="doctor-list">
         <div class="wrap" id="doctorScroll">
             <div class="scroll">
                 <ul>
-                    <li class="doctor-item">
+                    <li class="doctor-item" ng-repeat="item in doctorList" ng-click="selectDoctor(item)">
                         <div class="info-box">
                             <div class="img"><img src="app/images/img/head.jpg" alt=""></div>
                             <div class="info">
-                                <p><span class="name">王进喜</span><span>教授</span><span>主任医师</span></p>
-                                <p><span>眼科</span></p>
-                                <p><span>北京协和医院</span></p>
+                                <p><span class="name" ng-bind="item.name"></span><span ng-repeat="t in item.title" ng-bind="t"></span></p>
+                                <p><span ng-bind="item.department.department_name"></span></p>
+                                <p><span ng-bind="item.hospital.hospital_name"></span></p>
                             </div>
                         </div>
-                        <div class="desc">擅长：长期从事乳腺癌的一线临床和科研工作，苏打放多少在乳腺癌的早期发现，早期诊断，早期治疗，早期手术方面巴拉巴拉巴拉巴拉</div>
-                    </li>
-                    <li class="doctor-item">
-                        <div class="info-box">
-                            <div class="img"><img src="app/images/img/head.jpg" alt=""></div>
-                            <div class="info">
-                                <p><span class="name">王进喜</span><span>教授</span><span>主任医师</span></p>
-                                <p><span>眼科</span></p>
-                                <p><span>北京协和医院</span></p>
-                            </div>
-                        </div>
-                        <div class="desc">擅长：长期从事乳腺癌的一线临床和科研工作，苏打放多少在乳腺癌的早期发现，早期诊断，早期治疗，早期手术方面巴拉巴拉巴拉巴拉</div>
-                    </li>
-                    <li class="doctor-item">
-                        <div class="info-box">
-                            <div class="img"><img src="app/images/img/head.jpg" alt=""></div>
-                            <div class="info">
-                                <p><span class="name">王进喜</span><span>教授</span><span>主任医师</span></p>
-                                <p><span>眼科</span></p>
-                                <p><span>北京协和医院</span></p>
-                            </div>
-                        </div>
-                        <div class="desc">擅长：长期从事乳腺癌的一线临床和科研工作，苏打放多少在乳腺癌的早期发现，早期诊断，早期治疗，早期手术方面巴拉巴拉巴拉巴拉</div>
-                    </li>
-                    <li class="doctor-item">
-                        <div class="info-box">
-                            <div class="img"><img src="app/images/img/head.jpg" alt=""></div>
-                            <div class="info">
-                                <p><span class="name">王进喜</span><span>教授</span><span>主任医师</span></p>
-                                <p><span>眼科</span></p>
-                                <p><span>北京协和医院</span></p>
-                            </div>
-                        </div>
-                        <div class="desc">擅长：长期从事乳腺癌的一线临床和科研工作，苏打放多少在乳腺癌的早期发现，早期诊断，早期治疗，早期手术方面巴拉巴拉巴拉巴拉</div>
-                    </li>
-                    <li class="doctor-item">
-                        <div class="info-box">
-                            <div class="img"><img src="app/images/img/head.jpg" alt=""></div>
-                            <div class="info">
-                                <p><span class="name">王进喜</span><span>教授</span><span>主任医师</span></p>
-                                <p><span>眼科</span></p>
-                                <p><span>北京协和医院</span></p>
-                            </div>
-                        </div>
-                        <div class="desc">擅长：长期从事乳腺癌的一线临床和科研工作，苏打放多少在乳腺癌的早期发现，早期诊断，早期治疗，早期手术方面巴拉巴拉巴拉巴拉</div>
+                        <div class="desc" ng-bind="item.desc"></div>
                     </li>
                 </ul>
             </div>

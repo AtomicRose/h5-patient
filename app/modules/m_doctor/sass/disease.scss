@@ -85,7 +85,7 @@
         .nav{
             width: 100%;
             text-align: center;
-            color: $color-primary;
+            color: $brand-info;
             font-size: px2rem(map_get($map-font-size, m));
             padding: px2rem(4px) 0 px2rem(4px) 0;
         }
