@@ -194,7 +194,7 @@ app.run(['$templateCache', function ($templateCache) {
         <div class="header {{defaults.otherClass}}">\
        <div class="left-operate">\
            <div class="btn-back" ng-show="defaults.enableBack" ng-click="goBack()">\
-               <div class="icon-back"></div>\
+               <div class="iconfont icon-back"></div>\
            </div>\
            <div class="btn-close" ng-show="defaults.enableClose" ng-click="closeHeader()"></div>\
        </div>\
