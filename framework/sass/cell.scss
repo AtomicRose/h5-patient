@@ -1,4 +1,5 @@
 $cell-height: 48px;
+$xs-cell-height: 20px;
 $double-cell-height: 70px;
 .cell-group{
     width: 100%;
@@ -154,6 +155,11 @@ $double-cell-height: 70px;
         font-size: px2rem(map_get($map-font-size, s));
         color: #666;
         line-height: px2rem($cell-height);
+    }
+    .xs-label{
+        font-size: px2rem(map_get($map-font-size, xxs));
+        color: #999;
+        line-height: px2rem($xs-cell-height);
     }
     .label-box{
         font-size: px2rem(map_get($map-font-size, m));

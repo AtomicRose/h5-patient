@@ -132,6 +132,14 @@ $btn-disabled-color: rgba(0,0,0,.4);
     color: #00aaee;
     font-size: px2rem(map_get($map-font-size, s));
 }
+.btn-aid-light{
+    // height: px2rem(28px);
+    // line-height: px2rem(28px);
+    border: 1px solid $color-light;
+    text-align: center;
+    color: $color-light;
+    font-size: px2rem(map_get($map-font-size, s));
+}
 .btn-dock{
     width: 100%;
     padding: px2rem(5px) px2rem(10px) px2rem(5px) px2rem(10px);
