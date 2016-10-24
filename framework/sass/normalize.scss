@@ -87,3 +87,9 @@ body {
         font-size: px2rem(map_get($map-font-size, m));
     }
 }
+
+.tips{
+    color: #666;
+    text-align: center;
+    padding: px2rem(10px) 0;
+}

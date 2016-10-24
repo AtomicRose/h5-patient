@@ -38,7 +38,7 @@ app.controller('BookingDoctorCtrl', ['$rootScope', '$scope', 'dialog', '$statePa
                 if(value == 0){
                 }
                 if(value == 1){
-                    // $state.go('');
+                    $state.go('');
                 }
             }
         })
@@ -108,45 +108,49 @@ app.controller('BookingDoctorCtrl', ['$rootScope', '$scope', 'dialog', '$statePa
     });
     function beforeCall(doingCall){
 
-        var _paramsObj = {
-            booking : {
-                doctor_id: $stateParams.doctorId,
-                contact_name: $scope.patient.name,
-                disease_detail: $scope.patient.diseaseDescription,
-                disease_name: $scope.patient.diseaseName
-            }
-        };
-        var spinner = dialog.showSpinner();
-        BookingService.postBookingDoctor(_paramsObj).then(
-            function(res){
-                console.log('suc',res);
-                doingCall({
-                    upload: {
-                        params: {
-                            'booking[id]': res.results.booking_id
-                        }
-                    }
-                });
-                var finshInterval = setInterval(function(){
-                    if(UploadImg.isFinished('uploadImgBox')){
-                        clearInterval(finshInterval);
-                        dialog.closeSpinner(spinner.id);
-                        //if finshed, do the next
-                        $state.go('layout.order', {
-                            bookingId: res.results.booking_id
-                        });
-                    }
-                },500);
-            },
-            function(res){
-                dialog.closeSpinner(spinner.id);
-                dialog.alert(res.errorMsg);
-            }
-        );
+        // var _paramsObj = {
+        //     booking : {
+        //         doctor_id: $stateParams.doctorId,
+        //         contact_name: $scope.patient.name,
+        //         disease_detail: $scope.patient.diseaseDescription,
+        //         disease_name: $scope.patient.diseaseName
+        //     }
+        // };
+        // var spinner = dialog.showSpinner();
+        // BookingService.postBookingDoctor(_paramsObj).then(
+        //     function(res){
+        //         console.log('suc',res);
+        //         doingCall({
+        //             upload: {
+        //                 params: {
+        //                     'booking[id]': res.results.booking_id
+        //                 }
+        //             }
+        //         });
+        //         var finshInterval = setInterval(function(){
+        //             if(UploadImg.isFinished('uploadImgBox')){
+        //                 clearInterval(finshInterval);
+        //                 dialog.closeSpinner(spinner.id);
+        //                 //if finshed, do the next
+        //                 $state.go('layout.order', {
+        //                     bookingId: res.results.booking_id
+        //                 });
+        //             }
+        //         },500);
+        //     },
+        //     function(res){
+        //         dialog.closeSpinner(spinner.id);
+        //         dialog.alert(res.errorMsg);
+        //     }
+        // );
 
     }
     function afterCall(upFileList){
 
+    }
+
+    $scope.booking = function(){
+        $state.go('layout.booking-success');
     }
     
     $scope.goAgreement = function(){
