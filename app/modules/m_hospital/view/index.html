@@ -1,25 +1,29 @@
 <div ng-controller="HospitalCtrl" class="hospital-page">
-    <div class="hospital-nav">
+    <div id="hospitalNavScroll" class="hospital-nav">
+        <div class="scroll">
         <ul>
-            <li ng-repeat="dep in deptList" ng-class="{'selected':selectedDeptId == dep.id}" ng-bind="dep.name" ng-click="clickNav(dep.id)">整形外科</li>
+            <li ng-repeat="dep in deptList" ng-class="{'selected':selectedDeptId == dep.id}" ng-bind="dep.name" ng-click="clickNav(dep.id)"></li>
         </ul>
-    </div>
-    <div class="hospital-list cell-group">
-        <div class="cell double-line" ng-repeat="hp in hospitalList" ng-click="goToDetail(hp)">
-            <div class="left-box clearly-width">
-                <!-- <span class="label">冯华</span> -->
-                <i class="hp-img"></i>
-            </div>
-            <div class="middle-box">
-                <span class="content single-line" ng-bind="hp.name"></span>
-                <span class="minor single-line">
-                    <span ng-bind="hp.hpClass"></span> | 本院科室：<span ng-bind="hp.hp_dept_name"></span>
-                </span>
-            </div>
-            <div class="right-box">
-                <span class="arrow-right"></span>
-            </div>
         </div>
     </div>
-    <p class="hospital-tips">参考最新复旦专科医院排名</p>
+    <div id="hospitalScroll" class="hospital-list">
+        <div class="scroll cell-group">
+            <div class="cell double-line" ng-repeat="hp in hospitalList" ng-click="goToDetail(hp)">
+                <div class="left-box clearly-width">
+                    <!-- <span class="label">冯华</span> -->
+                    <i class="hp-img"></i>
+                </div>
+                <div class="middle-box">
+                    <span class="content single-line" ng-bind="hp.name"></span>
+                    <span class="minor single-line">
+                        <span ng-bind="hp.hpClass"></span> | 本院科室：<span ng-bind="hp.hp_dept_name"></span>
+                    </span>
+                </div>
+                <div class="right-box">
+                    <span class="arrow-right"></span>
+                </div>
+            </div>
+            <p class="hospital-tips">参考最新复旦专科医院排名</p>
+        </div>
+    </div>
 </div>

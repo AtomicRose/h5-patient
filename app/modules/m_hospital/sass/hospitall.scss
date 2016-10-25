@@ -1,7 +1,44 @@
 .hospital-page{
+    height: 100%;
+    display: flex;    
+    flex-direction: column;
+    #hospitalNavScroll{
+        .scroll{
+            width: auto;
+            height: 100%;
+        }
+    }
+    #hospitalScroll{
+        .scroll{
+            width: 100%;
+            height: auto;
+        }
+    }
+    .scroll{
+        position: absolute;
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-text-size-adjust: none;
+        -moz-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        -o-text-size-adjust: none;
+        text-size-adjust: none;
+    }
     .hospital-nav{
         background: #fff;
-        overflow-x: scroll;
+        // overflow-x: scroll;
+        height: px2rem(40px);
+        position: relative;
+        width: 100%;
+        overflow: hidden;
         ul{
             width: px2rem(1000px);
         }
@@ -24,9 +61,14 @@
     .hospital-tips{
         text-align: center;
         color: #bbb;
-        padding-bottom: px2rem(15px);
+        padding: px2rem(15px) 0;
     }
     .hospital-list{
+        position: relative;
+        // width: 100%;
+        flex: 1;
+        height: 100%;
+        overflow: hidden;
     }
     .left-box.clearly-width{
         width: px2rem(60px);

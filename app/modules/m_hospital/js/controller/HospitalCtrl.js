@@ -21,7 +21,22 @@ app.controller('HospitalCtrl', ['$scope', '$rootScope', 'CommonService', 'dialog
     };
     $rootScope.$broadcast('setHeaderConfig', window.headerConfig);
 
-
+    var hospitalNavScroll = new IScroll('#hospitalNavScroll', {
+        scrollX: true,
+        scrollY: false,
+        mouseWheel: false,
+        click: true
+    });
+    setInterval(function(){
+        hospitalNavScroll.refresh();
+    },1000);
+    var hospitalScroll = new IScroll('#hospitalScroll', {
+        mouseWheel: false,
+        click: true
+    });
+    setInterval(function(){
+        hospitalScroll.refresh();
+    },1000);
     //If not find the cities info in the sessionStorage. It should request the service to get them.
     if (!(StorageConfig.CITY_STORAGE.getItem('hospitalCities') && StorageConfig.CITY_STORAGE.getItem('hospitalCities').length)) {
         requestGetCities();
