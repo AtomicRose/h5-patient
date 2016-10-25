@@ -1,37 +1,41 @@
 
 @font-face {font-family: "iconfont";
-  src: url('fontIcon/iconfont.eot?t=1476842217'); /* IE9*/
-  src: url('fontIcon/iconfont.eot?t=1476842217#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('fontIcon/iconfont.woff?t=1476842217') format('woff'), /* chrome, firefox */
-  url('fontIcon/iconfont.ttf?t=1476842217') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('fontIcon/iconfont.svg?t=1476842217#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('fontIcon/iconfont.eot?t=1477378825'); /* IE9*/
+  src: url('fontIcon/iconfont.eot?t=1477378825#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('fontIcon/iconfont.woff?t=1477378825') format('woff'), /* chrome, firefox */
+  url('fontIcon/iconfont.ttf?t=1477378825') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('fontIcon/iconfont.svg?t=1477378825#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
   font-family:"iconfont" !important;
-  font-size:px2rem(24px);
+  font-size:16px;
   font-style:normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
   color: #aaa;
+  font-size:px2rem(20px);
 }
+.icon-circle-file-edit:before { content: "\e617"; }
+.icon-circle-file:before { content: "\e616"; }
+.icon-share:before { content: "\e615"; }
 .icon-smile:before { content: "\e614"; }
 .icon-normal:before { content: "\e613"; }
-.icon-person-fill:before { content: "\e612"; }
 .icon-person:before { content: "\e611"; }
 .icon-camera:before { content: "\e610"; }
+.icon-person-fill:before { content: "\e612"; }
 .icon-sad:before { content: "\e60f"; }
-.icon-back:before { content: "\e60e"; }
-.icon-file:before { content: "\e60d"; }
-.icon-search:before { content: "\e60c"; }
-.icon-arrow-up:before { content: "\e60b"; }
-.icon-arrow-down:before { content: "\e60a"; }
-.icon-arrow-left:before { content: "\e608"; }
 .icon-arrow-right:before { content: "\e602"; }
 .icon-information:before { content: "\e603"; }
 .icon-phone:before { content: "\e604"; }
-.icon-clock:before { content: "\e605"; }
-.icon-setting:before { content: "\e606"; }
-.icon-edit:before { content: "\e607"; }
+.icon-search:before { content: "\e60c"; }
+.icon-back:before { content: "\e60e"; }
+.icon-arrow-down:before { content: "\e60a"; }
 .icon-question:before { content: "\e601"; }
+.icon-file:before { content: "\e60d"; }
+.icon-edit:before { content: "\e607"; }
+.icon-setting:before { content: "\e606"; }
+.icon-clock:before { content: "\e605"; }
+.icon-arrow-up:before { content: "\e60b"; }
+.icon-arrow-left:before { content: "\e608"; }
