@@ -9,7 +9,8 @@ app.controller('DoctorDetailCtrl', ['$rootScope', '$scope', 'dialog', '$statePar
     window.headerConfig = {
         enableHeader: true,
         enableBack: true,
-        enableRefresh: true,
+        enableRefresh: false,
+        enableShare: true,
         otherThemeClass: 'header-doc-img',
         title: '医生名'
     };

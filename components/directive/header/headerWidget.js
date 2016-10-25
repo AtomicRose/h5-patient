@@ -6,6 +6,7 @@ app.directive('headerWidget', [function () {
             enableClose: true,
             enableTitle: true,
             enableRefresh: true,
+            enableShare: false,
             enableArea: false,
             otherThemeClass: '',
             tabOperate: {
@@ -127,6 +128,10 @@ app.directive('headerWidget', [function () {
         $scope.refresh = function () {
             window.location.reload();
         };
+
+        $scope.share = function(){
+            console.log('share!');
+        }
         /**
          * Click the other right operate fn
          */
@@ -204,6 +209,7 @@ app.run(['$templateCache', function ($templateCache) {
        </div>\
        <div class="right-operate">\
            <div class="btn-refresh" ng-show="defaults.enableRefresh" ng-click="refresh()"></div>\
+           <div class="btn-share" ng-show="defaults.enableShare" ng-click="share()"><i class="iconfont icon-share"></i></div>\
            <div class="other-right-operate" ng-show="defaults.otherRightOperate.enable" ng-click="clickOtherRightOperate()" ng-bind-html="defaults.otherRightOperate.html | trustAsHtml"></div>\
            <div class="select-area" ng-show="defaults.areaOperate.enable">\
                 <div class="current-area" ng-click="showAreaList()"><span class="current-area-text" ng-bind="currentArea[defaults.areaOperate.trackKey]"></span><span class="select-icon" ng-class="{true:\'triangle-up\', false: \'triangle-down\'}[showAreas]"></span></div>\

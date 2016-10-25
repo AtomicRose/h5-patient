@@ -29,6 +29,7 @@ app.controller('OrdersCtrl',['$scope','$rootScope','$state','$stateParams','User
             function(res){
                 // $scope.orderList
                 $scope.orderList = res.results;
+                // $scope.orderList = [];
                 dialog.closeSpinner(spinner.id);
             },
             function(res){

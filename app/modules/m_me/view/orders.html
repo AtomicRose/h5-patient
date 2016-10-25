@@ -1,5 +1,8 @@
 <div ng-controller="OrdersCtrl" class="orders-page">
-    <div ng-if="!orderList.length" class="data-null-img"></div>
+    <div ng-if="!orderList.length" class="no-file">
+        <i class="iconfont icon-circle-file"></i>
+        <p>您还没有提交过预约单</p>
+    </div>
     <ul ng-if="orderList.length">
         <li ng-repeat="li in orderList" ng-click="goDetail(li.id)">
             <div>
