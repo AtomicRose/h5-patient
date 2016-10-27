@@ -40,7 +40,7 @@ app.controller('MarkCtrl',['$scope','$rootScope','StorageConfig','$state', 'dial
    
     function goOrderDetail(){
         $state.go('layout.orderDetail',{
-            bookingId: 2146 //写死
+            bookingId: 2145 //写死
         })
     }  
 

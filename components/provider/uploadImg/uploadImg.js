@@ -53,9 +53,7 @@
         var options = extend(defaults, config);
         isFinished[options.id] = !options.required;
         var container = document.getElementById(options.id);
-        container.innerHTML = '';
-                            // <div class="title">' + options.title + '</div>\
-        container.innerHTML += '<div class="upload-img">\
+        container.innerHTML = '<div class="upload-img">\
                 <div class="title">\
                     <div class="left-box">\
                         <i class="iconfont icon-camera"></i>\

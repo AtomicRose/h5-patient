@@ -46,7 +46,9 @@ app.controller('BookingDoctorCtrl', ['$rootScope', '$scope', 'dialog', '$statePa
 
     var doctorScroll = new IScroll('#doctorScroll', {
         mouseWheel: false,
-        click: true
+        // click: true
+        click:false,
+        preventDefaultException:{label:/.*/}
     });
 
     
