@@ -16,7 +16,7 @@
         height: px2rem(40px);
         border-bottom: 1px solid #e6e6e6;
         background: #fff;
-        padding-top: px2rem(10px);
+        padding: px2rem(10px) 0 ;
         z-index: 99;
         .item{
             width: 33.333%;
@@ -36,9 +36,10 @@
                 display: inline-block;
                 position: relative;
                 top: px2rem(4px);
+                margin-left: px2rem(5px);
                 &:before{
                     border: px2rem(6px) transparent solid;
-                    border-top-color: #666;
+                    border-top-color: #999;
                 }
             }
             &:last-child{
@@ -158,6 +159,7 @@
             width: 100%;
             height: px2rem(150px);
             padding: px2rem(10px);
+            border-bottom: 1px solid #eee;
         }
         .info-box{
             display: -webkit-box;
