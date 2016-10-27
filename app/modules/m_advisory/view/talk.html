@@ -9,7 +9,22 @@
             <ul class="list-talk">
                 <li ng-class="{'l-talk':tli.from == 'myzd', 'r-talk':tli.from == 'client'}" ng-repeat="tli in talkList">
                     <i ng-if="tli.from == 'myzd'" class="l-talk-i"></i>
-                    <div ng-bind="tli.text"></div>
+                    <div ng-if="tli.text" ng-bind="tli.text"></div>
+                    <div class="l-talk-doc" ng-if="tli.doc">
+                        <div class="l-talk-doc-info">
+                            <div>
+                                <p>
+                                    <span class="doc-name" ng-bind="tli.doc.name"></span>
+                                    <span ng-bind="tli.doc.title"></span>
+                                    <span ng-bind="tli.doc.class"></span>
+                                </p>
+                                <p ng-bind="tli.doc.hospital"></p>
+                                <p ng-bind="tli.doc.dept"></p>
+                            </div>
+                            <img src="http://dr.static.mingyizhudao.com/25B5C5A2C885B62AE8ED01901FF6F552">
+                        </div>
+                        <p class="">医生名片</p>
+                    </div>
                 </li>
                 <!-- <li class="r-talk">
                     <div ng-bind="tli.text"></div>

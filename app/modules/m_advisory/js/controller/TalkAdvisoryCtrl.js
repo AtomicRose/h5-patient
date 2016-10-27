@@ -30,7 +30,16 @@ app.controller('TalkAdvisoryCtrl', ['$rootScope', '$scope', 'dialog','$state', f
         {from: 'myzd', text: '您好'},
         {from: 'myzd', text: '哈喽'},
         {from: 'client', text: '吃饭起'},
-        {from: 'myzd', text: '好！'}
+        {from: 'myzd', text: '好！'},
+        {
+            from: 'myzd', doc: {
+                name: '许三观',
+                hospital: '北京协和医院',
+                dept: '心血管外科',
+                title: '教授',
+                class: '主任医师'
+            }
+        }
     ];
 
     $scope.talkList = talkList;
@@ -40,11 +49,16 @@ app.controller('TalkAdvisoryCtrl', ['$rootScope', '$scope', 'dialog','$state', f
         click: true
     });
 
+    
     setInterval(function () {
         talkContentScroll.refresh();
+        if (needScroll) {
+            talkContentScroll.scrollTo(0, talkContentScroll.maxScrollY, 0);
+            needScroll = false;
+        }
     }, 500);
 
-
+    var needScroll = false;
     $scope.upText = function(event,_text){
         // console.log('_text',_text);
         if(event.which === 13) {
@@ -54,7 +68,7 @@ app.controller('TalkAdvisoryCtrl', ['$rootScope', '$scope', 'dialog','$state', f
             talkList.push(textObj);
             $scope.talkList = talkList;
             $scope.talkText = '';
-            talkContentScroll.scrollTo(0, talkContentScroll.maxScrollY, 0);
+            needScroll = true;
         }
     }
 
