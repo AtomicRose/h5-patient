@@ -53,12 +53,21 @@
         var options = extend(defaults, config);
         isFinished[options.id] = !options.required;
         var container = document.getElementById(options.id);
-        container.innerHTML = '<div class="upload-img">\
-                <div class="title">' + options.title + '</div>\
+        container.innerHTML = '';
+                            // <div class="title">' + options.title + '</div>\
+        container.innerHTML += '<div class="upload-img">\
+                <div class="title">\
+                    <div class="left-box">\
+                        <i class="iconfont icon-camera"></i>\
+                    </div>\
+                    <div class="middle-box">\
+                        <p class="label">影像资料</p>\
+                    </div>\
+                </div>\
                 <div class="img-show" id="uploadImgShow_' + options.id + '">\
                 </div>\
                 <div class="form-box">\
-                    <label for="uploadInputFile_' + options.id + '" id="forUploadAdd_' + options.id + '" class="add-icon"><div class="text"><p class="text-lg">+</p><p class="text-sm">点击添加图片</p></div></label>\
+                    <label for="uploadInputFile_' + options.id + '" id="forUploadAdd_' + options.id + '" class="add-icon"><div class="text"><p class="text-lg">+</p></div></label>\
                     <input type="file" class="fn-hide" ' + (options.multiple ? 'multiple' : '') + ' id="uploadInputFile_' + options.id + '">\
                 </div>\
                 <div class="btn-dock"><button class="btn btn-info" id="uploadButton_' + options.id + '">上传图片</button></div>\
