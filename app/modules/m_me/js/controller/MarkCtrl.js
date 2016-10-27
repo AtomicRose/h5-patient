@@ -40,9 +40,26 @@ app.controller('MarkCtrl',['$scope','$rootScope','StorageConfig','$state', 'dial
    
     function goOrderDetail(){
         $state.go('layout.orderDetail',{
-            bookingId: null
-        });
+            bookingId: 2146 //写死
+        })
     }  
+
+    $scope.commit = function(){
+
+        $scope.isMarked = true;
+        window.headerConfig={
+            enableHeader: true,
+            enableRefresh: false,
+            enableBack: true,
+            otherRightOperate: {
+                enable: true,
+                html: '查看详情',
+                clickCall: goOrderDetail
+            },
+            title: '已评价'
+        };
+        $rootScope.$broadcast('setHeaderConfig', window.headerConfig);
+    }
 
     
 }]);

@@ -87,4 +87,8 @@ app.controller('OrderDetailCtrl',['$scope','$rootScope','$state','$stateParams',
         );
     }
 
+    $scope.pay = function(){
+        $state.go('layout.mark');
+    }
+
 }]);
