@@ -1,5 +1,5 @@
 app.directive('sidebarWidget', [function () {
-    var ctrl = ['$scope', '$rootScope', 'helper', '$state', 'CMSDataConfig', function ($scope, $rootScope, helper, $state, CMSDataConfig) {
+    var ctrl = ['$scope', '$rootScope', 'helper', '$state', 'CMSDataConfig', 'StorageConfig', function ($scope, $rootScope, helper, $state, CMSDataConfig, StorageConfig) {
         var e_sidebar = document.getElementById('layoutSidebar');
         $scope.isOpen = false;
         function _open() {
@@ -73,6 +73,11 @@ app.directive('sidebarWidget', [function () {
                 backHome: 'layout.home'
             });
         };
+
+        if (StorageConfig.TOKEN_STORAGE.getItem('authorization')){
+            $scope.username = 'popoAO'; //写死 用户名
+        }
+
     }];
     return {
         restrict: 'A',
@@ -98,7 +103,7 @@ app.run(['$templateCache', function ($templateCache) {
                                 <img src="app/images/img/head.jpg" alt="">\
                             </div>\
                         </div>\
-                        <div class="right">您好！请登录</div>\
+                        <div class="right" ng-bind="username||\'您好！请登录\'"></div>\
                     </div>\
                     <div class="cell-group list">\
                         <div class="cell" ng-repeat="item in menuList" ng-click="clickItem(item)">\
