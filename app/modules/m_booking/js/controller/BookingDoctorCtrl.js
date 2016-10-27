@@ -51,7 +51,7 @@ app.controller('BookingDoctorCtrl', ['$rootScope', '$scope', 'dialog', '$statePa
         preventDefaultException:{label:/.*/}
     });
 
-    
+
     setInterval(function () {
         doctorScroll.refresh();
     }, 500);
@@ -164,7 +164,7 @@ app.controller('BookingDoctorCtrl', ['$rootScope', '$scope', 'dialog', '$statePa
     $scope.booking = function(){
         $state.go('layout.booking-success');
     }
-    
+
     $scope.goAgreement = function(){
         $state.go('layout.aboutAgreement');
     }
