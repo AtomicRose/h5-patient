@@ -10,4 +10,7 @@ app.controller('BeforeAdvisoryCtrl', ['$rootScope', '$scope', 'dialog','$state',
     $scope.goSelectDisease = function(){
         $state.go('layout.disease');
     };
+    $scope.goStartTalk = function(){
+        $state.go('layout.advisory-talk');
+    }
 }]);

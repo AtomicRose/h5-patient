@@ -165,4 +165,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: '/advisory/before',
             templateUrl: 'app/modules/m_advisory/view/before.html'
         })
+        .state('layout.advisory-talk', {
+            url: '/advisory/talk',
+            templateUrl: 'app/modules/m_advisory/view/talk.html'
+        })
 }]);

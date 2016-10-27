@@ -88,10 +88,7 @@ gulp.task('framework-sass', function () {
     return gulp.src(frameworkPaths.sassPath)
         .pipe(template({THEME_NAME: THEME_NAME}))
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
+        .pipe(autoprefixer())
         .pipe(gulp.dest('dist/framework/'));
 });
 gulp.task('framework-sass-debug', function () {
@@ -99,10 +96,7 @@ gulp.task('framework-sass-debug', function () {
         .pipe(template({THEME_NAME: THEME_NAME}))
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
+        .pipe(autoprefixer())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/framework/'));
 });
@@ -183,10 +177,7 @@ gulp.task('components-sass', function () {
         .pipe(template({THEME_NAME: THEME_NAME}))
         .pipe(concat('components.scss'))
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
+        .pipe(autoprefixer())
         .pipe(gulp.dest('dist/components/'));
 });
 gulp.task('components-sass-debug', function () {
@@ -196,10 +187,7 @@ gulp.task('components-sass-debug', function () {
         .pipe(concat('components.scss'))
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
+        .pipe(autoprefixer())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/components/'));
 });
@@ -227,10 +215,7 @@ gulp.task('app-sass', function () {
     return gulp.src('app/app.scss')
         .pipe(template({THEME_NAME: THEME_NAME}))
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
+        .pipe(autoprefixer())
         .pipe(gulp.dest('dist/app/'));
 });
 gulp.task('app-sass-debug', function () {
@@ -238,10 +223,7 @@ gulp.task('app-sass-debug', function () {
         .pipe(template({THEME_NAME: THEME_NAME}))
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
+        .pipe(autoprefixer())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/app/'));
 });
