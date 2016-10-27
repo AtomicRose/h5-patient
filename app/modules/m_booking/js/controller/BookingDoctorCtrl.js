@@ -44,6 +44,16 @@ app.controller('BookingDoctorCtrl', ['$rootScope', '$scope', 'dialog', '$statePa
         })
     }
 
+    var doctorScroll = new IScroll('#doctorScroll', {
+        mouseWheel: false,
+        click: true
+    });
+
+    
+    setInterval(function () {
+        doctorScroll.refresh();
+    }, 500);
+
     // $scope.bookingDoctor = function(_patient){
     //     var _paramsObj = {
     //         booking : {
