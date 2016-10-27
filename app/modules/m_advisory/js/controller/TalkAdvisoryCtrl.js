@@ -20,7 +20,7 @@ app.controller('TalkAdvisoryCtrl', ['$rootScope', '$scope', 'dialog','$state', f
                 if(value == 0){
                 }
                 if(value == 1){
-                    $state.go('layout.home');
+                    $state.go('layout.advisory-before');
                 }
             }
         })

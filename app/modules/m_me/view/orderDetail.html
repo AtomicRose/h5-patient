@@ -114,10 +114,10 @@
             </p>
         </div>
     </div>
-    <div class="btn-dock fixed">
+    <div ng-if="orderStatusNum==1" class="btn-dock fixed">
         <div class="order-account">
             <span>200</span>元
         </div>
-        <button ng-if="orderStatusNum==1" class="btn btn-light no-border-radius" ng-click="pay()">支付</button>
+        <button class="btn btn-light no-border-radius" ng-click="pay()">支付</button>
     </div>
 </div>

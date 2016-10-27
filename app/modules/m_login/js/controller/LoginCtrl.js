@@ -69,6 +69,8 @@ app.controller('LoginCtrl', ['$scope', '$rootScope', '$state', 'LoginService', '
     /**
      * User login by the mobile & password.
      */
+    $scope.passwordLogin_phone = '18556506973';
+    $scope.passwordLogin_password = 'jiangyan1';
     $scope.doPasswordLogin = function () {
         var a = dialog.showSpinner();
         var params = {

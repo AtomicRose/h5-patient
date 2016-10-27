@@ -15,7 +15,7 @@ app.controller('BookingSuccessCtrl', ['$rootScope', '$scope', '$stateParams', '$
 
     $scope.goOrderDetail = function(){
         $state.go('layout.orderDetail',{
-            bookingId: 2146 //写死
+            bookingId: 2145 //写死
         })
     }  
 }]);
