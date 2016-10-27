@@ -46,10 +46,11 @@ app.controller('BookingDoctorCtrl', ['$rootScope', '$scope', 'dialog', '$statePa
 
     var doctorScroll = new IScroll('#doctorScroll', {
         mouseWheel: false,
-        click: true
+        click: false,
+        preventDefaultException:{label:/.*/}
     });
 
-    
+
     setInterval(function () {
         doctorScroll.refresh();
     }, 500);
@@ -162,7 +163,7 @@ app.controller('BookingDoctorCtrl', ['$rootScope', '$scope', 'dialog', '$statePa
     $scope.booking = function(){
         $state.go('layout.booking-success');
     }
-    
+
     $scope.goAgreement = function(){
         $state.go('layout.aboutAgreement');
     }
