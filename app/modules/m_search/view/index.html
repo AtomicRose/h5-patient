@@ -1,7 +1,18 @@
 <div class="search-page" ng-controller="SearchCtrl">
     <div class="search-header">
-        <div class="centerOpt"><input id="searchInput" type="" name="" placeholder="搜索疾病、医生或医院" ng-model="searchContent" ng-change="searchInfo(searchContent)"></div>
+        <div class="centerOpt"><input id="searchInput" type="" name="" placeholder="请输入疾病名称、医生姓名、医院名称" ng-model="searchContent" ng-change="searchInfo(searchContent)"></div>
         <div class="rightOpt" ng-click="routerGo('layout.home')">取消</div>
+    </div>
+    <div class="recommend">
+        <p>常见手术疾病：</p>
+        <ul>
+            <li>甲状腺肿瘤</li>
+            <li>皮肤病</li>
+            <li>头痛</li>
+            <li>甲状腺肿瘤</li>
+            <li>皮肤病</li>
+            <li>头痛</li>
+        </ul>
     </div>
     <div class="search-result">
         <div ng-if="searchTips" class="search-tips" ng-bind="searchTips">

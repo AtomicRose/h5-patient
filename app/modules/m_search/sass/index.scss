@@ -7,6 +7,30 @@
 		text-align: center;
 		color: #ccc;
 	}
+	.recommend{
+		padding: px2rem(5px) px2rem(10px);
+		p{
+			font-size: px2rem(map_get($map-font-size, xs));
+			color: #333;
+			margin-bottom: px2rem(5px);
+		}
+		ul{
+			list-style: none;
+			&:after{
+				display: block;
+				clear: both;
+				content: '';
+			}
+		}
+		li{
+			float: left;
+			padding: px2rem(5px) px2rem(20px);
+			border: 1px solid #bbb;
+			border-radius: px2rem(10px);
+			font-size: px2rem(map_get($map-font-size, s));
+			margin: 0 px2rem(10px) px2rem(5px) 0;
+		}
+	}
 	.search-header{
 		height: px2rem($search-header-height);
 		&:after{
@@ -14,8 +38,8 @@
 			display: block;
 			clear: both;
 		}
-		background:#fff;
-		border-bottom: 1px solid #c2c0c0;
+		background: $color-primary;
+		// border-bottom: 1px solid #c2c0c0;
 		&.search-more{
 			.leftOpt{
 				width: 15%;
@@ -39,11 +63,11 @@
 		.rightOpt{
 			width: 20%;
 			text-align: center;
-			color: $color-ligth-text;
+			color: #fff;
 			line-height: $search-header-height;
 		}
 		input{
-			background: #e7e8ea url("http://static.mingyizhudao.com/146243645256928") no-repeat 5px 50%;
+			background: #fff url("http://static.mingyizhudao.com/146243645256928") no-repeat 5px 50%;
     		background-size: 1.25rem;
     		border: 0px;
 			border-radius: px2rem(5px);
