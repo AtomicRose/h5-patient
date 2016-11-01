@@ -1,0 +1,11 @@
+<div class="hospital-detail-simple-page" ng-controller="HospitalDetailSimpleCtrl">
+    <div class="hospital-desc">
+        <h3>医院简介</h3>
+        <p ng-bind="hospitalDesc"></p>
+    </div>
+    <div class="department-recommend">
+        <h3>本院顶尖科室推荐：</h3>
+        <p class="tip">*参考最新复旦版专科分类医院排行榜</p>
+        <div class="item" ng-repeat="item in departmentList" ng-bind="item.departmentName" ng-click="goDepartment(item)"></div>
+    </div>
+</div>

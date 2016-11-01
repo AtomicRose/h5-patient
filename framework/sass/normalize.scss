@@ -31,6 +31,8 @@
     padding: 0;
     outline: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    font-size:px2rem(map_get($map-font-size, m));
+    color: #333;
 }
 body {
     width: 100%;

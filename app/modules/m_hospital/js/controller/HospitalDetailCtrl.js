@@ -63,7 +63,7 @@ app.controller('HospitalDetailCtrl', ['$rootScope', '$scope', 'dialog', '$stateP
         var _deps = _depObj;
         var _depsArray = [];
         var urlOptions = {
-            departmentId: ''
+            departmentId: $stateParams.departmentId
         };
         for (dep in _deps) {
             _depsArray = _depsArray.concat(_deps[dep]);
