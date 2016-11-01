@@ -14,57 +14,63 @@ app.controller('HospitalDetailCtrl', ['$rootScope', '$scope', 'dialog', '$stateP
         $scope.selectedTab = index;
     };
 
-    function openFilter(){
+    function openFilter() {
         $scope.isFilter = !$scope.isFilter;
         $scope.isChangeDept = false;
-        $scope.isFilteryx = 0;
-        $scope.isFilterxs=0;
+        $scope.isFilteryx = $scope.isFilteryx || 0;
+        $scope.isFilterxs = $scope.isFilterxs || 0;
     }
 
-    function changedDept(){
+    function changedDept() {
         console.log('call title');
         $scope.isChangeDept = !$scope.isChangeDept;
         $scope.isFilter = false;
     }
 
-    $scope.closeAllBox = function(){
-        $scope.isChangeDept = false;
-        $scope.isFilter = false;
-    }
-    $scope.confirmFilter = function(){
+    $scope.closeAllBox = function (event) {
+        var e = event.srcElement || event.target;
+        if(e.id === 'hospitalDetailFilter'){
+            $scope.isChangeDept = false;
+            $scope.isFilter = false;
+        }
+    };
+    $scope.confirmFilter = function () {
         openFilter();
-    }
+        //TODO add the ajax to request the data by the isFilterxs, isFilteryx, curDeptId
+    };
 
-    $scope.clickFilter = function(_isFilteryx,_isFilterxs){
-        if (!_isFilteryx&&!_isFilterxs) {
+    $scope.clickFilter = function (_isFilteryx, _isFilterxs) {
+        $scope.isFilterxs = _isFilterxs;
+        $scope.isFilteryx = _isFilteryx;
+        if (!_isFilteryx && !_isFilterxs) {
             document.getElementsByClassName('other-right-operate')[0].className = 'other-right-operate ng-binding';
-        }else{
+        } else {
             document.getElementsByClassName('other-right-operate')[0].className = 'other-right-operate ng-binding filtered';
         }
-    }
+    };
 
-    $scope.goDeptById = function(_id){
+    $scope.goDeptById = function (_id) {
         getHospitalInfo(60);//无测试数据，暂时写死
-    }
+    };
 
-    $scope.goDoc = function(_id){
-        $state.go('layout.doctor-detail',{//无测试数据，暂时写死
+    $scope.goDoc = function (_id) {
+        $state.go('layout.doctor-detail', {//无测试数据，暂时写死
             doctorId: 3131
         })
-    }
+    };
 
-    function getDeptDescription(_depObj){
+    function getDeptDescription(_depObj) {
         var _deps = _depObj;
         var _depsArray = [];
         var urlOptions = {
             departmentId: ''
         };
-        for (dep in _deps){
+        for (dep in _deps) {
             _depsArray = _depsArray.concat(_deps[dep]);
         }
         $scope.deptList = _depsArray;
-        for(var i = 0; i<_depsArray.length; i++){
-            if(_depsArray[i].name == $stateParams.hospitalDeptName){
+        for (var i = 0; i < _depsArray.length; i++) {
+            if (_depsArray[i].name == $stateParams.hospitalDeptName) {
                 urlOptions.departmentId = _depsArray[i].id;
                 $scope.curDeptId = _depsArray[i].id;
             }
@@ -72,7 +78,7 @@ app.controller('HospitalDetailCtrl', ['$rootScope', '$scope', 'dialog', '$stateP
         var spinner = dialog.showSpinner();
         HospitalService.getDepartmentInfo({}, urlOptions).then(function (res) {
             $scope.departmentInfo = res.results.department;
-            $scope.dtList = [{dt:0},{dt:0},{dt:0},{dt:0}];
+            $scope.dtList = [{dt: 0}, {dt: 0}, {dt: 0}, {dt: 0}];
             // window.headerConfig.title = res.results.department.name;
             // window.headerConfig.titleOperate = {
             //     html: '',
@@ -92,8 +98,8 @@ app.controller('HospitalDetailCtrl', ['$rootScope', '$scope', 'dialog', '$stateP
     }
 
     getHospitalInfo($stateParams.hospitalId)
-    function getHospitalInfo(_id){
-        console.log('_id',_id);
+    function getHospitalInfo(_id) {
+        console.log('_id', _id);
         var spinner = dialog.showSpinner();
         var params = {};
         var urlOptions = {
@@ -112,11 +118,11 @@ app.controller('HospitalDetailCtrl', ['$rootScope', '$scope', 'dialog', '$stateP
                 html: $stateParams.hospitalDeptName + '<span class="select-icon triangle-down"></span>',
                 clickCall: changedDept
             };
-            window.headerConfig.otherRightOperate= {
+            window.headerConfig.otherRightOperate = {
                 enable: true,
                 html: '筛选',
                 clickCall: openFilter
-            }
+            };
             $rootScope.$broadcast('setHeaderConfig', window.headerConfig);
             //获取科室信息
             getDeptDescription(res.results.departments);

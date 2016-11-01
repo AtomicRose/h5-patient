@@ -1,20 +1,20 @@
 <div ng-controller="HospitalDetailCtrl" class="hospital-detail-page">
-    <div ng-if="isFilter||isChangeDept" class="nav-box-out" ng-click="closeAllBox()">
+    <div ng-if="isFilter||isChangeDept" class="nav-box-out" id="hospitalDetailFilter" ng-click="closeAllBox($event)">
         <div ng-if="isFilter" class="nav-box-in filter-box">
             <div>
                 <p>医学职称</p>
                 <ul>
-                    <li ng-class="{'selected':isFilteryx == 0}" ng-click="isFilteryx=0;clickFilter(isFilteryx,isFilterxs)">不限</li>
-                    <li ng-class="{'selected':isFilteryx == 1}" ng-click="isFilteryx=1;clickFilter(isFilteryx,isFilterxs)">主任医师</li>
-                    <li ng-class="{'selected':isFilteryx == 2}" ng-click="isFilteryx=2;clickFilter(isFilteryx,isFilterxs)">副主任医师</li>
+                    <li ng-class="{'selected':isFilteryx == 0}" ng-click="clickFilter(0,isFilterxs)">不限</li>
+                    <li ng-class="{'selected':isFilteryx == 1}" ng-click="clickFilter(1,isFilterxs)">主任医师</li>
+                    <li ng-class="{'selected':isFilteryx == 2}" ng-click="clickFilter(2,isFilterxs)">副主任医师</li>
                 </ul>
             </div>
             <div>
                 <p>学术职称</p>
                 <ul>
-                    <li ng-class="{'selected':isFilterxs == 0}" ng-click="isFilterxs=0;clickFilter(isFilteryx,isFilterxs)">不限</li>
-                    <li ng-class="{'selected':isFilterxs == 1}" ng-click="isFilterxs=1;clickFilter(isFilteryx,isFilterxs)">教授</li>
-                    <li ng-class="{'selected':isFilterxs == 2}" ng-click="isFilterxs=2;clickFilter(isFilteryx,isFilterxs)">副教授</li>
+                    <li ng-class="{'selected':isFilterxs == 0}" ng-click="clickFilter(isFilteryx,0)">不限</li>
+                    <li ng-class="{'selected':isFilterxs == 1}" ng-click="clickFilter(isFilteryx,1)">教授</li>
+                    <li ng-class="{'selected':isFilterxs == 2}" ng-click="clickFilter(isFilteryx,2)">副教授</li>
                 </ul>
             </div>
             <button class="btn btn-light no-border-radius" ng-click="confirmFilter()">确认</button>

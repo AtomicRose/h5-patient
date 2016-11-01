@@ -1,9 +1,10 @@
 <div ng-controller="HospitalCtrl" class="hospital-page">
     <div id="hospitalNavScroll" class="hospital-nav">
         <div class="scroll">
-        <ul>
-            <li ng-repeat="dep in deptList" ng-class="{'selected':selectedDeptId == dep.id}" ng-bind="dep.name" ng-click="clickNav(dep.id)"></li>
-        </ul>
+            <ul>
+                <li ng-repeat="dep in deptList" ng-class="{'selected':selectedDeptId == dep.id}" ng-bind="dep.name"
+                    ng-click="clickNav(dep.id)"></li>
+            </ul>
         </div>
     </div>
     <div id="hospitalScroll" class="hospital-list">

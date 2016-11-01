@@ -131,7 +131,7 @@ app.directive('headerWidget', [function () {
 
         $scope.share = function(){
             console.log('share!');
-        }
+        };
         /**
          * Click the other right operate fn
          */
