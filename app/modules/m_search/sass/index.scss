@@ -1,4 +1,7 @@
 .search-page{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 	$search-header-height: 40px;
 	$hp-btn-color: #F48124;
 	$doc-btn-color: #0168B7;
@@ -7,25 +10,46 @@
 		text-align: center;
 		color: #ccc;
 	}
+	.recommend{
+		height: 100%;
+		background: #fff;
+		padding: px2rem(5px) px2rem(10px);
+		p{
+			font-size: px2rem(map_get($map-font-size, xs));
+			color: #333;
+			margin: px2rem(10px) 0;
+		}
+		ul{
+			list-style: none;
+			&:after{
+				display: block;
+				clear: both;
+				content: '';
+			}
+		}
+		li{
+			float: left;
+			padding: px2rem(5px) px2rem(20px);
+			border: 1px solid #bbb;
+			border-radius: px2rem(10px);
+			font-size: px2rem(map_get($map-font-size, s));
+			margin: 0 px2rem(10px) px2rem(5px) 0;
+		}
+	}
 	.search-header{
 		height: px2rem($search-header-height);
+		display: flex;
 		&:after{
 			content: '';
 			display: block;
 			clear: both;
 		}
-		background:#fff;
-		border-bottom: 1px solid #c2c0c0;
+		background: $color-primary;
+		// border-bottom: 1px solid #c2c0c0;
 		&.search-more{
-			.leftOpt{
-				width: 15%;
-			}
 			.centerOpt{
 				width: 70%;
 				padding: px2rem(5px) 0;
-			}
-			.rightOpt{
-				width: 15%;
 			}
 		}
 		>div{
@@ -34,27 +58,40 @@
 		}
 		.centerOpt{
 			width: 80%;
-			padding: px2rem(5px) 0 px2rem(5px) px2rem(10px);
+			padding: px2rem(5px) 0 px2rem(5px) px2rem(5px);
+			.clear-input-btn{
+			    position: relative;
+			    float: right;
+			    z-index: 1;
+			    transform: translate(-5px,-28px);
+			}
+		}
+		.leftOpt{
+			flex:1;
 		}
 		.rightOpt{
-			width: 20%;
+			flex:1;
 			text-align: center;
-			color: $color-ligth-text;
+			color: #fff;
 			line-height: $search-header-height;
+			font-size: px2rem(map_get($map-font-size, s));
 		}
 		input{
-			background: #e7e8ea url("http://static.mingyizhudao.com/146243645256928") no-repeat 5px 50%;
+			background: #fff url("http://static.mingyizhudao.com/146243645256928") no-repeat px2rem(10px) 50%;
     		background-size: 1.25rem;
     		border: 0px;
 			border-radius: px2rem(5px);
 			width: 100%;
 			height: 100%;
-			padding: 0 px2rem(30px);
+			padding: 0 px2rem(25px) 0 px2rem(30px);
+			font-size: px2rem(map_get($map-font-size, s));
 		}
 	}
 	.search-result{
+		flex: 1;
+		overflow: hidden;
 		li{
-			margin: 0 0 px2rem(15px) 0;
+			// margin: 0 0 px2rem(15px) 0;
 		}
 		i{
 			font-style: normal;
@@ -67,6 +104,17 @@
 			border-left: 4px solid #f38023;
 			padding: 0 px2rem(10px);
 			font-size: px2rem(map_get($map-font-size, s));
+			font-weight: bold;
+		}
+	}
+	.search-more-num{
+		text-align: center;
+		font-size: px2rem(map_get($map-font-size, xs));
+		color: #999;
+		padding-bottom: px2rem(10px);
+		span{
+			font-size: inherit;
+			color: inherit;
 		}
 	}
 	.cell-group{
@@ -84,14 +132,21 @@
 		font-size: px2rem(map_get($map-font-size, m));
 		text-align: center;
 		background: #fff;
-		padding: px2rem(15px);
+		padding: px2rem(10px) px2rem(15px);
 		border-width: 0 0 px2rem(1px) 0;
 	    border-style: solid;
 	    border-color: $color-border-default;
+	    font-size: px2rem(map_get($map-font-size, s));
+		color: #bbb;
 		>span{
 		    position: absolute;
+			color: #bbb;
 		    right: px2rem(20px);
-		    color: #666;
+	    	font-size: px2rem(map_get($map-font-size, s));
+		}
+		i{
+			color: #bbb;
+			padding: 0 px2rem(5px);
 		}
 	}
 	.btn-hp,.btn-doc{
