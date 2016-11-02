@@ -1,69 +1,77 @@
 <div class="search-page" ng-controller="SearchCtrl">
     <div class="search-header">
-        <div class="centerOpt"><input id="searchInput" type="" name="" placeholder="请输入疾病名称、医生姓名、医院名称" ng-model="searchContent" ng-change="searchInfo(searchContent)"></div>
+        <div ng-if="isShowBackBtn" class="leftOpt" ng-click="backStep()"><i class="icon-back"></i></div>
+        <div class="centerOpt"><input id="searchInput" type="search" name="" placeholder="请输入疾病名称、医生姓名、医院名称" ng-model="searchContent" ng-change="searchInfo(searchContent)"></div>
         <div class="rightOpt" ng-click="routerGo('layout.home')">取消</div>
     </div>
-    <div class="recommend">
-        <p>常见手术疾病：</p>
-        <ul>
-            <li>甲状腺肿瘤</li>
-            <li>皮肤病</li>
-            <li>头痛</li>
-            <li>甲状腺肿瘤</li>
-            <li>皮肤病</li>
-            <li>头痛</li>
-        </ul>
-    </div>
     <div class="search-result">
+        <div ng-if="!resDes&&!resDoc&&!resHp&&!searchTips" class="recommend">
+            <p>常见手术疾病：</p>
+            <ul>
+                <li ng-click="goDesDetail()">甲状腺肿瘤</li>
+                <li ng-click="goDesDetail()">皮肤病</li>
+                <li ng-click="goDesDetail()">头痛</li>
+                <li ng-click="goDesDetail()">甲状腺肿瘤</li>
+                <li ng-click="goDesDetail()">皮肤病</li>
+                <li ng-click="goDesDetail()">头痛</li>
+            </ul>
+        </div>
         <div ng-if="searchTips" class="search-tips" ng-bind="searchTips">
         </div>
-        <ul>
-            <!-- 疾病 -->
-            <li ng-if="resDes">
-                <div class="search-title"><p>搜索疾病</p></div>
-                <div class="cell-group">
-                    <div class="cell" ng-repeat="des in resDes.simple">
-                        <div class="search-cell-fc">
-                            <high-light-widget default-value="des.name" high-light-value="searchContent"></high-light-widget>
-                        </div>
-                        <div class="search-cell-lc">
-                            <button class="btn btn-small btn-doc in-cell" ng-click="findDoctor(des.id)">找医生</button>
-                            <button class="btn btn-small btn-hp in-cell" ng-click="findHospital(des.id)">找医院</button>
-                        </div>
-                    </div>
-                </div>
-                <div ng-if="resDes.num>3" class="search-move" ng-click="getMoreResult(resDes)">搜索更多<span>共<i ng-bind="resDes.num"></i>条</span></div>
-            </li>
-            <!-- 医生 -->
-            <li ng-if="resDoc">
-                <div class="search-title"><p>搜索医生</p></div>
-                <div class="cell-group">
-                    <div class="cell double-line" ng-repeat="doc in resDoc.simple" ng-click="goDoc(doc.id)">
-                        <div class="left-box clearly-width">
-                            <high-light-widget default-value="doc.name" high-light-value="searchContent"></high-light-widget>
-                        </div>
-                        <div class="middle-box">
-                            <span class="content">(<i ng-bind="doc.hpName"></i>)</span>
-                            <span class="minor"><i ng-bind="doc.hpDeptName"></i>，<i ng-bind="doc.mTitle"></i></span>
-                        </div>
-                        <div class="right-box">
+        <div id="listScroll" class="wrap">
+            <div class="scroll">
+            <ul ng-if="resDes||resDoc||resHp">
+                <!-- 疾病 -->
+                <li ng-if="resDes">
+                    <div class="search-title"><p>疾病</p></div>
+                    <div class="cell-group">
+                        <div class="cell" ng-repeat="des in resDes">
+                            <div class="search-cell-fc">
+                                <high-light-widget default-value="des.name" high-light-value="searchContent"></high-light-widget>
+                            </div>
+                            <!-- <div class="search-cell-lc">
+                                <button class="btn btn-small btn-doc in-cell" ng-click="findDoctor(des.id)">找医生</button>
+                                <button class="btn btn-small btn-hp in-cell" ng-click="findHospital(des.id)">找医院</button>
+                            </div> -->
                         </div>
                     </div>
-                </div>
-                <div ng-if="resDoc.num>3" class="search-move" ng-click="getMoreResult(resDoc)">搜索更多<span>共<i ng-bind="resDoc.num"></i>条</span></div>
-            </li>
-            <!-- 医院 -->
-            <li ng-if="resHp">
-                <div class="search-title"><p>搜索医院</p></div>
-                <div class="cell-group">
-                    <div class="cell" ng-repeat="hp in resHp.simple" ng-click="goHp(hp.id)">
-                        <span class="label">
-                            <high-light-widget default-value="hp.name" high-light-value="searchContent"></high-light-widget>
-                        </span>
+                    <div ng-if="resDesNum>3" class="search-move" ng-click="getMoreResult(1)">搜索更多<span>共<i ng-bind="resDesNum"></i>条</span></div>
+                </li>
+                <!-- 医生 -->
+                <li ng-if="resDoc">
+                    <div class="search-title"><p>医生</p></div>
+                    <div class="cell-group">
+                        <div class="cell double-line" ng-repeat="doc in resDoc" ng-click="goDoc(doc.id)">
+                            <div class="left-box clearly-width">
+                                <high-light-widget default-value="doc.name" high-light-value="searchContent"></high-light-widget>
+                            </div>
+                            <div class="middle-box">
+                                <span class="content">(<i ng-bind="doc.hpName"></i>)</span>
+                                <span class="minor"><i ng-bind="doc.hpDeptName"></i>，<i ng-bind="doc.mTitle"></i></span>
+                            </div>
+                            <div class="right-box">
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div ng-if="resHp.num>3" class="search-move" ng-click="getMoreResult(resHp)">搜索更多<span>共<i ng-bind="resHp.num"></i>条</span></div>
-            </li>
-        </ul>
+                    <div ng-if="resDocNum>3" class="search-move" ng-click="getMoreResult(2)">搜索更多<span>共<i ng-bind="resDocNum"></i>条</span></div>
+                </li>
+                <!-- 医院 -->
+                <li ng-if="resHp">
+                    <div class="search-title"><p>医院</p></div>
+                    <div class="cell-group">
+                        <div class="cell" ng-repeat="hp in resHp" ng-click="goHp(hp.id)">
+                            <span class="label">
+                                <high-light-widget default-value="hp.name" high-light-value="searchContent"></high-light-widget>
+                            </span>
+                        </div>
+                    </div>
+                    <div ng-if="resHpNum>3" class="search-move" ng-click="getMoreResult(3)">搜索更多<span>共<i ng-bind="resHpNum"></i>条</span></div>
+                </li>
+                <li class="search-more-num" ng-if="resMoveNum">
+                    已为您显示完<span ng-bind="resMoveNum"></span>条
+                </li>
+            </ul>
+            </div>
+        </div>
     </div>
 </div>

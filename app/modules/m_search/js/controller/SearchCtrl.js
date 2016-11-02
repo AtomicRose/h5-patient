@@ -3,7 +3,7 @@ app.controller('SearchCtrl', ['$scope', '$rootScope', '$state', 'SearchService',
         enableHeader: false
     };
     $rootScope.$broadcast('setHeaderConfig', window.headerConfig);
-
+    $scope.isShowBackBtn = false;
     //第一次进入页面search input获取焦点
     document.getElementById('searchInput').focus();
     if (SearchStorage.SEARCH_STORAGE.getItem('searchResult')) {
@@ -17,15 +17,50 @@ app.controller('SearchCtrl', ['$scope', '$rootScope', '$state', 'SearchService',
         getCompleteList(_res.results);
     }
 
+    var listScroll = new IScroll('#listScroll', {
+        mouseWheel: false,
+        click: true
+    });
+    
+    setInterval(function () {
+        listScroll.refresh();
+    }, 500);
+
+
     $scope.routerGo = function(url){
         $state.go(url);
     }
-    $scope.getMoreResult = function(obj){
-        SearchStorage.SEARCH_STORAGE.putItem('searchMoreResult', {
-            results: obj,
-            text: $scope.searchContent
-        });
-        $state.go('layout.searchMore');
+    $scope.getMoreResult = function(index){// 1des 2doc 3hos
+        // SearchStorage.SEARCH_STORAGE.putItem('searchMoreResult', {
+        //     results: obj,
+        //     text: $scope.searchContent
+        // });
+        // $state.go('layout.searchMore');
+        $scope.isShowBackBtn = true;
+
+        if (index == 1) {
+            $scope.resDes = resDes.complete;
+            $scope.resDoc = null;
+            $scope.resHp = null;
+            $scope.resDesNum = 0;
+            $scope.resMoveNum = resDes.num;
+        }
+        else if(index == 2){
+            $scope.resDoc = resDoc.complete;
+            $scope.resDes = null;
+            $scope.resHp = null;
+            $scope.resDocNum = 0;
+            $scope.resMoveNum = resDoc.num;
+        }
+        else if(index == 3){
+            $scope.resHp = resHp.complete;
+            $scope.resDoc = null;
+            $scope.resDes = null;
+            $scope.resHpNum = 0;
+            $scope.resMoveNum = resHp.num;
+        }else{
+            return false;
+        }
     }
 
     $scope.searchInfo = function(searchText){
@@ -59,31 +94,40 @@ app.controller('SearchCtrl', ['$scope', '$rootScope', '$state', 'SearchService',
         }
     }
 
+    var resDoc,resHp,resDes;
     function getSimpleList(_res){
         var res = _res;
+        $scope.resMoveNum = null;
+
         if (res.doctors) {
-            $scope.resDoc = {
+            resDoc = {
                 simple: res.doctors.slice(0,3),
                 complete: res.doctors,
                 num: res.doctors.length,
                 name: '医生'
             };
+            $scope.resDoc = resDoc.simple;
+            $scope.resDocNum = resDoc.num;
         }
         if(res.hospitals){
-            $scope.resHp = {
+            resHp = {
                 simple: res.hospitals.slice(0,3),
                 complete: res.hospitals,
                 num: res.hospitals.length,
                 name: '医院'
             };
+            $scope.resHp = resHp.simple;
+            $scope.resHpNum = resHp.num;
         }
         if(res.diseases){
-            $scope.resDes = {
+            resDes = {
                 simple: res.diseases.slice(0,3),
                 complete: res.diseases,
                 num: res.diseases.length,
                 name: '疾病'
             };
+            $scope.resDes = resDes.simple;
+            $scope.resDesNum = resDes.num;
         }
     }
 
@@ -124,4 +168,14 @@ app.controller('SearchCtrl', ['$scope', '$rootScope', '$state', 'SearchService',
         });
     }
 
+    $scope.goDesDetail = function(){
+        $state.go();
+    }
+
+    $scope.backStep = function(){
+        $scope.isShowBackBtn = false;
+        var _res = SearchStorage.SEARCH_STORAGE.getItem('searchResult');
+        console.log('ressss',_res);
+        getSimpleList(_res.results);
+    }
 }]);
