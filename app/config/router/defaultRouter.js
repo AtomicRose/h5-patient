@@ -30,6 +30,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: '/hospital/:hospitalId?hospitalDeptName&departmentId',
             templateUrl: 'app/modules/m_hospital/view/hospital-detail.html'
         })
+        .state('layout.hospital-detail-simple', {
+            url: '/hospital/:hospitalId/simple',
+            templateUrl: 'app/modules/m_hospital/view/hospital-detail-simple.html'
+        })
         .state('layout.department', {
             url: '/hospital/:hospitalId/:departmentId?departmentName&hospitalName',
             //url: '/hospital/booking/:departmentId',

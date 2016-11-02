@@ -1,0 +1,41 @@
+.hospital-detail-simple-page{
+    .hospital-desc{
+        padding:px2rem(10px);
+        background: #fff;
+        h3{
+            font-size:px2rem(map_get($map-font-size, l));
+            margin-bottom: px2rem(5px);
+            color: #333;
+        }
+        p{
+            font-size: px2rem(map_get($map-font-size, m));
+            text-align:justify;
+            color: #666;
+        }
+    }
+    .department-recommend{
+        padding: px2rem(10px);
+        background: #fff;
+        width: 100%;
+        h3{
+            font-size:px2rem(map_get($map-font-size, l));
+            margin-bottom: px2rem(5px);
+            color: #333;
+        }
+        .tip{
+            font-size: px2rem(map_get($map-font-size, s));
+            color: #999;
+            margin-bottom: px2rem(10px);
+        }
+        .item{
+            margin-top: px2rem(10px);
+            margin-right: px2rem(10px);
+            border: 1px solid $color-border-default;
+            border-radius: px2rem(4px);
+            font-size:px2rem(map_get($map-font-size, m));
+            float:left;
+            padding: px2rem(5px) px2rem(10px) px2rem(5px) px2rem(10px);
+            color: #333;
+        }
+    }
+}
