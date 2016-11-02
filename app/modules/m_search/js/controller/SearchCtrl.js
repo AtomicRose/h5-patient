@@ -3,6 +3,7 @@ app.controller('SearchCtrl', ['$scope', '$rootScope', '$state', 'SearchService',
         enableHeader: false
     };
     $rootScope.$broadcast('setHeaderConfig', window.headerConfig);
+    //第一次进入不显示back button
     $scope.isShowBackBtn = false;
     //第一次进入页面search input获取焦点
     document.getElementById('searchInput').focus();
@@ -11,58 +12,60 @@ app.controller('SearchCtrl', ['$scope', '$rootScope', '$state', 'SearchService',
         $scope.searchContent = _res.text;
         getSimpleList(_res.results);
     }
-    if (SearchStorage.SEARCH_STORAGE.getItem('searchMoreResult')) {
-        var _res = SearchStorage.SEARCH_STORAGE.getItem('searchMoreResult');
-        $scope.searchContent = _res.text;
-        getCompleteList(_res.results);
-    }
+    // if (SearchStorage.SEARCH_STORAGE.getItem('searchMoreResult')) {
+    //     var _res = SearchStorage.SEARCH_STORAGE.getItem('searchMoreResult');
+    //     $scope.searchContent = _res.text;
+    //     getCompleteList(_res.results);
+    // }
 
+    //初始化scroll
     var listScroll = new IScroll('#listScroll', {
         mouseWheel: false,
         click: true
     });
-    
     setInterval(function () {
         listScroll.refresh();
     }, 500);
 
-
+    // 跳转（取消-》首页）
     $scope.routerGo = function(url){
         $state.go(url);
     }
+
+    // 点击查看更多
     $scope.getMoreResult = function(index){// 1des 2doc 3hos
-        // SearchStorage.SEARCH_STORAGE.putItem('searchMoreResult', {
-        //     results: obj,
-        //     text: $scope.searchContent
-        // });
-        // $state.go('layout.searchMore');
+        //显示back button
         $scope.isShowBackBtn = true;
 
-        if (index == 1) {
+        if (index == 1) { //疾病
             $scope.resDes = resDes.complete;
             $scope.resDoc = null;
             $scope.resHp = null;
+            $scope.resMoveNum = $scope.resDesNum;
             $scope.resDesNum = 0;
-            $scope.resMoveNum = resDes.num;
+            return true;
         }
-        else if(index == 2){
+        else if(index == 2){ //医生
             $scope.resDoc = resDoc.complete;
             $scope.resDes = null;
             $scope.resHp = null;
+            $scope.resMoveNum = $scope.resDocNum;
             $scope.resDocNum = 0;
-            $scope.resMoveNum = resDoc.num;
+            return true;
         }
-        else if(index == 3){
+        else if(index == 3){ //医院
             $scope.resHp = resHp.complete;
             $scope.resDoc = null;
             $scope.resDes = null;
+            $scope.resMoveNum = $scope.resHpNum;
             $scope.resHpNum = 0;
-            $scope.resMoveNum = resHp.num;
+            return true;
         }else{
             return false;
         }
     }
 
+    //搜索 获取res
     $scope.searchInfo = function(searchText){
         $scope.resDoc = false;
         $scope.resHp = false;
@@ -94,6 +97,7 @@ app.controller('SearchCtrl', ['$scope', '$rootScope', '$state', 'SearchService',
         }
     }
 
+    // 显示3条搜索结果
     var resDoc,resHp,resDes;
     function getSimpleList(_res){
         var res = _res;
@@ -131,47 +135,40 @@ app.controller('SearchCtrl', ['$scope', '$rootScope', '$state', 'SearchService',
         }
     }
 
-    function getCompleteList(_res){
-        var res = _res;
-        if (res.name== '医生') {
-            $scope.moreDoc = res.complete;
-        }
-        if(res.name== '医院'){
-            $scope.moreHp = res.complete;
-        }
-        if(res.name== '疾病'){
-            $scope.moreDes = res.complete;
-        }
-    }
+    // function getCompleteList(_res){
+    //     var res = _res;
+    //     if (res.name== '医生') {
+    //         $scope.moreDoc = res.complete;
+    //     }
+    //     if(res.name== '医院'){
+    //         $scope.moreHp = res.complete;
+    //     }
+    //     if(res.name== '疾病'){
+    //         $scope.moreDes = res.complete;
+    //     }
+    // }
 
-    $scope.findHospital = function(_id){
-        $state.go('layout.search-hospital',{
-            diseasesId: _id
-        });
-    }
 
-    $scope.findDoctor = function(_id){
-        $state.go('layout.doctor',{
-            diseasesId: _id
-        });
-    }
-
+    //跳转医院详情
     $scope.goHp = function(_id){
         $state.go('layout.hospital-detail',{
             hospitalId: _id
         });
     }
 
+    //跳转医生详情
     $scope.goDoc = function(_id){
         $state.go('layout.doctor-detail',{
             doctorId: _id
         });
     }
 
+    //跳转疾病详情
     $scope.goDesDetail = function(){
         $state.go();
     }
 
+    // 点击back button
     $scope.backStep = function(){
         $scope.isShowBackBtn = false;
         var _res = SearchStorage.SEARCH_STORAGE.getItem('searchResult');
@@ -179,6 +176,7 @@ app.controller('SearchCtrl', ['$scope', '$rootScope', '$state', 'SearchService',
         getSimpleList(_res.results);
     }
 
+    // 清楚input内容 并还原默认
     $scope.cleatInput = function(){
         $scope.searchContent = '';
         $scope.resDoc = null;
