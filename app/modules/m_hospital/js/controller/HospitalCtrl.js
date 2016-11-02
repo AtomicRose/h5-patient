@@ -1,5 +1,124 @@
 app.controller('HospitalCtrl', ['$scope', '$rootScope', 'CommonService', 'dialog', 'StorageConfig', 'HospitalService','$state', '$stateParams', 'DoctorService', function ($scope, $rootScope, CommonService, dialog, StorageConfig, HospitalService, $state, $stateParams, DoctorService) {
-    var defaultAllCity = {city: '全国', id: 0, is_hot: 0};
+    var defaultAllCity = {
+        hot: [
+            {
+                city: '北京',
+                id: '1'
+            },
+            {
+                city: '上海',
+                id: '1'
+            },
+            {
+                city: '广州',
+                id: '1'
+            },
+            {
+                city: '深圳',
+                id: '1'
+            }
+        ],
+        all: [
+            {
+                letter: 'A',
+                list: [
+                    {
+                        city: '安庆',
+                        id: '1'
+                    },
+                    {
+                        city: '安阳',
+                        id: '1'
+                    },
+                    {
+                        city: '鞍山',
+                        id: '1'
+                    }
+                ]
+            },
+            {
+                letter: 'B',
+                list: [
+                    {
+                        city: '北京',
+                        id: '1'
+                    },
+                    {
+                        city: '宝鸡',
+                        id: '1'
+                    },
+                    {
+                        city: '贝阿',
+                        id: '1'
+                    }
+                ]
+            },
+            {
+                letter: 'D',
+                list: [
+                    {
+                        city: '大庆',
+                        id: '1'
+                    },
+                    {
+                        city: '德顺',
+                        id: '1'
+                    },
+                    {
+                        city: '德安',
+                        id: '1'
+                    }
+                ]
+            },
+            {
+                letter: 'F',
+                list: [
+                    {
+                        city: '抚顺',
+                        id: '1'
+                    },
+                    {
+                        city: '阜阳',
+                        id: '1'
+                    },
+                    {
+                        city: '福安',
+                        id: '1'
+                    }
+                ]
+            },
+            {
+                letter: 'G',
+                list: [
+                    {
+                        city: '高浦',
+                        id: '1'
+                    },
+                    {
+                        city: '固阳',
+                        id: '1'
+                    }
+                ]
+            },
+            {
+                letter: 'H',
+                list: [
+                    {
+                        city: '合肥',
+                        id: '1'
+                    },
+                    {
+                        city: '和安',
+                        id: '1'
+                    },
+                    {
+                        city: '湖口',
+                        id: '1'
+                    }
+                ]
+            }
+        ]
+    };
     window.headerConfig = {
         enableHeader: true,
         enableBack: true,
@@ -9,11 +128,7 @@ app.controller('HospitalCtrl', ['$scope', '$rootScope', 'CommonService', 'dialog
             enable: true,
             areas: StorageConfig.CITY_STORAGE.getItem('hospitalCities') ? StorageConfig.CITY_STORAGE.getItem('hospitalCities') : defaultAllCity,
             trackKey: 'city',
-            currentArea: StorageConfig.CITY_STORAGE.getItem('hospitalCityCurrent') ? StorageConfig.CITY_STORAGE.getItem('hospitalCityCurrent') : {
-                city: '全国',
-                id: 0,
-                is_hot: 0
-            },
+            currentArea: StorageConfig.CITY_STORAGE.getItem('hospitalCityCurrent') ? StorageConfig.CITY_STORAGE.getItem('hospitalCityCurrent') : defaultAllCity.hot[1],
             selectedCall: function (item) {
                 selectedCityCall(item);
             }
@@ -78,7 +193,9 @@ app.controller('HospitalCtrl', ['$scope', '$rootScope', 'CommonService', 'dialog
         };
         CommonService.getCity(params).then(function (res) {
             dialog.closeSpinner(spinner.id);
-            var allCities = [defaultAllCity].concat(res.results);
+            //TODO the allCities in demo is always the default cities.
+            //var allCities = [defaultAllCity].concat(res.results);
+            var allCities = defaultAllCity;
             StorageConfig.CITY_STORAGE.putItem('hospitalCities', allCities);
             var areaOperateObj = {
                 enable: true,

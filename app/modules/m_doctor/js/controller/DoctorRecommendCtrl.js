@@ -15,125 +15,125 @@ app.controller('DoctorRecommendCtrl', ['$scope', '$rootScope', 'DoctorService', 
      */
 
     var area = {
-            hot: [
-                {
-                    city: '北京',
-                    id: '1'
-                },
-                {
-                    city: '上海',
-                    id: '1'
-                },
-                {
-                    city: '广州',
-                    id: '1'
-                },
-                {
-                    city: '深圳',
-                    id: '1'
-                }
-            ],
-            all: [
-                {
-                    letter: 'A',
-                    list: [
-                        {
-                            city: '安庆',
-                            id: '1'
-                        },
-                        {
-                            city: '安阳',
-                            id: '1'
-                        },
-                        {
-                            city: '鞍山',
-                            id: '1'
-                        }
-                    ]
-                },
-                {
-                    letter: 'B',
-                    list: [
-                        {
-                            city: '北京',
-                            id: '1'
-                        },
-                        {
-                            city: '宝鸡',
-                            id: '1'
-                        },
-                        {
-                            city: '贝阿',
-                            id: '1'
-                        }
-                    ]
-                },
-                {
-                    letter: 'D',
-                    list: [
-                        {
-                            city: '大庆',
-                            id: '1'
-                        },
-                        {
-                            city: '德顺',
-                            id: '1'
-                        },
-                        {
-                            city: '德安',
-                            id: '1'
-                        }
-                    ]
-                },
-                {
-                    letter: 'F',
-                    list: [
-                        {
-                            city: '抚顺',
-                            id: '1'
-                        },
-                        {
-                            city: '阜阳',
-                            id: '1'
-                        },
-                        {
-                            city: '福安',
-                            id: '1'
-                        }
-                    ]
-                },
-                {
-                    letter: 'G',
-                    list: [
-                        {
-                            city: '高浦',
-                            id: '1'
-                        },
-                        {
-                            city: '固阳',
-                            id: '1'
-                        }
-                    ]
-                },
-                {
-                    letter: 'H',
-                    list: [
-                        {
-                            city: '合肥',
-                            id: '1'
-                        },
-                        {
-                            city: '和安',
-                            id: '1'
-                        },
-                        {
-                            city: '湖口',
-                            id: '1'
-                        }
-                    ]
-                }
-            ]
-        };
+        hot: [
+            {
+                city: '北京',
+                id: '1'
+            },
+            {
+                city: '上海',
+                id: '1'
+            },
+            {
+                city: '广州',
+                id: '1'
+            },
+            {
+                city: '深圳',
+                id: '1'
+            }
+        ],
+        all: [
+            {
+                letter: 'A',
+                list: [
+                    {
+                        city: '安庆',
+                        id: '1'
+                    },
+                    {
+                        city: '安阳',
+                        id: '1'
+                    },
+                    {
+                        city: '鞍山',
+                        id: '1'
+                    }
+                ]
+            },
+            {
+                letter: 'B',
+                list: [
+                    {
+                        city: '北京',
+                        id: '1'
+                    },
+                    {
+                        city: '宝鸡',
+                        id: '1'
+                    },
+                    {
+                        city: '贝阿',
+                        id: '1'
+                    }
+                ]
+            },
+            {
+                letter: 'D',
+                list: [
+                    {
+                        city: '大庆',
+                        id: '1'
+                    },
+                    {
+                        city: '德顺',
+                        id: '1'
+                    },
+                    {
+                        city: '德安',
+                        id: '1'
+                    }
+                ]
+            },
+            {
+                letter: 'F',
+                list: [
+                    {
+                        city: '抚顺',
+                        id: '1'
+                    },
+                    {
+                        city: '阜阳',
+                        id: '1'
+                    },
+                    {
+                        city: '福安',
+                        id: '1'
+                    }
+                ]
+            },
+            {
+                letter: 'G',
+                list: [
+                    {
+                        city: '高浦',
+                        id: '1'
+                    },
+                    {
+                        city: '固阳',
+                        id: '1'
+                    }
+                ]
+            },
+            {
+                letter: 'H',
+                list: [
+                    {
+                        city: '合肥',
+                        id: '1'
+                    },
+                    {
+                        city: '和安',
+                        id: '1'
+                    },
+                    {
+                        city: '湖口',
+                        id: '1'
+                    }
+                ]
+            }
+        ]
+    };
     var hospital = [
         {
             hospital_name: '上海市第二军医大学附属长海医院',
@@ -252,12 +252,14 @@ app.controller('DoctorRecommendCtrl', ['$scope', '$rootScope', 'DoctorService', 
     $scope.selectedHospital = DoctorStorage.AREA_HOSPITAL_LEVEL_STORAGE.getItem('selectedHospital');
     $scope.selectedLevel = DoctorStorage.AREA_HOSPITAL_LEVEL_STORAGE.getItem('selectedLevel');
     $scope.selectCity = function(item){
-        $scope.selectedCity = item;
-        DoctorStorage.AREA_HOSPITAL_LEVEL_STORAGE.putItem('selectedCity', item);
-        DoctorStorage.AREA_HOSPITAL_LEVEL_STORAGE.putItem('selectedHospital', $scope.hospitalList[0]);
-        $scope.selectedHospital = DoctorStorage.AREA_HOSPITAL_LEVEL_STORAGE.getItem('selectedHospital');
-        $scope.filterShow = false;
-        //TODO call the query service to get the hospital list in current city.
+        if(item.type !== 'tag'){
+            $scope.selectedCity = item;
+            DoctorStorage.AREA_HOSPITAL_LEVEL_STORAGE.putItem('selectedCity', item);
+            DoctorStorage.AREA_HOSPITAL_LEVEL_STORAGE.putItem('selectedHospital', $scope.hospitalList[0]);
+            $scope.selectedHospital = DoctorStorage.AREA_HOSPITAL_LEVEL_STORAGE.getItem('selectedHospital');
+            $scope.filterShow = false;
+            //TODO call the query service to get the hospital list in current city.
+        }
     };
     $scope.selectHospital = function(item){
         $scope.selectedHospital = item;

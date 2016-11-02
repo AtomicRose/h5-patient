@@ -30,12 +30,27 @@ app.directive('headerWidget', [function () {
             },
             areaOperate: {
                 enable: false,
-                areas: [
-                    {
-                        name: '全部地区',
-                        cityId: 0
-                    }
-                ],
+                areas: {
+                    hot: [
+                        {
+                            city: '北京',
+                            id: '1'
+                        },
+                        {
+                            city: '上海',
+                            id: '1'
+                        },
+                        {
+                            city: '广州',
+                            id: '1'
+                        },
+                        {
+                            city: '深圳',
+                            id: '1'
+                        }
+                    ],
+                    all: []
+                },
                 trackKey: 'name'
             },
             title: '名医主刀',
@@ -150,14 +165,36 @@ app.directive('headerWidget', [function () {
          * @type {boolean}
          */
         $scope.showAreas = false;
-        $scope.currentArea = helper.isEmptyObject($scope.defaults.areaOperate.currentArea) ? $scope.defaults.areaOperate.areas[0] : $scope.defaults.areaOperate.currentArea;
+        $scope.currentArea = helper.isEmptyObject($scope.defaults.areaOperate.currentArea) ? $scope.defaults.areaOperate.areas.hot[0] : $scope.defaults.areaOperate.currentArea;
         $scope.showAreaList = function () {
             $scope.showAreas = !$scope.showAreas;
         };
+
+        //init the area
+        $scope.hotCity = $scope.defaults.areaOperate.areas.hot;
+        var formatRes = formatCityList($scope.defaults.areaOperate.areas.all);
+        $scope.allCity = formatRes.cityArray;
+        $scope.letterNavList = formatRes.letterArray;
+
+        if($scope.defaults.areaOperate.enable){
+            var headAreaFilter = new IScroll('#headAreaFilter', {
+                click: true
+            });
+            setInterval(function () {
+                headAreaFilter.refresh();
+            }, 300);
+            $scope.scrollToLetter = function(item){
+                var ele = document.getElementById(item);
+                headAreaFilter.scrollToElement(ele);
+            };
+        }
+
         //select the current area, change the areas list hidden & set the $scope.currentArea.
-        $scope.selectCurrentArea = function (item) {
-            $scope.currentArea = item;
-            $scope.showAreas = false;
+        $scope.selectCity = function (item) {
+            if(item.type !== 'tag'){
+                $scope.currentArea = item;
+                $scope.showAreas = false;
+            }
         };
         //watch the currentArea. If changed, send broadcast to the page.
         $scope.$watch('currentArea', function (n, o) {
@@ -166,6 +203,26 @@ app.directive('headerWidget', [function () {
                 selectedCallback($scope.currentArea);
             }
         });
+
+        function formatCityList(objArea) {
+            var tempArray = [];
+            var letterArray = [];
+            for (var i = 0; i < objArea.length; i++) {
+                tempArray.push({
+                    city: objArea[i].letter,
+                    id: objArea[i].letter,
+                    type: 'tag'
+                });
+                letterArray.push(objArea[i].letter);
+                for (var j = 0, list = objArea[i].list; j < list.length; j++) {
+                    tempArray.push(list[j]);
+                }
+            }
+            return {
+                letterArray: letterArray,
+                cityArray: tempArray
+            };
+        }
 
         /**
          * control the tab widget
@@ -214,17 +271,21 @@ app.run(['$templateCache', function ($templateCache) {
            <div class="select-area" ng-show="defaults.areaOperate.enable">\
                 <div class="current-area" ng-click="showAreaList()"><span class="current-area-text" ng-bind="currentArea[defaults.areaOperate.trackKey]"></span><span class="select-icon" ng-class="{true:\'triangle-up\', false: \'triangle-down\'}[showAreas]"></span></div>\
                 <div class="all-area-box" ng-show="showAreas">\
-                    <div class="area-list">\
-                        <div class="cell-group border-none margin-none">\
-                            <div class="cell" ng-repeat="item in defaults.areaOperate.areas" ng-click="selectCurrentArea(item)">\
-                                <div class="left-box">\
-                                    <span class="active-icon" ng-class="{\'active\': currentArea[defaults.areaOperate.trackKey] === item[defaults.areaOperate.trackKey]}"></span>\
-                                </div>\
-                                <div class="middle-box text-left">\
-                                    <span class="content" ng-bind="item[defaults.areaOperate.trackKey]"></span>\
-                                </div>\
-                            </div>\
+                   <div class="wrap" id="headAreaFilter">\
+                        <div class="scroll">\
+                            <ul>\
+                                <li class="hot">\
+                                    <p>热门城市</p>\
+                                    <div class="item-box">\
+                                    <div class="hot-item" ng-repeat="item in hotCity"><span ng-class="{\'active\':(currentArea.city==item.city&&currentArea.id==item.id)}" ng-bind="item.city" ng-click="selectCity(item)"></span></div>\
+                                    </div>\
+                                </li>\
+                                <li class="usual" ng-class="{\'tag\':item.type === \'tag\',\'active\':(currentArea.city==item.city&&currentArea.id==item.id)}" ng-repeat="item in allCity" id="{{item.id}}" ng-bind="item.city" ng-click="selectCity(item)"></li>\
+                            </ul>\
                         </div>\
+                    </div>\
+                    <div class="letter-nav">\
+                        <div class="nav" ng-repeat="item in letterNavList" ng-bind="item" ng-click="scrollToLetter(item)"></div>\
                     </div>\
                 </div>\
            </div>\

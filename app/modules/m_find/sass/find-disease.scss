@@ -1,0 +1,114 @@
+.find-disease-page{
+    .i-tip{
+        color: $brand-danger;
+    }
+    .arrow-red{
+        border-top-color: $brand-danger;
+        border-right-color: $brand-danger;
+    }
+    .department-recommend{
+        padding: px2rem(20px) px2rem(10px) px2rem(20px) px2rem(10px);
+        background: #fff;
+        width: 100%;
+        float: left;
+        p{
+            font-size: px2rem(map_get($map-font-size, m));
+            font-weight: bold;
+        }
+
+        .item{
+            margin-top: px2rem(10px);
+            margin-right: px2rem(10px);
+            border: 1px solid $color-border-default;
+            border-radius: px2rem(4px);
+            font-size:px2rem(map_get($map-font-size, m));
+            float:left;
+            padding: px2rem(5px) px2rem(10px) px2rem(5px) px2rem(10px);
+            color: #333;
+        }
+    }
+    .doctor-recommend{
+        width: 100%;
+        position: relative;
+        background: #fff;
+        float:left;
+        margin-top: px2rem(10px);
+        padding: px2rem(20px) px2rem(10px) px2rem(20px) px2rem(10px);
+        p{
+            font-size: px2rem(map_get($map-font-size, m));
+            font-weight:bold;
+        }
+        .box{
+            float: left;
+            width: 100%;
+            height: px2rem(160px);
+            overflow: hidden;
+            margin-top: px2rem(10px);
+        }
+        .item{
+            text-align: center;
+            border: 1px solid $color-border-default;
+            float: left;
+            width: px2rem(140px);
+            margin-right: px2rem(10px);
+            height: px2rem(160px);
+            border-radius: px2rem(4px);
+            &.more-tip{
+                line-height:px2rem(160px);
+            }
+            .img{
+                width: px2rem(60px);
+                height: px2rem(60px);
+                margin: px2rem(10px) auto;
+                overflow: hidden;
+                border-radius: px2rem(30px);
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .name{
+                font-weight:normal;
+            }
+            .hospital{
+                color: #999;
+                font-size: px2rem(map_get($map-font-size, s));
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                font-weight:normal;
+                margin-top: px2rem(5px);
+            }
+        }
+        .warp{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            .scroll{
+                position: absolute;
+                height: 100%;
+                -webkit-transform: translateZ(0);
+                -moz-transform: translateZ(0);
+                -ms-transform: translateZ(0);
+                -o-transform: translateZ(0);
+                transform: translateZ(0);
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                -webkit-text-size-adjust: none;
+                -moz-text-size-adjust: none;
+                -ms-text-size-adjust: none;
+                -o-text-size-adjust: none;
+                text-size-adjust: none;
+            }
+            ul{
+                height: 100%;
+                width: 100%;
+                list-style: none;
+            }
+        }
+    }
+}

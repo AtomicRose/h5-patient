@@ -1,0 +1,39 @@
+<div class="find-disease-page" ng-controller="FindDiseaseCtrl">
+    <div class="cell-group border-none">
+        <div class="cell">
+            <div class="left-box">
+                <span class="label">您充分了解心肌梗塞吗？</span>
+            </div>
+            <div class="middle-box"></div>
+            <div class="right-box">
+                <span class="label i-tip">了解更多</span>
+                <span class="arrow-right arrow-red"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="department-recommend">
+        <p>该疾病可以由以下科室诊断治疗，您可以点击专业名称，去查看全国在该领域最强的医院排名：</p>
+        <div class="item" ng-repeat="item in departmentList" ng-bind="item.departmentName" ng-click="goHospital(item)"></div>
+    </div>
+
+    <div class="doctor-recommend">
+        <p>我们还为您找到最擅长做该疾病手术的医生：</p>
+        <div class="box">
+            <div class="warp" id="scrollRecommendDoctor">
+                <div class="scroll" id="scrollRecommendContent">
+                    <ul>
+                        <li class="item" ng-repeat="item in doctorList" ng-click="goDoctorDetail(item)">
+                            <div class="img">
+                                <img src="{{item.picUrl}}" alt="{{item.name}}">
+                            </div>
+                            <p class="name" ng-bind="item.name"></p>
+                            <p class="hospital" ng-bind="item.hospital"></p>
+                        </li>
+                        <li class="item more-tip" ng-show="viewLen==6" ng-click="moreRecommendDoctor()">查看更多</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
