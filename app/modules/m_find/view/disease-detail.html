@@ -1,0 +1,46 @@
+<div class="disease-detail-page" ng-controller="DiseaseDetailCtrl">
+    <div class="info-box">
+        <div class="left-box">
+            <div class="nav-item" ng-class="{'active':selectedNavIndex == $index}" ng-repeat="item in navList" ng-click="selectNav($index)" ng-bind="item"></div>
+        </div>
+        <div class="right-box">
+            <div class="content" ng-show="selectedNavIndex == 0">
+                <p>患者多为女性，年龄在40岁以下</p>
+            </div>
+            <div class="content" ng-show="selectedNavIndex == 1">
+                <p>发病原因发病原因发病原因发病原因发病原因发病原因发病原因发病原因发病原因发病原因发病原因发病原因发病原因发病原因发病原因发病原因发病原因发病原因</p>
+            </div>
+            <div class="content" ng-show="selectedNavIndex == 2">
+                <p>临床检查临床检查临床检查临床检查临床检查临床检查临床检查临床检查临床检查临床检查临床检查临床检查临床检查临床检查临床检查临床检查临床检查临床检查临床检查临床检查临床检查</p>
+            </div>
+            <div class="content" ng-show="selectedNavIndex == 3">
+                <p>疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断疾病诊断</p>
+            </div>
+            <div class="content" ng-show="selectedNavIndex == 4">
+                <p>治疗方法治疗方法治疗方法治疗方法治疗方法治疗方法治疗方法治疗方法</p>
+            </div>
+            <div class="content" ng-show="selectedNavIndex == 5">
+                <p>预防及饮食</p>
+            </div>
+            <div class="content" ng-show="selectedNavIndex == 6">
+                <div class="scroll-wrap" id="doctorRecommend">
+                    <div class="scroll">
+                        <ul>
+                            <li class="doctor-item" ng-repeat="item in doctorList" ng-click="selectDoctor(item)">
+                                <div class="doctor-info">
+                                    <div class="img" ng-hide="isTooSmall"><img src="app/images/img/head.jpg" alt=""></div>
+                                    <div class="info">
+                                        <p><span class="name" ng-bind="item.name"></span><span ng-repeat="t in item.title" ng-bind="t"></span></p>
+                                        <p><span ng-bind="item.department.department_name"></span></p>
+                                        <p><span ng-bind="item.hospital.hospital_name"></span></p>
+                                    </div>
+                                </div>
+                                <p class="desc" ng-bind="item.desc"></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
