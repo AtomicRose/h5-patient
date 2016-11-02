@@ -1,7 +1,8 @@
 <div class="search-page" ng-controller="SearchCtrl">
-    <div class="search-header">
+    <div class="search-header" ng-class="{'search-more':isShowBackBtn}">
         <div ng-if="isShowBackBtn" class="leftOpt" ng-click="backStep()"><i class="icon-back"></i></div>
-        <div class="centerOpt"><input id="searchInput" type="search" name="" placeholder="请输入疾病名称、医生姓名、医院名称" ng-model="searchContent" ng-change="searchInfo(searchContent)"></div>
+        <div class="centerOpt"><input id="searchInput" type="text" name="" placeholder="请输入疾病名称、医生姓名、医院名称" ng-model="searchContent" ng-change="searchInfo(searchContent)">
+        <i ng-click="cleatInput()" ng-if="searchContent" class="iconfont icon-person clear-input-btn"></i></div>
         <div class="rightOpt" ng-click="routerGo('layout.home')">取消</div>
     </div>
     <div class="search-result">

@@ -178,4 +178,13 @@ app.controller('SearchCtrl', ['$scope', '$rootScope', '$state', 'SearchService',
         console.log('ressss',_res);
         getSimpleList(_res.results);
     }
+
+    $scope.cleatInput = function(){
+        $scope.searchContent = '';
+        $scope.resDoc = null;
+        $scope.resDes = null;
+        $scope.resHp = null;
+        $scope.searchTips = null;
+        $scope.isShowBackBtn = false;
+    }
 }]);
