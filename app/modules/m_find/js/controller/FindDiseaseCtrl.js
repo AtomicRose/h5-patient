@@ -91,4 +91,10 @@ app.controller('FindDiseaseCtrl', ['$scope', '$rootScope', '$state', '$statePara
             diseaseId: 'disease111'//entry the find disease Id
         });
     };
+
+    $scope.goDiseaseDetail = function(){
+        $state.go('layout.disease-detail', {
+            diseaseId: '2131'
+        });
+    }
 }]);
