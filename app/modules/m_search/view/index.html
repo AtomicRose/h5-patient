@@ -26,7 +26,7 @@
                 <li ng-if="resDes">
                     <div class="search-title"><p>疾病</p></div>
                     <div class="cell-group">
-                        <div class="cell" ng-repeat="des in resDes">
+                        <div class="cell" ng-repeat="des in resDes" ng-click="goDesDetail()">
                             <div class="search-cell-fc">
                                 <high-light-widget default-value="des.name" high-light-value="searchContent"></high-light-widget>
                             </div>

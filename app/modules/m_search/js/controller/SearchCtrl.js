@@ -151,9 +151,11 @@ app.controller('SearchCtrl', ['$scope', '$rootScope', '$state', 'SearchService',
 
     //跳转医院详情
     $scope.goHp = function(_id){
-        $state.go('layout.hospital-detail',{
-            hospitalId: _id
-        });
+        // $state.go('layout.hospital-detail',{
+        //     hospitalId: _id
+        // });
+        $state.go('layout.hospital-detail-simple');
+        
     }
 
     //跳转医生详情
@@ -165,7 +167,7 @@ app.controller('SearchCtrl', ['$scope', '$rootScope', '$state', 'SearchService',
 
     //跳转疾病详情
     $scope.goDesDetail = function(){
-        $state.go();
+        $state.go('layout.find-disease');
     }
 
     // 点击back button
