@@ -1,11 +1,11 @@
 <div ng-controller="LoginCtrl" class="login-page">
     <div class="tab-box">
-        <div class="tab-header">
+        <div class="tab-header" ng-hide="true">
             <div class="tab-item" ng-class="{'active': selectedTab == 0}" ng-click="checkTab(0)">密码登录</div>
             <div class="tab-item" ng-class="{'active': selectedTab == 1}" ng-click="checkTab(1)">验证码登录</div>
         </div>
         <div class="tab-content">
-            <div class="item-content" ng-show="selectedTab == 0">
+            <div class="item-content" ng-show="false">
                 <form name="passwordLoginForm">
                     <div class="cell-group border-top-none">
                         <div class="cell">
@@ -34,7 +34,7 @@
                     </div>
                 </form>
             </div>
-            <div class="item-content" ng-show="selectedTab == 1">
+            <div class="item-content" ng-show="true">
                 <form name="codeLoginForm">
                     <div class="cell-group border-top-none">
                         <div class="cell">
