@@ -9,9 +9,13 @@ app.controller('TalkAdvisoryCtrl', ['$rootScope', '$scope', 'dialog','$state', f
         enable: true,
         html: '重新提问',
         clickCall: goBack
-    }
+    };
     $rootScope.$broadcast('setHeaderConfig', window.headerConfig);
-    
+    $rootScope.$broadcast('setHeaderBack', {
+        route: 'layout.home'
+    });
+
+
     function goBack(){
         dialog.confirm('您将退出本次对话（内容不做保留），欢迎您再次咨询！',{
             okText: '确认退出',
@@ -37,7 +41,8 @@ app.controller('TalkAdvisoryCtrl', ['$rootScope', '$scope', 'dialog','$state', f
                 hospital: '北京协和医院',
                 dept: '心血管外科',
                 title: '教授',
-                class: '主任医师'
+                class: '主任医师',
+                id: '3131'
             }
         }
     ];
@@ -70,7 +75,13 @@ app.controller('TalkAdvisoryCtrl', ['$rootScope', '$scope', 'dialog','$state', f
             $scope.talkText = '';
             needScroll = true;
         }
-    }
+    };
+
+    $scope.goDoctorDetail = function(doctorObj){
+        $state.go('layout.doctor-detail', {
+            doctorId: doctorObj.id
+        });
+    };
 
 
 }]);

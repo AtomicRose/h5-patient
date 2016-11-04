@@ -314,13 +314,15 @@ app.controller('DiseaseCtrl', ['$scope', '$rootScope', '$state', 'DoctorStorage'
          */
         if($stateParams.operateType == 0){
             console.log(item);
+            DoctorStorage.DISEASE_STORAGE.putItem('currentDisease', item);
             $state.go('layout.doctor-recommend', {
                 diseaseId: item.id
             });
             return true;
         }
         if($stateParams.operateType == 1){
-
+            DoctorStorage.DISEASE_STORAGE.putItem('currentDisease', item);
+            $state.go('layout.advisory-before');
         }
     };
 

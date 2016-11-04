@@ -1,5 +1,5 @@
 app.directive('headerWidget', [function () {
-    var ctrl = ['$scope', '$rootScope', 'helper', '$state', function ($scope, $rootScope, helper, $state) {
+    var ctrl = ['$scope', '$rootScope', 'helper', '$state', '$location', function ($scope, $rootScope, helper, $state, $location) {
         var defaults = {
             enableHeader: true,
             enableBack: true,
@@ -104,6 +104,12 @@ app.directive('headerWidget', [function () {
         $scope.headerBackOptions = {};
         $rootScope.$on('setHeaderBack', function (event, data) {
             $scope.headerBackOptions = data;
+            $scope.settingBackPage = $location.$$absUrl;
+        });
+        $rootScope.$on("$locationChangeSuccess", function(){
+            if($location.$$absUrl !== $scope.settingBackPage){
+                $scope.headerBackOptions = {};
+            }
         });
         $scope.goBack = function () {
             helper.closeAllPopAndDialog();
@@ -121,7 +127,7 @@ app.directive('headerWidget', [function () {
                     window.location.href = decodeURIComponent(url);
                     return 'back with url.';
                 }
-                if($scope.headerBackOptions.hash){
+                if ($scope.headerBackOptions.hash) {
                     var hash = $scope.headerBackOptions.hash;
                     $scope.headerBackOptions = {};
                     window.location.hash = decodeURIComponent(hash);
@@ -144,7 +150,7 @@ app.directive('headerWidget', [function () {
             window.location.reload();
         };
 
-        $scope.share = function(){
+        $scope.share = function () {
             console.log('share!');
         };
         /**
@@ -176,14 +182,14 @@ app.directive('headerWidget', [function () {
         $scope.allCity = formatRes.cityArray;
         $scope.letterNavList = formatRes.letterArray;
 
-        if($scope.defaults.areaOperate.enable){
+        if ($scope.defaults.areaOperate.enable) {
             var headAreaFilter = new IScroll('#headAreaFilter', {
                 click: true
             });
             setInterval(function () {
                 headAreaFilter.refresh();
             }, 300);
-            $scope.scrollToLetter = function(item){
+            $scope.scrollToLetter = function (item) {
                 var ele = document.getElementById(item);
                 headAreaFilter.scrollToElement(ele);
             };
@@ -191,7 +197,7 @@ app.directive('headerWidget', [function () {
 
         //select the current area, change the areas list hidden & set the $scope.currentArea.
         $scope.selectCity = function (item) {
-            if(item.type !== 'tag'){
+            if (item.type !== 'tag') {
                 $scope.currentArea = item;
                 $scope.showAreas = false;
             }
@@ -231,7 +237,7 @@ app.directive('headerWidget', [function () {
         $scope.clickHeaderTab = function (item, index) {
             $scope.currentTab = index;
         };
-        $scope.$watch('currentTab', function(n, o) {
+        $scope.$watch('currentTab', function (n, o) {
             var selectedCallback = $scope.defaults.tabOperate.selectedCall;
             if (selectedCallback && typeof selectedCallback === 'function') {
                 selectedCallback($scope.defaults.tabOperate.options[$scope.currentTab], $scope.currentTab);

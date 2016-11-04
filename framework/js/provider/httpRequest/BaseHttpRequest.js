@@ -98,6 +98,7 @@ app.factory('BaseHttpRequest', ['$http', '$q', 'dialog', 'StorageConfig','helper
                     else {
                         if(data.errorCode == 401 || data.errorCode == 403){
                             helper.closeAllDialog();
+                            return false;// TODO just in demo temp setting. 
                             dialog.alert('登录失效啦！请重新登录！',{
                                 closeCallback:function(value){
                                     StorageConfig.TOKEN_STORAGE.putItem('authorization','');

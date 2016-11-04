@@ -10,7 +10,7 @@
                 <li ng-class="{'l-talk':tli.from == 'myzd', 'r-talk':tli.from == 'client'}" ng-repeat="tli in talkList">
                     <i ng-if="tli.from == 'myzd'" class="l-talk-i"></i>
                     <div ng-if="tli.text" ng-bind="tli.text"></div>
-                    <div class="l-talk-doc" ng-if="tli.doc">
+                    <div class="l-talk-doc" ng-if="tli.doc" ng-click="goDoctorDetail(tli.doc)">
                         <div class="l-talk-doc-info">
                             <div>
                                 <p>
